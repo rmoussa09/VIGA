@@ -46,12 +46,20 @@
     color: white;
     font-weight: 600;
   }
-
-  .toolbar img {
-    margin: 0 16px;
+  
+  .logo-container {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+    padding-left: 60px;
   }
 
-  .toolbar #about-us {
+  .logo {
+    display: block;
+    margin: 0 auto;
+  }
+
+  .toolbar #log-in {
     height: 40px;
     margin: 0 16px;
   }
@@ -180,21 +188,20 @@
     .card.highlight-card span {
       margin-left: 72px;
     }
-
+  }
 </style>
 
 <!-- Toolbar -->
 <div class="toolbar" role="banner">
-  <img
-    width="40"
-    alt="Angular Logo"
-    src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg=="
-  />
-    <span>Welcome to VIGA</span>
-    <div class="spacer"></div>
-    <span>About Us</span>
-    <a aria-label="About Us" target="_parent" rel="noopener" href="http://localhost:4200/aboutus" title="About Us">
-      <svg id="about-us" height="24" width="0" data-name="About Us"></svg>
+    <div class="logo-container">
+      <a target="_parent" rel="noopener" href="http://localhost:4200">
+      <img width="70" alt="VIGA Logo" src="assets/images/VIGA Logo.jpg" class="logo"/>
+      </a>
+    </div>
+
+    <span>Log In</span>
+    <a aria-label="Log In" target="_parent" rel="noopener" href="http://localhost:4200/login" title="Log In">
+      <svg id="log-in" height="24" width="0" data-name="Log In"></svg>
     </a>
 </div>
 
@@ -215,14 +222,6 @@
       <span>Game 3</span>
       <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
     </a>
-  </div>
-
-  <input type="hidden" #selection>
-
-  <div class="card-container">
-    <button class="card card-small" (click)="selection.value = 'component'" tabindex="0">
-      <span>Play</span>
-    </button>
   </div>
 
 </div>
