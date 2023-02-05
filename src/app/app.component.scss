@@ -20,7 +20,8 @@ h6 {
   flex: 1;
 }
 
-.toolbar {
+mat-toolbar {
+  justify-content: space-between;
   position: absolute;
   top: 0;
   left: 0;
@@ -33,11 +34,15 @@ h6 {
   font-weight: 600;
 }
 
+.content {
+  padding: 32px;
+}
+
 .logo-container {
-  width: 100%;
+  width: 0%;
   text-align: center;
   justify-content: center;
-  padding-left: 60px;
+  padding-left: 45%;
 }
 
 .logo {
