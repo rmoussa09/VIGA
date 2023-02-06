@@ -3,6 +3,13 @@
     "development"
   ],
   "hints": {
+    "axe/language": [
+      "default",
+      {
+        "html-has-lang": "off"
+      }
+    ],
+    "meta-viewport": "off",
     "axe/aria": [
       "default",
       {
