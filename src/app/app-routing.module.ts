@@ -7,7 +7,6 @@ import { Game2Component } from './game2/game2.component';
 import { Game3Component } from './game3/game3.component';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
-// import { GuessanimalComponent } from './guessanimal/guessanimal.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'home', pathMatch:'full'},
@@ -17,7 +16,6 @@ const routes: Routes = [
   {path: 'game3', component: Game3Component},
   {path: 'register', component: RegisterComponent},
   {path: 'login', component: LoginComponent},
-  // {path: 'guessanimal', component: GuessanimalComponent},
 ];
 
 @NgModule({
@@ -26,4 +24,3 @@ const routes: Routes = [
 })
 export class AppRoutingModule { }
 export const routingComponents = [HomeComponent, Game1Component, Game2Component, Game3Component,RegisterComponent, LoginComponent,]
-// GuessanimalComponent
