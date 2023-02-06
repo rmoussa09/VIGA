@@ -68,6 +68,3 @@ export class GuessanimalComponent {
     return animalKeys[Math.floor(Math.random() * animalKeys.length)];
   }
 }
-
-// Start a new game
-const game = new GuessanimalComponent();
