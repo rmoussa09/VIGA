@@ -1,64 +1,51 @@
-<!-- Styling -->
-<style>
-    .content {
-      display: flex;
-      margin: 82px auto 32px;
-      padding: 0 16px;
-      max-width: 960px;
-      flex-direction: column;
-      align-items: center;
-    }
+<!-- Games Header -->
+<div class="gameheader" role="gameheader">
+  <span>All Games</span>
+</div>
 
-    .card {
-      all: unset;
-      border-radius: 4px;
-      border: 1px solid #eee;
-      background-color: #fafafa;
-      height: 40px;
-      width: 200px;
-      margin: 0 8px 16px;
-      padding: 16px;
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
-      align-items: center;
-      transition: all 0.2s ease-in-out;
-      line-height: 24px;
-    }
-  
-    .card.card-small {
-      height: 16px;
-      width: 100px;
-    }
-  
-    .card-container .card:not(.highlight-card):hover .material-icons path {
-      fill: rgb(105, 103, 103);
-    }
-  
-    /* Responsive Styles */
-    @media screen and (max-width: 767px) {
-      .card-container > *:not(.circle-link) ,
-  
-      .card:not(.highlight-card) {
-        height: 16px;
-        margin: 8px 0;
-      }
-  
-      .card.highlight-card span {
-        margin-left: 72px;
-      }
-    }
-  </style>
-  
-  <!-- Code -->
-  <p>Game 1 Works!</p>
-  <div class="content" role="main">
-    <input type="hidden" #selection>
-    <div class="card-container">
-      <button class="card card-small" (click)="selection.value = 'component'" tabindex="0">
-        <span>Play</span>
-      </button>
-    </div>
+<!-- Game Cards -->
+<div class="content" role="cards">
+
+  <div class="card-container">
+
+    <a class="card" target="_parent" rel="noopener" href="http://localhost:4200/game1">
+      <span>Guess the Animal!</span>
+      <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+    </a>
+
+    <a class="card" target="_parent" rel="noopener" href="http://localhost:4200/game2">
+      <span>Memory Lane!</span>
+      <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+    </a>
+
+    <a class="card" target="_parent" rel="noopener" href="http://localhost:4200/game3">
+      <span>Speedster!</span>
+      <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+    </a>
   </div>
+</div>
 
-  <router-outlet></router-outlet>
+<!-- Placeholder Header -->
+<div class="header" role="placeholder-header">
+  <p>Guess the Animal!</p>
+</div>
+
+<!-- Placeholder Body -->
+<div class="body" role="placeholder-body">
+  <p>placeholder body</p>
+</div>
+
+<!-- Guess the Animal! -->
+<app-guessanimal></app-guessanimal>
+
+<!-- Play Button -->
+<div class="content" role="main">
+  <input type="hidden" #selection>
+  <div class="card-container">
+    <button class="card card-small" (click)="selection.value = 'component'" tabindex="0">
+      <span>Play</span>
+    </button>
+  </div>
+</div>
+
+<router-outlet></router-outlet>

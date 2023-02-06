@@ -1,1 +1,26 @@
-<p>login works!</p>
+<div class="form-container mat-elevation-z5">
+    <h1>Login</h1>
+    <form [formGroup]="loginForm" (ngSubmit)="submit()">
+        <mat-form-field>
+            <input matInput placeholder="Email Address" formControlName="email"/>
+            <mat-error *ngIf="email?.errors?.['required']">
+                Email is required
+              </mat-error>
+              <mat-error *ngIf="email?.errors?.['email']">
+                Please enter a correct email format
+              </mat-error>
+            </mat-form-field>
+            <mat-form-field>
+              <input matInput placeholder="Password" formControlName="password" type="password" />
+              <mat-error *ngIf="password?.errors?.['required']">
+                Password is required
+              </mat-error>
+        </mat-form-field>
+        <div class="center margin-top">
+            <button mat-raised-button color="primary" type="submit">
+                Login
+            </button>
+        </div>
+        <span class="center margin-top">New to VIGA? <a clas="sign-up-link" href="http://localhost:4200/register">Sign Up!</a></span>
+    </form>
+</div>
