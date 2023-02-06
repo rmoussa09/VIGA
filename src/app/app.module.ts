@@ -15,11 +15,14 @@ import { environment } from '../environments/environment';
 import { provideAuth,getAuth } from '@angular/fire/auth';
 import { MatMenuModule } from '@angular/material/menu';
 import { HotToastModule } from '@ngneat/hot-toast';
+import { GuessanimalComponent } from './guessanimal/guessanimal.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     routingComponents,
+    GuessanimalComponent
   ],
   imports: [
     BrowserModule,
