@@ -5,6 +5,7 @@
     </a>
   </div>
 
+  <div class="login-container">
   <ng-container *ngIf="authService.currentUser$ | async as user; else loginButton">
     <button mat-button [matMenuTriggerFor]="userMenu">
       <mat-icon>account_circle</mat-icon>
@@ -19,6 +20,7 @@
       Login
     </button>
   </ng-template>
+  </div>
 </mat-toolbar>
 
 <div class="content">
