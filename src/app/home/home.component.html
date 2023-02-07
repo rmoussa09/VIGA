@@ -1,40 +1,39 @@
-<!-- <h1 *ngIf="user$ | async as user">Welcome to VIGA, {{user.displayName}}!</h1> -->
-  
+<h1 *ngIf="user$ | async as user">Welcome {{user.displayName}}!</h1>
+
 <!-- Games Header -->
 <div class="gameheader" role="gameheader">
-  <span>All Games</span>
+  <div tabindex="1"><span>All Games</span></div>
 </div>
 
 <!-- Game Cards -->
 <div class="content" role="cards">
 
   <div class="card-container">
-
-    <a class="card" target="_parent" rel="noopener" href="http://localhost:4200/game1">
+    <div tabindex="2"><a class="card" target="_parent" rel="noopener" href="http://localhost:4200/game1">
       <span>Guess the Animal!</span>
       <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
-    </a>
+    </a></div>
 
-    <a class="card" target="_parent" rel="noopener" href="http://localhost:4200/game2">
+    <div tabindex="3"><a class="card" target="_parent" rel="noopener" href="http://localhost:4200/game2">
       <span>Memory Lane!</span>
       <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
-    </a>
+    </a></div>
 
-    <a class="card" target="_parent" rel="noopener" href="http://localhost:4200/game3">
+    <div tabindex="4"><a class="card" target="_parent" rel="noopener" href="http://localhost:4200/game3">
       <span>Speedster!</span>
       <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
-    </a>
+    </a></div>
   </div>
 </div>
   
-<!-- Placeholder Header -->
+<!-- Mission Header -->
 <div class="header" role="placeholder-header">
-    <p>Placeholder</p>
+  <p>Our Mission</p>
 </div>
   
-<!-- Placeholder Body -->
+<!-- Mission Body -->
 <div class="body" role="placeholder-body">
-    <p>placeholder body</p>
+  <p>placeholder body</p>
 </div>
   
 <!-- About Us Header -->
@@ -45,4 +44,12 @@
 <!-- About Us Body -->
 <div class="body" role="aboutus-body">
     <p>about us body</p>
+    <p>about us body</p>
+    <p>about us body</p>
+    <p>about us body</p>
+    <p>about us body</p>
+    <p>about us body</p>
+    <p>about us body</p>
+    <p>about us body</p>
+
 </div>
