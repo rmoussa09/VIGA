@@ -5,6 +5,11 @@
     box-sizing: border-box;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    background-image: url("../../assets/images/background.jpg");
+    background-repeat: repeat;
+    background-size: 100%;
+    background-attachment: scroll;
+    width: 2560px;
 }
 
 h1,
@@ -22,36 +27,6 @@ p {
 
 .spacer {
     flex: 1;
-}
-
-.toolbar {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 60em;
-    display: flex;
-    align-items: center;
-    background-color: #1976d2;
-    color: white;
-    font-weight: 600;
-}
-
-.logo-container {
-    width: 100%;
-    text-align: center;
-    justify-content: center;
-    padding-left: 60px;
-}
-
-.logo {
-    display: block;
-    margin: 0 auto;
-}
-
-.toolbar #log-in {
-    height: 40px;
-    margin: 0 16px;
 }
 
 .content {
@@ -77,19 +52,13 @@ svg.material-icons:not(:last-child) {
 }
 
 .gameheader{
-    position: absolute;
     top: 100px;
     left: 50px;
     right: 50px;
     height: 60px;
-    align-items: baseline;
     color: white;
     text-align: center;
     font-size: 4em;
-    border-top: 1px solid; 
-    border-left: 1px solid;
-    border-right: 1px solid; 
-    border-bottom: 1px solid;
     border-radius: 2em;
     background-color:#1976d2;
     margin-top: 80px;
@@ -97,13 +66,12 @@ svg.material-icons:not(:last-child) {
     margin-right: auto;
     width: 30em;
     padding-top: 25px;
+    font-weight: bold;
 }
 
 .card-container {
     display: flex;
     justify-content: center;
-    margin-top: 12em;
-    
 }
 
 .card {
@@ -204,7 +172,6 @@ box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
     padding-bottom: 25px;
     padding-left: 10px;
 }
-
 .body{
     margin-top: 1em;
     margin-left: 10em;

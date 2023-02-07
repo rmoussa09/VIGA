@@ -1,4 +1,27 @@
-<!-- Games Header -->
+<!-- Game Title -->
+<div class="header" role="placeholder-header">
+  <p>Welcome to Guess the Animal!</p>
+</div>
+
+<!-- Instructions -->
+<div class="body" role="placeholder-body">
+  <p>placeholder body</p>
+</div>
+
+<!-- Guess the Animal! -->
+<app-guessanimal></app-guessanimal>
+
+<!-- Play Button -->
+<div class="content" role="main">
+  <input type="hidden" #selection>
+  <div class="card-container">
+    <button class="card card-small" (click)="selection.value = 'component'" tabindex="0">
+      <span>Play</span>
+    </button>
+  </div>
+</div>
+
+<!-- All Games Header -->
 <div class="gameheader" role="gameheader">
   <span>All Games</span>
 </div>
@@ -24,28 +47,4 @@
     </a>
   </div>
 </div>
-
-<!-- Placeholder Header -->
-<div class="header" role="placeholder-header">
-  <p>Guess the Animal!</p>
-</div>
-
-<!-- Placeholder Body -->
-<div class="body" role="placeholder-body">
-  <p>placeholder body</p>
-</div>
-
-<!-- Guess the Animal! -->
-<app-guessanimal></app-guessanimal>
-
-<!-- Play Button -->
-<div class="content" role="main">
-  <input type="hidden" #selection>
-  <div class="card-container">
-    <button class="card card-small" (click)="selection.value = 'component'" tabindex="0">
-      <span>Play</span>
-    </button>
-  </div>
-</div>
-
 <router-outlet></router-outlet>
