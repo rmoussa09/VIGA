@@ -1,6 +1,35 @@
-<!-- Games Header -->
+<!-- Game Title -->
+<div class="header" role="placeholder-header">
+  <div tabindex="1"><p>Welcome to Guess the Animal!</p></div>
+</div>
+
+<!-- Tutorial -->
+<div class="body" role="placeholder-body">
+  <div tabindex="2"><p>Goal: Multiple choice answers will appear with different animal choices. Match each animal sound heard to the correct animal.
+    How many animals can you guess?
+  </p>
+  <p>Press the "Play" button to begin!</p></div>
+</div>
+
+<!-- Play Button -->
+<div class="content" role="main">
+  <input type="hidden" #selection>
+  <div class="card-container">
+    <div tabindex="3"><button class="card card-small" (click)="selection.value = 'component'" tabindex="0">
+      <span>Play</span>
+    </button></div>
+  </div>
+</div>
+
+<!-- Game Border -->
+<app-gameborder1></app-gameborder1>
+
+<!-- Guess the Animal! -->
+<!-- <app-guessanimal></app-guessanimal> -->
+
+<!-- All Games Header -->
 <div class="gameheader" role="gameheader">
-  <span>All Games</span>
+  <div tabindex="4"><span>All Games</span></div>
 </div>
 
 <!-- Game Cards -->
@@ -8,45 +37,20 @@
 
   <div class="card-container">
 
-    <a class="card" target="_parent" rel="noopener" href="http://localhost:4200/game1">
+    <div tabindex="5"><a class="card" target="_parent" rel="noopener" href="http://localhost:4200/game1">
       <span>Guess the Animal!</span>
       <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
-    </a>
+    </a></div> 
 
-    <a class="card" target="_parent" rel="noopener" href="http://localhost:4200/game2">
+    <div tabindex="6"><a class="card" target="_parent" rel="noopener" href="http://localhost:4200/game2">
       <span>Memory Lane!</span>
       <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
-    </a>
+    </a></div>
 
-    <a class="card" target="_parent" rel="noopener" href="http://localhost:4200/game3">
+    <div tabindex="7"><a class="card" target="_parent" rel="noopener" href="http://localhost:4200/game3">
       <span>Speedster!</span>
       <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
-    </a>
+    </a></div>
   </div>
 </div>
-
-<!-- Placeholder Header -->
-<div class="header" role="placeholder-header">
-  <p>Guess the Animal!</p>
-</div>
-
-<!-- Placeholder Body -->
-<div class="body" role="placeholder-body">
-  <p>placeholder body</p>
-</div>
-
-<!-- Guess the Animal! -->
-<app-guessanimal></app-guessanimal>
-
-<!-- Play Button -->
-<div class="content" role="main">
-  <input type="hidden" #selection>
-  <div class="card-container">
-    <button class="card card-small" (click)="selection.value = 'component'" tabindex="0">
-      <span>Play</span>
-    </button>
-  </div>
-</div>
-
 <router-outlet></router-outlet>
-

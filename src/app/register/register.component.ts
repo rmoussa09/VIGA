@@ -18,19 +18,45 @@ export function passwordsMatchValidator(): ValidatorFn {
   };
 }
 
+
+export function createPasswordStrengthValidator(): ValidatorFn {
+  return (control:AbstractControl) : ValidationErrors | null => {
+
+    const password = control.get('password')?.value;
+
+      if (!password) {
+          return null;
+      }
+
+      const hasUpperCase = /[A-Z]+/.test(password);
+
+      const hasLowerCase = /[a-z]+/.test(password);
+
+      const hasNumeric = /[0-9]+/.test(password);
+      
+      const hasSpecialChar = /[^A-Za-z0-9]+/.test(password);
+
+      const passwordValid = hasUpperCase && hasLowerCase && hasNumeric && hasSpecialChar;
+
+      return !passwordValid ? {passwordStrength:true}: null;
+  }
+}
+
+
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent implements OnInit{
+  hide = true;
 
   signUpForm = new FormGroup({
     name: new FormControl('', Validators.required),
     email: new FormControl('', [Validators.email, Validators.required]),
-    password: new FormControl('', Validators.required),
+    password: new FormControl('', [Validators.required, Validators.minLength(6)]),
     confirmPassword: new FormControl('', Validators.required)
-  }, { validators: passwordsMatchValidator()})
+  }, { validators: [passwordsMatchValidator(), createPasswordStrengthValidator()]})
 
   constructor(
     private authService: AuthenticationService,
