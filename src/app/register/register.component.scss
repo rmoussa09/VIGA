@@ -1,12 +1,21 @@
+:host{
+    background-image: url("../../assets/images/background.jpg");
+    background-repeat: repeat;
+    background-size: 100%;
+    width: 2560px;
+    height: 1175px;
+}
+
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 
 .form-container {
     display: block;
-    max-width: 300px;
+    max-width: 400px;
+    height: 500px;
     margin: auto;
-    margin-top: 15%;
+    margin-top: 10%;
 
     background: #eceff1;
     padding: 48px;
