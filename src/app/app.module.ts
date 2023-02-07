@@ -19,6 +19,8 @@ import { GuessanimalComponent } from './guessanimal/guessanimal.component';
 import { Gameborder1Component } from './gameborder1/gameborder1.component';
 import { Gameborder2Component } from './gameborder2/gameborder2.component';
 import { Gameborder3Component } from './gameborder3/gameborder3.component';
+import { provideFirestore,getFirestore } from '@angular/fire/firestore';
+import { provideStorage,getStorage } from '@angular/fire/storage';
 
 
 @NgModule({
@@ -44,7 +46,9 @@ import { Gameborder3Component } from './gameborder3/gameborder3.component';
     MatMenuModule,
     HotToastModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
-    provideAuth(() => getAuth())
+    provideAuth(() => getAuth()),
+    provideFirestore(() => getFirestore()),
+    provideStorage(() => getStorage())
   ],
   providers: [],
   bootstrap: [AppComponent]
