@@ -16,6 +16,7 @@ import { provideAuth,getAuth } from '@angular/fire/auth';
 import { MatMenuModule } from '@angular/material/menu';
 import { HotToastModule } from '@ngneat/hot-toast';
 import { GuessanimalComponent } from './guessanimal/guessanimal.component';
+import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 
 
 @NgModule({
@@ -37,7 +38,8 @@ import { GuessanimalComponent } from './guessanimal/guessanimal.component';
     MatMenuModule,
     HotToastModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
-    provideAuth(() => getAuth())
+    provideAuth(() => getAuth()),
+    provideFirestore(() => getFirestore())
   ],
   providers: [],
   bootstrap: [AppComponent]
