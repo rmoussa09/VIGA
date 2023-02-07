@@ -1,0 +1,29 @@
+#gameContainer {
+    width: 500px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  
+  #gameContainer p {
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+  
+  #gameContainer input {
+    font-size: 20px;
+    padding: 10px;
+    margin-bottom: 20px;
+  }
+  
+  #gameContainer button {
+    padding: 10px 20px;
+    font-size: 20px;
+    background-color: blue;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  #gameContainer img {
+    margin-top: 20px;
+  }
