@@ -2,12 +2,12 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
-import { HomeComponent } from './home/home.component';
-import { Game1Component } from './game1/game1.component';
-import { Game2Component } from './game2/game2.component';
-import { Game3Component } from './game3/game3.component';
-import { RegisterComponent } from './register/register.component';
-import { LoginComponent } from './login/login.component';
+import { HomeComponent } from './routes/home/home.component';
+import { Game1Component } from './routes/game1/game1.component';
+import { Game2Component } from './routes/game2/game2.component';
+import { Game3Component } from './routes/game3/game3.component';
+import { RegisterComponent } from './routes/register/register.component';
+import { LoginComponent } from './routes/login/login.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'home', pathMatch:'full'},
