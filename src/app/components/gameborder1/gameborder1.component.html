@@ -1,5 +1,16 @@
+<!-- Game Border -->
 <div class="border-container">
-    <!-- <app-guessanimal></app-guessanimal> -->
-    <p class="text">Game</p>
+
+<!-- Play Button -->
+<div class="content" role="main">
+    <input type="hidden" #selection>
+    <div class="card-container">
+      <div tabindex="3"><button class="card card-small" (click)="selection.value = 'component'" tabindex="0">
+        <span>Play</span></button></div>
+    </div>
+</div>
+
+  <!-- Game Title Screen -->
+    <!-- <app-gatitle></app-gatitle> -->
 </div>
 
