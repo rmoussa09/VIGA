@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "viga-fdfc7": {
+      "hosting": {
+        "VIGA": [
+          "viga-fdfc7"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "viga-fdfc7"
+  }
+}

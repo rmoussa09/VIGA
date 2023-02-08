@@ -5,16 +5,19 @@
             <input matInput placeholder="Email Address" formControlName="email"/>
             <mat-error *ngIf="email?.errors?.['required']">
                 Email is required
-              </mat-error>
-              <mat-error *ngIf="email?.errors?.['email']">
+            </mat-error>
+            <mat-error *ngIf="email?.errors?.['email']">
                 Please enter a correct email format
-              </mat-error>
-            </mat-form-field>
-            <mat-form-field>
-              <input matInput placeholder="Password" formControlName="password" type="password" />
-              <mat-error *ngIf="password?.errors?.['required']">
-                Password is required
-              </mat-error>
+            </mat-error>
+        </mat-form-field>      
+        <mat-form-field appearance="fill">
+          <input matInput placeholder="Password" formControlName="password" [type]="hide ? 'password' : 'text'">
+          <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
+          <mat-error *ngIf="password?.errors?.['required']">
+            Password is required
+          </mat-error>
         </mat-form-field>
         <div class="center margin-top">
             <button mat-raised-button color="primary" type="submit">
