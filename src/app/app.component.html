@@ -5,6 +5,11 @@
     </a>
   </div>
 
+  <div class="signup">
+    <a href="http://localhost:4200/register">
+    <p>Don't have an account? Sign up!</p>
+    </a>
+  </div>
   <div class="login-container">
   <ng-container *ngIf="authService.currentUser$ | async as user; else loginButton">
     <button mat-button [matMenuTriggerFor]="userMenu">
@@ -22,6 +27,7 @@
   </ng-template>
   </div>
 </mat-toolbar>
+
 
 <div class="content">
   <router-outlet></router-outlet>
