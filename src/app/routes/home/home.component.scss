@@ -1,15 +1,14 @@
 :host {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-family: cursive;
     font-size: 14px;
     color: #333;
     box-sizing: border-box;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     background-image: url("../../../assets/images/background.jpg");
-    background-repeat: repeat;
     background-size: 100%;
-    background-attachment: scroll;
-    width: 2540px;
+    width: 2580px;
+    background-color: #1d2cf3;
 }
 
 h1,
@@ -50,7 +49,7 @@ p {
 }
 
 svg.material-icons {
-    height: 24px;
+    height: 50px;
     width: auto;
 }
 
@@ -59,7 +58,7 @@ svg.material-icons:not(:last-child) {
 }
 
 .card svg.material-icons path {
-    fill: #888;
+    fill:white;
 }
 
 .gameheader{
@@ -72,7 +71,7 @@ svg.material-icons:not(:last-child) {
     font-size: 4em;
     border-radius: 2em;
     background-color:#1d2cf3;
-    margin-top: 80px;
+    margin-top: 175px;
     margin-left: auto;
     margin-right: auto;
     width: 30em;
@@ -82,36 +81,30 @@ svg.material-icons:not(:last-child) {
 
 .card-container {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     
 }
 
 .card {
-    all: unset;
+    all:unset;
     border-radius: 4px;
-    border: 1px solid #eee;
-    background-color: #fafafa;
-    height: 80px;
-    width: 400px;
-    margin: 0 80px 16px;
+    background-image: url("../../../assets/images/Guess\ The\ Animal\ Card.jpg");
+    background-size: 100%;
+    height: 100px;
+    width: 1000px;
+    margin: 0 100px 32px;
     padding: 16px;
     display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
+    align-items:last baseline;
     transition: all 0.2s ease-in-out;
-    line-height: 24px;
-    font-size: 2em;
-    border: 1px solid black;
+    font-size: 4em;
+    font-weight: bolder;
+    border: 2px solid black;
 }
 
 .card-container .card:not(:last-child) {
 margin-right: 0;
-}
-
-.card.card-small {
-    height: 16px;
-    width: 100px;
 }
 
 .card-container .card:not(.highlight-card) {
@@ -142,13 +135,14 @@ cursor: pointer;
 }
 
 a,
-a:visited,
-a:hover {
-    color: #1d2cf3;
-    text-decoration: none;
+a:visited{
+    color: rgb(131, 6, 125);
+    font-weight: bold;
 }
 a:hover {
     color: #1d2cf3;
+    text-decoration:double;
+    font-weight: bolder;
 }
 
 .circle-link {
