@@ -27,50 +27,43 @@
 
 .title-buttons{
     font-size: 50px;
-    margin-left: 25px;
     line-height: 3.5em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
-.start-button {
+.newgame-button {
     padding: 10px 20px;
     background-color: aqua;
     border: none;
     border-radius: 20px;
     font-size: 50px;
     cursor: pointer;
+    margin-top: 100px;
+    margin-left: 550px;
+    margin-bottom: 50px;
+    width: fit-content;
 }
 
-.start-button:hover{
+.loadgame-button {
+    padding: 10px 20px;
+    background-color: aqua;
+    border: none;
+    border-radius: 20px;
+    font-size: 50px;
+    cursor: pointer;
+    width: fit-content;
+    margin-left: 550px;
+}
+
+.newgame-button:hover{
     background-color: green;
     color: white;
     box-shadow: 0 5px 5px 0 rgba(0,0,0,0.24), 0 5px 5px 0 rgba(0,0,0,0.19);
 }
 
-.howtoplay-button {
-    padding: 10px 20px;
-    background-color: aqua;
-    border: none;
-    border-radius: 20px;
-    font-size: 50px;
-    cursor: pointer;
-}
-
-.howtoplay-button:hover{
-    background-color: green;
-    color: white;
-    box-shadow: 0 5px 5px 0 rgba(0,0,0,0.24), 0 5px 5px 0 rgba(0,0,0,0.19);
-}
-
-.exit-button {
-    padding: 10px 20px;
-    background-color: aqua;
-    border: none;
-    border-radius: 20px;
-    font-size: 50px;
-    cursor: pointer;
-}
-
-.exit-button:hover{
+.loadgame-button:hover{
     background-color: green;
     color: white;
     box-shadow: 0 5px 5px 0 rgba(0,0,0,0.24), 0 5px 5px 0 rgba(0,0,0,0.19);
