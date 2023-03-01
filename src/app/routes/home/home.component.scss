@@ -100,6 +100,8 @@ svg.material-icons:not(:last-child) {
     font-weight: bolder;
     border: 3px solid black;
     position: relative;
+    cursor: pointer;
+
 }
 
 .fadeguess {
@@ -129,6 +131,7 @@ svg.material-icons:not(:last-child) {
     font-size: 4em;
     font-weight: bolder;
     border: 3px solid black;
+    cursor: pointer;
 }
 
 .fadememory {
@@ -158,12 +161,14 @@ svg.material-icons:not(:last-child) {
     font-size: 4em;
     font-weight: bolder;
     border: 3px solid black;
+    cursor: pointer;
+
 }
 
 .fadespeed {
     position: absolute;
     left: 78.85%;
-    transform: translate(-50%, 0%);
+    transform: translate(-37.6%, 0%);
     background-color: rgba(255, 81, 0, 0.5);
     padding: 20px;
     color: #fff;
