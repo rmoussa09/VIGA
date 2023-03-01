@@ -5,6 +5,10 @@
     box-sizing: border-box;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    // background-image: url("../../../assets/images/background.jpg");
+    // background-repeat: repeat;
+    background-size: 100%;
+    background-attachment: scroll;
     width: 2560px;
 }
 
@@ -58,7 +62,6 @@ svg.material-icons:not(:last-child) {
     font-size: 4em;
     border-radius: 2em;
     background: linear-gradient(to bottom, #FF8C00, #FFA500);
-    margin-top: 175px;
     margin-left: auto;
     margin-right: auto;
     width: 30em;
@@ -106,7 +109,7 @@ svg.material-icons:not(:last-child) {
 }
 
 .card-container .card:not(:last-child) {
-margin-right: 0;
+    margin-right: 0;
 }
 
 .card.card-small {
@@ -175,18 +178,20 @@ box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
 .header{
     display: flex;
     flex-wrap: wrap;
-    color:#1976d2;
+    color:white;
+    background-color: lightskyblue;
+    text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black;
     text-align: left;
     font-size: 3em;
-    border-left: 5px solid; 
-    border-bottom: 1px solid;
     margin-top: 5em;
-    width:25em;
+    width: fit-content;
     margin-left: 5em;
-    padding-bottom: 25px;
-    padding-left: 10px;
+    padding: 1em;
     font-weight: bold;
+    border-radius: 10px;
+    border: 2px solid black;
 }
+
 .body{
     margin-top: 1em;
     margin-left: 5em;
