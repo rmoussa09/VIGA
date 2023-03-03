@@ -37,11 +37,12 @@ mat-toolbar {
 }
 
 .signup{
-  margin-left: 7em;
+  margin-left: 15em;
   color: white;
   font-size: 50px;
   font-weight: bold;
   font-family: cursive;
+  position: absolute;
 }
 
 .login-container{
@@ -51,14 +52,16 @@ mat-toolbar {
   border-radius: 4px;
   font-weight: bold;
   font-size: larger;
-  margin-right: 3em;
+  margin-left: 55em;
+  position: absolute;
 }
 
 .logo-container {
   width: 0%;
   text-align: center;
   justify-content: center;
-  margin-left: 5em;
+  margin-left: 2em;
+  position: absolute;
 }
 
 .logo {
@@ -116,15 +119,24 @@ a:hover {
 }
 
 /* Responsive Styles */
-@media screen and (max-width: 767px) {
-  .card-container > *:not(.circle-link) ,
-
-  .card:not(.highlight-card) {
-    height: 16px;
-    margin: 8px 0;
+@media screen and (max-width: 1250px) {
+  .signup {
+    margin-left: 12em;
+    font-size: 30px;
+    position: absolute;
   }
-
-  .card.highlight-card span {
-    margin-left: 72px;
+  
+  .login-container {
+    margin-left: 25em;
+    position: absolute;
+  }
+  
+  .logo-container {
+    margin-left: 2em;
+  }
+  
+  .logo {
+    height: 100px;
+    width: 250px;
   }
 }
