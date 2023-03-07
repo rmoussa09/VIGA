@@ -21,10 +21,6 @@ import { Gameborder2Component } from './components/gameborder2/gameborder2.compo
 import { Gameborder3Component } from './components/gameborder3/gameborder3.component';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { provideStorage,getStorage } from '@angular/fire/storage';
-import { GATitleComponent } from './components/games/animalGame/gatitle/gatitle.component';
-import { GaquestionComponent } from './components/games/animalGame/gaquestion/gaquestion.component';
-import { GachoicesComponent } from './components/games/animalGame/gachoices/gachoices.component';
-
 
 
 @NgModule({
@@ -34,10 +30,7 @@ import { GachoicesComponent } from './components/games/animalGame/gachoices/gach
     GuessanimalComponent,
     Gameborder1Component,
     Gameborder2Component,
-    Gameborder3Component,
-    GATitleComponent,
-    GaquestionComponent,
-    GachoicesComponent,
+    Gameborder3Component
   ],
   
   imports: [
