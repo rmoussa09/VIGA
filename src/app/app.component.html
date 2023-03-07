@@ -13,10 +13,9 @@
   <div class="login-container">
   <ng-container *ngIf="authService.currentUser$ | async as user; else loginButton"  class="log-button">
     <button mat-button [matMenuTriggerFor]="userMenu" class="log-button">
-      <mat-icon>account_circle</mat-icon>
-      {{user.displayName}}
-      <mat-icon>expand_more</mat-icon>
+      Welcome {{user.displayName}}!
     </button>
+    <mat-icon>expand_more</mat-icon>
   </ng-container>
 
   <ng-template #loginButton class="log-button">
@@ -27,8 +26,13 @@
   </ng-template>
   </div>
 
-  <mat-menu #userMenu="matMenu"  class="log-button">
-    <button mat-menu-item (click)="logout()"  class="log-button">Logout</button>
+  <mat-menu #userMenu="matMenu">
+    <div class="menu-container">
+    <button class="menu-button" type="button" onclick="location.href='http://localhost:4200/editprofile'">Edit profile</button>
+    <button class="menu-button" type="button" onclick="location.href='http://localhost:4200/aboutus'">About us</button> 
+    <button class="menu-button" type="button" onclick="location.href='http://localhost:4200/contact'">Contact</button> 
+    <button (click)="logout()"  class="menu-button">Logout</button>
+  </div>
   </mat-menu>
 </mat-toolbar>
 

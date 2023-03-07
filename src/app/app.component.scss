@@ -62,6 +62,15 @@ mat-toolbar {
   font-weight: bold;
   }
 
+.menu-container{
+  display: flex;
+  flex-direction: column;
+}
+.menu-button{
+  font-size: 25px;
+  font-family: cursive;
+  font-weight: bold;
+}
 .logo-container {
   width: 0%;
   text-align: center;

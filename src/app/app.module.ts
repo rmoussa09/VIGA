@@ -26,6 +26,7 @@ import { GaquestionComponent } from './components/games/animalGame/gaquestion/ga
 import { GachoicesComponent } from './components/games/animalGame/gachoices/gachoices.component';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,7 +37,7 @@ import { GachoicesComponent } from './components/games/animalGame/gachoices/gach
     Gameborder3Component,
     GATitleComponent,
     GaquestionComponent,
-    GachoicesComponent
+    GachoicesComponent,
   ],
   
   imports: [
