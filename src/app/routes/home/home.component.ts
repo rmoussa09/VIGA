@@ -7,10 +7,11 @@ import { AuthenticationService } from 'src/app/services/authentication.service';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent {
+
   user$ = this.authService.currentUser$;
 
   constructor(private authService: AuthenticationService) { }
-
+  
   ngOnInit(): void {
 
   }

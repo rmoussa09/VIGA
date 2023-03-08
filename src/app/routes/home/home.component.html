@@ -22,4 +22,6 @@
   </div>
 </div>
 
-<div tabindex="5"><button class="achievement" type="button" onclick="location.href='http://localhost:4200/achievements'">View Achievements</button></div>
+<div tabindex="5" *ngIf="user$ | async">
+  <button class="achievement" type="button" onclick="location.href='http://localhost:4200/achievements'" >View Achievements</button>
+</div>
