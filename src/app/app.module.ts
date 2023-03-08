@@ -22,6 +22,7 @@ import { Gameborder3Component } from './components/gameborder3/gameborder3.compo
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { provideStorage,getStorage } from '@angular/fire/storage';
 import { ChangeBgDirective } from './directives/change-bg.directive';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -41,6 +42,7 @@ import { ChangeBgDirective } from './directives/change-bg.directive';
     ReactiveFormsModule,
     BrowserAnimationsModule,
     MatToolbarModule,
+    HttpClientModule,
     MatIconModule,
     MatButtonModule,
     MatFormFieldModule,

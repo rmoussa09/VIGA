@@ -1,39 +1,61 @@
 {
     "questions": [{
-            "questionText": "Which of the following does TypeScript use to specify types?",
+            "questionText": "What animal makes the 'moo' noise?",
+            "questionAudio": "",
             "options": [{
-                    "text": ":",
-                    "correct": true
+                    "text": "cow",
+                    "correct": true,
+                    "picture": "https://upload.wikimedia.org/wikipedia/commons/0/0c/Cow_female_black_white.jpg",
+                    "audio": ""
                 },
                 {
-                    "text": ";"
+                    "text": "chicken",
+                    "correct": false,
+                    "picture": "",
+                    "audio": ""
                 },
                 {
-                    "text": "!"
+                    "text": "llama",
+                    "correct": false,
+                    "picture": "",
+                    "audio": ""
                 },
                 {
-                    "text": "&"
+                    "text": "pig",
+                    "correct": false,
+                    "picture": "",
+                    "audio": ""
                 }
-            ],
-            "explanation": "TS uses a colon (:) to separate the property name from the property type"
+            ]
         },
         {
-            "questionText": "Which of the following is NOT a type used in TypeScript?",
+        "questionText": "What animal makes the 'ribbit' noise?",
+            "questionAudio": "",
             "options": [{
-                    "text": "number"
+                    "text": "dinosaur",
+                    "correct": false,
+                    "picture": "https://upload.wikimedia.org/wikipedia/commons/0/0c/Cow_female_black_white.jpg",
+                    "audio": ""
                 },
                 {
-                    "text": "string"
+                    "text": "fox",
+                    "correct": false,
+                    "picture": "",
+                    "audio": "test"
                 },
                 {
-                    "text": "boolean"
+                    "text": "frog",
+                    "correct": true,
+                    "picture": "",
+                    "audio": "test"
                 },
                 {
-                    "text": "enum",
-                    "correct": true
+                    "text": "chicken",
+                    "correct": false,
+                    "picture": "",
+                    "audio": "test"
                 }
-            ],
-            "explanation": "enum is not used as a type in TypeScript"
+            ]
         },
         {
             "questionText": "How can we specify properties and methods for an object in TypeScript?",

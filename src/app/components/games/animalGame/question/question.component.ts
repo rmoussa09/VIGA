@@ -7,7 +7,7 @@ import { QuestionService } from 'src/app/services/question.service';
   templateUrl: './question.component.html',
   styleUrls: ['./question.component.scss']
 })
-export class QuestionComponent implements OnInit{
+export class QuestionComponent{
   public name: string = "hello";
   public questionList: any = [];
   public currentQuestion: number = 0;
