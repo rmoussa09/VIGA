@@ -62,7 +62,7 @@ export class QuestionComponent{
         this.getProgressPercent();
       }, 1000);
 
-      this.points -= 10;
+      this.points -= 1;
     }
   }
   // startCounter() {
