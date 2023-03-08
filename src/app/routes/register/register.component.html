@@ -1,5 +1,5 @@
-<div class="form-container mat-elevation-z5">
-    <h1>Sign Up a New User!</h1>
+<div class="form-container ">
+    <div class="h1">Sign Up a New User!</div>
     <form [formGroup]="signUpForm" (ngSubmit)="submit()">
       <mat-form-field>
         <input matInput placeholder="Name" formControlName="name" />
@@ -27,7 +27,7 @@
           Password is required
         </mat-error>
       </mat-form-field>
-      <p>Password must be at least 6 characters & contain a number, an uppercase character, a lowercase character, and a special character</p>
+      <p class ="text">Password must be at least 6 characters & contain a number, an uppercase character, a lowercase character, and a special character</p>
       <mat-form-field appearance="fill">
         <mat-label>Confirm Password</mat-label>
         <input matInput placeholder="Passwords must match" formControlName="confirmPassword" [type]="hide ? 'password' : 'text'">
@@ -42,7 +42,7 @@
         Passwords must match
       </mat-error>
       <div class="center margin-top">
-        <button type="submit" mat-raised-button color="primary">Sign Up!</button>
+        <button type="submit" mat-raised-button color="primary" class="sign-button">Sign Up!</button>
       </div>
     </form>
   </div>

@@ -1,5 +1,5 @@
 <div class="form-container">
-    <h1>Login</h1>
+    <div class="h1">Login</div>
     <form [formGroup]="loginForm" (ngSubmit)="submit()">
         <mat-form-field>
             <input matInput placeholder="Email Address" formControlName="email"/>
@@ -20,7 +20,7 @@
           </mat-error>
         </mat-form-field>
         <div class="center margin-top">
-            <button mat-raised-button color="primary" type="submit">
+            <button mat-raised-button color="primary" type="submit" class="log-button">
                 Login
             </button>
         </div>
