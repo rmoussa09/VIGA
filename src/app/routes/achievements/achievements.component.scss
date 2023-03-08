@@ -1,0 +1,171 @@
+:host {
+    font-family: cursive;
+    font-size: 14px;
+    color: #333;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    width: 2580px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+
+}
+
+p {
+    margin: 0;
+}
+
+.spacer {
+    flex: 1;
+}
+
+.content {
+    display: flex;
+    margin: 82px auto 32px;
+    padding: 0 16px;
+    max-width: 960px;
+    flex-direction: column;
+    align-items: center;
+}
+
+a,
+a:visited{
+    color:white;
+    font-weight: bold;
+}
+a:hover {
+    color: #1d2cf3;
+    text-decoration:double;
+    font-weight: bolder;
+}
+
+.header{
+    color:white;
+    background: linear-gradient(to top, #FF8C00, #FFA500);
+    text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black;
+    text-align: left;
+    font-size: 3em;
+    margin-top: 4em;
+    margin-left: 5em;
+    padding: 1em;
+    font-weight: bold;
+    border-radius: 10px;
+    border: 2px solid black;
+    width: 25%;
+    line-height: 40px;
+}
+
+.contacthead{
+    margin-left: 40%;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.contactlist{
+    margin-left: 40%;
+    margin-bottom: 1em;
+}
+
+.trophy-image {
+    width: 200px;
+    height: auto;
+  }
+
+  .table-container {
+    max-width: 600px;
+    margin-top: 3em;
+    margin-left: 15em;
+  }
+  
+  .achievement-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+  }
+  
+  .achievement-table th,
+  .achievement-table td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    color: white;
+  }
+  
+  .achievement-table th:first-child,
+  .achievement-table td:first-child {
+    width: 50px;
+  }
+  
+  .progress-bar {
+    width: 100%;
+    height: 10px;
+    background-color: #f2f2f2;
+    border-radius: 5px;
+    overflow: hidden;
+  }
+  
+  .progress {
+    height: 100%;
+    background-color: #4CAF50;
+    border-radius: 5px;
+  }
+
+  
+/* Responsive Styles */
+@media screen and (max-width: 1250px) {
+    :host {
+        font-family: cursive;
+        font-size: 14px;
+        color: #333;
+        box-sizing: border-box;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        width: 100%;
+    }
+    
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        margin: 4px 0;
+        display: flex;
+        color:white;
+        text-align: center;
+        justify-content: center;
+        font-size: 1.5em;
+        margin-top: 2em;
+        max-width: max-content;
+        margin-left: 5em;
+        padding: 15px;
+        background-color:#125699;
+        border-radius: 5em;
+    }
+    
+    p {
+        margin: 0;
+    }
+    
+    .spacer {
+        flex: 1;
+    }
+    
+    .content {
+        display: flex;
+        margin: 82px auto 32px;
+        padding: 0 16px;
+        max-width: 960px;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    
+
+}

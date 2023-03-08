@@ -38,19 +38,6 @@ p {
     align-items: center;
 }
 
-svg.material-icons {
-    height: 24px;
-    width: auto;
-}
-
-svg.material-icons:not(:last-child) {
-    margin-right: 8px;
-}
-
-.card svg.material-icons path {
-    fill: #888;
-}
-
 .gameheader{
     top: 100px;
     left: 50px;
@@ -168,16 +155,13 @@ box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
 }
 
 .body{
-    margin-top: 1em;
+    margin-top: .5em;
     margin-left: 5em;
     margin-right: 5em;
-    font-size: 3em;
+    font-size: 3.25em;
     line-height: 2em;
-    background-color: wheat;
-    border-radius: 10px;
-    border: 1px solid black;
     padding: 5px;
-    color: black;
+    color: white;
 }
 
 /* Responsive Styles */
@@ -226,15 +210,12 @@ box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
     }
     
     .body{
-       margin-left: 2em;
+        margin-left: 2em;
         margin-right: 2em;
         font-size: 2.5em;
         line-height: 1.5em;
-        background-color: wheat;
-        border-radius: 10px;
-        border: 1px solid black;
-        padding: 1.5em;
-        color: black;
+        font-size: 3;
+        color: white;
     }
 
     .card-container {

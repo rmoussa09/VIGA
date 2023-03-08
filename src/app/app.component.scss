@@ -172,3 +172,25 @@ a:hover {
     width: 250px;
   }
 }
+
+@media screen and (min-width: 1250px) and (max-width: 1750px) {
+  .signup {
+    margin-left: 12em;
+    font-size: 40px;
+    position: absolute;
+  }
+  
+  .login-container {
+    margin-left: 35em;
+    position: absolute;
+  }
+  
+  .logo-container {
+    margin-left: 2em;
+  }
+  
+  .logo {
+    height: 125px;
+    width: 300px;
+  }
+}

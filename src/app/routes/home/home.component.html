@@ -1,11 +1,9 @@
-<h1 *ngIf="user$ | async as user">Welcome {{user.displayName}}!</h1>
-
 <!-- Games Header -->
-<div class="gameheader" role="gameheader">
+<div class="gameheader">
   <div tabindex="1"><span>All Games</span></div>
 </div>
 
-<!-- Game Cards -->
+<!-- Game Buttons -->
 <div class="content">
 
   <div class="card-container">
@@ -23,3 +21,5 @@
     </button></div>
   </div>
 </div>
+
+<div tabindex="5"><button class="achievement" type="button" onclick="location.href='http://localhost:4200/achievements'">View Achievements</button></div>
