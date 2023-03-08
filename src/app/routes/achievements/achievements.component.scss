@@ -61,48 +61,61 @@ a:hover {
     line-height: 40px;
 }
 
-.contacthead{
-    margin-left: 40%;
-    font-weight: bold;
-    text-decoration: underline;
-}
-
-.contactlist{
-    margin-left: 40%;
-    margin-bottom: 1em;
-}
-
 .trophy-image {
     width: 200px;
     height: auto;
   }
 
   .table-container {
-    max-width: 600px;
+    width: 100em;
     margin-top: 3em;
     margin-left: 15em;
+    border: 5px solid black;
+    border-radius: 30px;
+    background-color: #585858;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 1);
+    overflow: hidden;
   }
   
   .achievement-table {
-    width: 100%;
+    width: 100em;
     border-collapse: collapse;
-    margin-bottom: 20px;
   }
   
-  .achievement-table th,
-  .achievement-table td {
-    padding: 10px;
+  .achievement-table th{
+    padding-top: 10px;
+    padding-left: 10px;
     text-align: left;
-    border-bottom: 1px solid #ddd;
+  }
+  
+  .achievement-table td{
+    padding-left: 10px;
+    padding-top: 10px;
+    padding-right: 300px;
+    background-color: #3a3939;
+  }
+  .achievement-table td:first-child {
+    position: relative;
+  }
+  
+  .achievement-table td:first-child::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 90%;
+    height: 1px;
+    background-color: white;
+  }
+  
+  .tdtext{
+    font-size: 2.5em;
+    justify-content: center;
     color: white;
   }
-  
-  .achievement-table th:first-child,
-  .achievement-table td:first-child {
-    width: 50px;
-  }
-  
+
   .progress-bar {
+    border-top: white;
     width: 100%;
     height: 10px;
     background-color: #f2f2f2;
@@ -114,9 +127,18 @@ a:hover {
     height: 100%;
     background-color: #4CAF50;
     border-radius: 5px;
+    width: 100%;
   }
 
-  
+  .percentage {
+    position: absolute;
+    right: 0;
+    top: 45%;
+    color: white;
+    font-size: 2em;
+    margin-right: 7em;
+  }
+
 /* Responsive Styles */
 @media screen and (max-width: 1250px) {
     :host {
@@ -128,44 +150,99 @@ a:hover {
         -moz-osx-font-smoothing: grayscale;
         width: 100%;
     }
-    
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-        margin: 4px 0;
-        display: flex;
-        color:white;
-        text-align: center;
-        justify-content: center;
-        font-size: 1.5em;
-        margin-top: 2em;
-        max-width: max-content;
-        margin-left: 5em;
-        padding: 15px;
-        background-color:#125699;
-        border-radius: 5em;
-    }
-    
-    p {
-        margin: 0;
-    }
-    
-    .spacer {
-        flex: 1;
-    }
-    
-    .content {
-        display: flex;
-        margin: 82px auto 32px;
-        padding: 0 16px;
-        max-width: 960px;
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    
 
+    .header{
+        color:white;
+        background: linear-gradient(to top, #FF8C00, #FFA500);
+        text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black;
+        text-align: left;
+        font-size: 3em;
+        margin-top: 4em;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 1em;
+        font-weight: bold;
+        border-radius: 10px;
+        border: 2px solid black;
+        width: 75%;
+        line-height: 40px;
+    }
+    
+    .trophy-image {
+        width: 100px;
+        height: auto;
+      }
+    
+      .table-container {
+        width: 75em;
+        margin-top: 3em;
+        margin-left: 0em;
+        border: 5px solid black;
+        border-radius: 30px;
+        background-color: #585858;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 1);
+        overflow: hidden;
+      }
+      
+      .achievement-table {
+        width: 100em;
+        border-collapse: collapse;
+      }
+      
+      .achievement-table th{
+        padding-top: 10px;
+        padding-left: 10px;
+        text-align: left;
+      }
+      
+      .achievement-table td{
+        padding-left: 10px;
+        padding-top: 10px;
+        padding-right: 300px;
+        background-color: #3a3939;
+      }
+      .achievement-table td:first-child {
+        position: relative;
+      }
+      
+      .achievement-table td:first-child::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 90%;
+        height: 1px;
+        background-color: white;
+      }
+      
+      .tdtext{
+        font-size: 2em;
+        justify-content: center;
+        color: white;
+      }
+    
+      .progress-bar {
+        border-top: white;
+        width: 50%;
+        height: 10px;
+        background-color: #f2f2f2;
+        border-radius: 5px;
+        overflow: hidden;
+      }
+      
+      .progress {
+        height: 100%;
+        background-color: #4CAF50;
+        border-radius: 5px;
+        width: 100%;
+      }
+    
+      .percentage {
+        position: absolute;
+        left: 0;
+        top: 45%;
+        color: white;
+        font-size: 2em;
+        margin-left: 18em;
+      }
 }
