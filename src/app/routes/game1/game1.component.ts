@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { GuessanimalComponent } from '../../components/games/animalGame/guessanimal/guessanimal.component';
+import { GuessanimalComponent } from '../../components/games/animalGame/animalGame/guessanimal/guessanimal.component';
 
 @Component({
   selector: 'app-game1',
