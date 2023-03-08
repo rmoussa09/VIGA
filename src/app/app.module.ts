@@ -21,6 +21,7 @@ import { Gameborder2Component } from './components/gameborder2/gameborder2.compo
 import { Gameborder3Component } from './components/gameborder3/gameborder3.component';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { provideStorage,getStorage } from '@angular/fire/storage';
+import { ChangeBgDirective } from './directives/change-bg.directive';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import { provideStorage,getStorage } from '@angular/fire/storage';
     GuessanimalComponent,
     Gameborder1Component,
     Gameborder2Component,
-    Gameborder3Component
+    Gameborder3Component,
+    ChangeBgDirective,
   ],
   
   imports: [

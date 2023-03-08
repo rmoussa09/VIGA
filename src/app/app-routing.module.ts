@@ -11,6 +11,8 @@ import { LoginComponent } from './routes/login/login.component';
 import { AboutusComponent } from './routes/aboutus/aboutus.component';
 import { ContactComponent } from './routes/contact/contact.component';
 import { EditprofileComponent } from './routes/editprofile/editprofile.component';
+import { WelcomeComponent } from './components/games/animalGame/welcome/welcome.component';
+import { QuestionComponent } from './components/games/animalGame/question/question.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'home', pathMatch:'full'},
@@ -23,6 +25,9 @@ const routes: Routes = [
   {path: 'aboutus', component: AboutusComponent},
   {path: 'contact', component: ContactComponent},
   {path: 'editprofile', component: EditprofileComponent},
+  {path: 'welcome', component: WelcomeComponent},
+  {path: 'question', component: QuestionComponent},
+
 ];
 
 @NgModule({
@@ -30,4 +35,4 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
-export const routingComponents = [HomeComponent, Game1Component, Game2Component, Game3Component,RegisterComponent, LoginComponent, AboutusComponent, LoginComponent, EditprofileComponent]
+export const routingComponents = [HomeComponent, Game1Component, Game2Component, Game3Component,RegisterComponent, LoginComponent, AboutusComponent, LoginComponent, EditprofileComponent, WelcomeComponent, QuestionComponent]
