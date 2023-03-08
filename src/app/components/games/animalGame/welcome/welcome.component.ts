@@ -1,14 +1,16 @@
 import { Component, OnInit,ViewChild,ElementRef } from '@angular/core';
 
 @Component({
-  selector: 'app-game1',
-  templateUrl: './game1.component.html',
-  styleUrls: ['./game1.component.scss']
+  selector: 'app-welcome',
+  templateUrl: './welcome.component.html',
+  styleUrls: ['./welcome.component.scss']
 })
-export class Game1Component {
+export class WelcomeComponent {
   @ViewChild('name') nameKey!: ElementRef;
+  constructor() { }
 
-
+  ngOnInit(): void {
+  }
   startQuiz(){
     localStorage.setItem("name",this.nameKey.nativeElement.value);
   }

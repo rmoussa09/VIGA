@@ -22,11 +22,10 @@ import { Gameborder3Component } from './components/gameborder3/gameborder3.compo
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { provideStorage,getStorage } from '@angular/fire/storage';
 import { GATitleComponent } from './components/games/animalGame/gatitle/gatitle.component';
-import { GaquestionComponent } from './components/games/animalGame/gaquestion/gaquestion.component';
-import { GachoicesComponent } from './components/games/animalGame/gachoices/gachoices.component';
 import { MltitleComponent } from './components/games/memoryGame/mltitle/mltitle.component';
 import { SptitleComponent } from './components/games/speedgame/sptitle/sptitle.component';
-
+import { ChangeBgDirective } from './directives/change-bg.directive';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -38,10 +37,9 @@ import { SptitleComponent } from './components/games/speedgame/sptitle/sptitle.c
     Gameborder2Component,
     Gameborder3Component,
     GATitleComponent,
-    GaquestionComponent,
-    GachoicesComponent,
     MltitleComponent,
     SptitleComponent,
+    ChangeBgDirective,
   ],
   
   imports: [
@@ -50,6 +48,7 @@ import { SptitleComponent } from './components/games/speedgame/sptitle/sptitle.c
     ReactiveFormsModule,
     BrowserAnimationsModule,
     MatToolbarModule,
+    HttpClientModule,
     MatIconModule,
     MatButtonModule,
     MatFormFieldModule,
