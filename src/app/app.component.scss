@@ -66,11 +66,28 @@ mat-toolbar {
   display: flex;
   flex-direction: column;
 }
-.menu-button{
+
+.menu-button {
   font-size: 25px;
   font-family: cursive;
   font-weight: bold;
+  width: 10em;
+  padding: 10px;
+  border: none;
+  background-color: #F8F8FF;
+  color: black;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+  border-top: 1px solid black;
+
 }
+
+.menu-button:hover {
+  background: linear-gradient(to top, #FF8C00, #FFA500);
+  text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black;
+  color: #F8F8FF;
+}
+
 .logo-container {
   width: 0%;
   text-align: center;
