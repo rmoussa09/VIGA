@@ -5,7 +5,8 @@ import { QuestionService } from 'src/app/services/question.service';
 @Component({
   selector: 'app-question',
   templateUrl: './question.component.html',
-  styleUrls: ['./question.component.scss']
+  styleUrls: ['./question.component.scss',
+              './../../../../../assets/bootstrap.css']
 })
 export class QuestionComponent{
   public name: string = "hello";
