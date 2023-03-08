@@ -166,36 +166,7 @@ svg.material-icons:not(:last-child) {
     height: 50px;
   }
 
-.card-container .card:not(:last-child) {
-margin-right: 0;
-}
 
-.card-container .card:not(.highlight-card) {
-cursor: pointer;
-}
-
-.card-container .card:not(.highlight-card):hover {
-    transform: translateY(-3px);
-    box-shadow: 0 4px 17px rgba(0, 0, 0, 0.35);
-}
-
-.card-container .card:not(.highlight-card):hover .material-icons path {
-    fill: rgb(105, 103, 103);
-}
-
-.card.highlight-card {
-    background-color: #1976d2;
-    color: white;
-    font-weight: 600;
-    border: none;
-    width: auto;
-    min-width: 30%;
-    position: relative;
-}
-
-.card.card.highlight-card span {
-    margin-left: 60px;
-}
 
 a,
 a:visited{
@@ -231,30 +202,31 @@ box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
 .header{
     display: flex;
     flex-wrap: wrap;
-    color:#1d2cf3;
+    color:white;
+    background: linear-gradient(to top, #FF8C00, #FFA500);
+    text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black;
     text-align: left;
     font-size: 3em;
-    border-left: 5px solid; 
-    border-bottom: 1px solid;
-    margin-top: 2em;
-    width:25em;
+    margin-top: 5em;
+    width: 25%;
     margin-left: 5em;
-    padding-bottom: 25px;
-    padding-left: 10px;
+    padding: 1em;
     font-weight: bold;
+    border-radius: 10px;
+    border: 2px solid black;
+    justify-content: center;
 }
 
 .body{
-    margin-top: 1em;
+    margin-top: .5em;
     margin-left: 5em;
     margin-right: 5em;
-    font-size: 3em;
+    font-size: 3.25em;
     line-height: 2em;
-    background-color: wheat;
-    border-radius: 10px;
-    border: 1px solid black;
     padding: 5px;
+    color: white;
 }
+
 
 .contacthead{
     margin-left: 40%;
@@ -354,88 +326,5 @@ box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
         justify-content: center;
         align-items: center;
     }
-    
-    .guesscard {
-        all:unset;
-        border-radius: 10px;
-        background-image: url("../../../assets/images/Guess\ The\ Animal\ Card.jpg");
-        background-size: 100% 100%;
-        height: 400px;
-        width: 500px;
-        margin: 50px 100px ;
-        padding: 16px;
-        display: flex;
-        transition: all 0.2s ease-in-out;
-        align-items:last baseline;
-        font-size: 4em;
-        font-weight: bolder;
-        border: 3px solid black;
-        position: relative;
-        cursor: pointer;
-    
-    }
-    
-    .memorycard {
-        all:unset;
-        border-radius: 10px;
-        background-image: url("../../../assets/images/Memory\ Lane\ Card.jpg");
-        background-size: 100% 100%;
-        height: 400px;
-        width: 500px;
-        margin: 50px 100px;
-        padding: 16px;
-        display: flex;
-        align-items:last baseline;
-        transition: all 0.2s ease-in-out;
-        font-size: 4em;
-        font-weight: bolder;
-        border: 3px solid black;
-        cursor: pointer;
-    }
-    
-    .fadecard {
-        position: absolute;
-        left: 50%;
-        transform: translate(-50%, 0%);
-        background-color: rgba(255, 81, 0, 0.5);
-        padding: 20px;
-        color: #fff;
-        border-radius: 10px;
-        width: 495px;
-        height: 50px;
-      }
-    
-    .speedcard {
-        all:unset;
-        border-radius: 10px;
-        background-image: url("../../../assets/images/Speedster\ Card.jpg");
-        background-size: 100% 100%;
-        height: 400px;
-        width: 500px;
-        margin: 50px 100px ;
-        padding: 16px;
-        display: flex;
-        transition: all 0.2s ease-in-out;
-        align-items:last baseline;
-        font-size: 4em;
-        font-weight: bolder;
-        border: 3px solid black;
-        position: relative;
-        cursor: pointer;
-    
-    }
-    
-    .fadecard {
-        position: absolute;
-        left: 50%;
-        transform: translate(-50%, 0%);
-        background-color: rgba(255, 81, 0, 0.5);
-        padding: 20px;
-        color: #fff;
-        border-radius: 10px;
-        width: 495px;
-        height: 50px;
-    }
-
 
 }

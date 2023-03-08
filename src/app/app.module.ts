@@ -21,6 +21,9 @@ import { Gameborder2Component } from './components/gameborder2/gameborder2.compo
 import { Gameborder3Component } from './components/gameborder3/gameborder3.component';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { provideStorage,getStorage } from '@angular/fire/storage';
+import { GATitleComponent } from './components/games/animalGame/gatitle/gatitle.component';
+import { MltitleComponent } from './components/games/memoryGame/mltitle/mltitle.component';
+import { SptitleComponent } from './components/games/speedgame/sptitle/sptitle.component';
 import { ChangeBgDirective } from './directives/change-bg.directive';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -33,6 +36,9 @@ import { HttpClientModule } from '@angular/common/http';
     Gameborder1Component,
     Gameborder2Component,
     Gameborder3Component,
+    GATitleComponent,
+    MltitleComponent,
+    SptitleComponent,
     ChangeBgDirective,
   ],
   

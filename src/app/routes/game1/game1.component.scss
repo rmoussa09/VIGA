@@ -38,19 +38,6 @@ p {
     align-items: center;
 }
 
-svg.material-icons {
-    height: 24px;
-    width: auto;
-}
-
-svg.material-icons:not(:last-child) {
-    margin-right: 8px;
-}
-
-.card svg.material-icons path {
-    fill: #888;
-}
-
 .gameheader{
     top: 100px;
     left: 50px;
@@ -74,75 +61,50 @@ svg.material-icons:not(:last-child) {
     justify-content: center;
 }
 
-.memorycard {
-    all:unset;
-    border-radius: 4px;
-    background-image: url("../../../assets/images/Memory\ Lane\ Card.jpg");
-    background-size: 100% 100%;
-    height: 100px;
-    width: 1000px;
-    margin: 0 100px 32px;
-    padding: 16px;
-    display: flex;
-    align-items:last baseline;
-    transition: all 0.2s ease-in-out;
-    font-size: 4em;
-    font-weight: bolder;
-    border: 2px solid black;
-}
-
+.guesscard,
+.memorycard,
 .speedcard {
-    all:unset;
-    border-radius: 10px;
+  all: unset;
+  border-radius: 4px;
+  height: 100px;
+  width: 600px;
+  margin: 0 100px 32px;
+  padding: 16px;
+  display: flex;
+  transition: all 0.2s ease-in-out;
+  align-items:last baseline;
+  font-size: 4em;
+  font-weight: bolder;
+  border: 3px solid black;
+  position: relative;
+  cursor: pointer;
+  background-size: 100% 100%;
+}
+
+.guesscard {
+    background-image: url("../../../assets/images/Guess\ The\ Animal\ Card.jpg");
+  }
+  
+  .memorycard {
+    background-image: url("../../../assets/images/Memory\ Lane\ Card.jpg");
+  }
+  
+  .speedcard {
     background-image: url("../../../assets/images/Speedster\ Card.jpg");
-    background-size: 100% 100%;
-    height: 100px;
-    width: 1000px;
-    margin: 0 100px 32px;
-    padding: 16px;
-    display: flex;
-    align-items:last baseline;
-    transition: all 0.2s ease-in-out;
-    font-size: 4em;
-    font-weight: bolder;
-    border: 3px solid black;
-}
+  }
 
-.card-container .card:not(:last-child) {
-    margin-right: 0;
-}
-
-.card.card-small {
-    height: 16px;
-    width: 100px;
-}
-
-.card-container .card:not(.highlight-card) {
-cursor: pointer;
-}
-
-.card-container .card:not(.highlight-card):hover {
-    transform: translateY(-3px);
-    box-shadow: 0 4px 17px rgba(0, 0, 0, 0.35);
-}
-
-.card-container .card:not(.highlight-card):hover .material-icons path {
-    fill: rgb(105, 103, 103);
-}
-
-.card.highlight-card {
-    background-color: #1d2cf3;
-    color: white;
-    font-weight: 600;
-    border: none;
-    width: auto;
-    min-width: 30%;
-    position: relative;
-}
-
-.card.card.highlight-card span {
-    margin-left: 60px;
-}
+  .fadecard {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    background-color: rgba(24, 61, 83, .75);
+    padding: 20px;
+    color: #fff;
+    border-radius: 10px;
+    width: 600px;
+    height: 30px;
+    margin-top: 50px;
+  }
 
 a,
 a:visited{
@@ -193,16 +155,13 @@ box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
 }
 
 .body{
-    margin-top: 1em;
+    margin-top: .5em;
     margin-left: 5em;
     margin-right: 5em;
-    font-size: 3em;
+    font-size: 3.25em;
     line-height: 2em;
-    background-color: wheat;
-    border-radius: 10px;
-    border: 1px solid black;
     padding: 5px;
-    color: black;
+    color: white;
 }
 
 /* Responsive Styles */
@@ -251,15 +210,12 @@ box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
     }
     
     .body{
-       margin-left: 2em;
+        margin-left: 2em;
         margin-right: 2em;
         font-size: 2.5em;
         line-height: 1.5em;
-        background-color: wheat;
-        border-radius: 10px;
-        border: 1px solid black;
-        padding: 1.5em;
-        color: black;
+        font-size: 3;
+        color: white;
     }
 
     .card-container {
@@ -275,8 +231,8 @@ box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
         border-radius: 10px;
         background-image: url("../../../assets/images/Memory\ Lane\ Card.jpg");
         background-size: 100% 100%;
-        height: 50px;
-        width: 500px;
+        height: 100px;
+        width: 600px;
         margin: 50px 100px;
         padding: 16px;
         display: flex;
@@ -293,8 +249,8 @@ box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
         border-radius: 10px;
         background-image: url("../../../assets/images/Speedster\ Card.jpg");
         background-size: 100% 100%;
-        height: 50px;
-        width: 500px;
+        height: 100px;
+        width: 600px;
         margin: 50px 100px ;
         padding: 16px;
         display: flex;

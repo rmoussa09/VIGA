@@ -12,7 +12,7 @@
 </div>
 
 <!-- Play Button -->
-<div class="content" role="main">
+<!-- <div class="content" role="main"> -->
   <!-- <input type="hidden" #selection>
   <div class="card-container">
     <div tabindex="3"><button class="card card-small" (click)="selection.value = 'component'" tabindex="0">
@@ -34,13 +34,13 @@
 
   <div class="card-container">
 
-    <div tabindex="5"><a class="guesscard" target="_parent" rel="noopener" href="http://localhost:4200/game1">
-      <span>Guess the Animal!</span>
-    </a></div>
+    <div tabindex="2"><button class="guesscard" type="button" onclick="location.href='http://localhost:4200/game1'">
+      <div class="fadecard"><span>Guess the Animal!</span></div>
+    </button></div>
 
-    <div tabindex="7"><a class="speedcard" target="_parent" rel="noopener" href="http://localhost:4200/game3">
-      <span>Speedster!</span>
-    </a></div>
+    <div tabindex="4"><button class="speedcard" type="button" onclick="location.href='http://localhost:4200/game3'">
+      <div class="fadecard"><span>Speedster!</span></div>
+    </button></div>
   </div>
 </div>
 
