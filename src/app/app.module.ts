@@ -15,15 +15,17 @@ import { environment } from '../environments/environment';
 import { provideAuth,getAuth } from '@angular/fire/auth';
 import { MatMenuModule } from '@angular/material/menu';
 import { HotToastModule } from '@ngneat/hot-toast';
-import { GuessanimalComponent } from './components/games/animalGame/animalGame/guessanimal/guessanimal.component';
+import { GuessanimalComponent } from './components/games/animalGame/guessanimal/guessanimal.component';
 import { Gameborder1Component } from './components/gameborder1/gameborder1.component';
 import { Gameborder2Component } from './components/gameborder2/gameborder2.component';
 import { Gameborder3Component } from './components/gameborder3/gameborder3.component';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { provideStorage,getStorage } from '@angular/fire/storage';
-import { GATitleComponent } from './components/games/animalGame/animalGame/gatitle/gatitle.component';
-import { GaquestionComponent } from './components/games/animalGame/animalGame/gaquestion/gaquestion.component';
-import { GachoicesComponent } from './components/games/animalGame/animalGame/gachoices/gachoices.component';
+import { GATitleComponent } from './components/games/animalGame/gatitle/gatitle.component';
+import { GaquestionComponent } from './components/games/animalGame/gaquestion/gaquestion.component';
+import { GachoicesComponent } from './components/games/animalGame/gachoices/gachoices.component';
+import { MltitleComponent } from './components/games/memoryGame/mltitle/mltitle.component';
+import { SptitleComponent } from './components/games/speedgame/sptitle/sptitle.component';
 
 
 
@@ -38,6 +40,8 @@ import { GachoicesComponent } from './components/games/animalGame/animalGame/gac
     GATitleComponent,
     GaquestionComponent,
     GachoicesComponent,
+    MltitleComponent,
+    SptitleComponent,
   ],
   
   imports: [
