@@ -25,8 +25,8 @@ export class QuestionComponent{
   ngOnInit(): void {
     this.name = localStorage.getItem("name")!;
     this.getAllQuestions();
-    this.startCounter();
   }
+
   getAllQuestions() {
     this.questionService.getQuestionJson().subscribe(res => {
         this.questionList = res.questions;
@@ -42,14 +42,14 @@ export class QuestionComponent{
 
     if(currentQno === this.questionList.length){
       this.isQuizCompleted = true;
-      this.stopCounter();
+      //this.stopCounter();
     }
     if (option.correct) {
-      this.points += 10;
+      this.points += 1;
       this.correctAnswer++;
       setTimeout(() => {
         this.currentQuestion++;
-        this.resetCounter();
+        //this.resetCounter();
         this.getProgressPercent();
       }, 1000);
 
@@ -58,38 +58,38 @@ export class QuestionComponent{
       setTimeout(() => {
         this.currentQuestion++;
         this.inCorrectAnswer++;
-        this.resetCounter();
+        //this.resetCounter();
         this.getProgressPercent();
       }, 1000);
 
       this.points -= 10;
     }
   }
-  startCounter() {
-    this.interval$ = interval(1000)
-      .subscribe(val => {
-        this.counter--;
-        if (this.counter === 0) {
-          this.currentQuestion++;
-          this.counter = 60;
-          this.points -= 10;
-        }
-      });
-    setTimeout(() => {
-      this.interval$.unsubscribe();
-    }, 600000);
-  }
-  stopCounter() {
-    this.interval$.unsubscribe();
-    this.counter = 0;
-  }
-  resetCounter() {
-    this.stopCounter();
-    this.counter = 60;
-    this.startCounter();
-  }
+  // startCounter() {
+  //   this.interval$ = interval(1000)
+  //     .subscribe(val => {
+  //       this.counter--;
+  //       if (this.counter === 0) {
+  //         this.currentQuestion++;
+  //         this.counter = 60;
+  //         this.points -= 10;
+  //       }
+  //     });
+  //   setTimeout(() => {
+  //     this.interval$.unsubscribe();
+  //   }, 600000);
+  // }
+  // stopCounter() {
+  //   this.interval$.unsubscribe();
+  //   this.counter = 0;
+  // }
+  // resetCounter() {
+  //   this.stopCounter();
+  //   this.counter = 60;
+  //   this.startCounter();
+  // }
   resetQuiz() {
-    this.resetCounter();
+    //this.resetCounter();
     this.getAllQuestions();
     this.points = 0;
     this.counter = 60;
@@ -97,6 +97,7 @@ export class QuestionComponent{
     this.progress = "0";
 
   }
+  
   getProgressPercent() {
     this.progress = ((this.currentQuestion / this.questionList.length) * 100).toString();
     return this.progress;
