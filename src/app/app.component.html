@@ -11,12 +11,17 @@
     </a>
   </div>
 
+  <div class="welcome" *ngIf="(authService.currentUser$ | async)">
+    <ng-container *ngIf="authService.currentUser$ | async as user" >
+        Welcome {{user.displayName}}!
+    </ng-container>
+  </div>
+
   <div class="login-container">
-  <ng-container *ngIf="authService.currentUser$ | async as user; else loginButton"  class="log-button">
-    <button mat-button [matMenuTriggerFor]="userMenu" class="log-button">
-      Welcome {{user.displayName}}!
+  <ng-container *ngIf="authService.currentUser$ | async as user; else loginButton">
+    <button mat-button [matMenuTriggerFor]="userMenu" class="drop-button"> 
+      <mat-icon>expand_more</mat-icon>
     </button>
-    <mat-icon>expand_more</mat-icon>
   </ng-container>
 
   <ng-template #loginButton class="log-button">

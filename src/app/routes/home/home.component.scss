@@ -44,9 +44,9 @@ p {
     color: white;
     text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black;
     text-align: center;
-    font-size: 4em;
+    font-size: 6em;
     border-radius: 2em;
-    background: linear-gradient(to bottom, #FF8C00, #FFA500);
+    background: linear-gradient(to bottom, rgb(24, 61, 83), #333333); 
     margin-top: 175px;
     margin-left: auto;
     margin-right: auto;
@@ -65,21 +65,21 @@ p {
 .guesscard,
 .memorycard,
 .speedcard {
-  all: unset;
-  border-radius: 10px;
-  height: 400px;
-  width: 500px;
-  margin: 50px 100px;
-  padding: 16px;
-  display: flex;
-  transition: all 0.2s ease-in-out;
-  align-items: baseline;
-  font-size: 4em;
-  font-weight: bolder;
-  border: 3px solid black;
-  position: relative;
-  cursor: pointer;
-  background-size: 100% 100%;
+    all: unset;
+    border-radius: 10px;
+    height: 400px;
+    width: 500px;
+    margin: 50px 100px;
+    padding: 16px;
+    display: flex;
+    transition: all 0.2s ease-in-out;
+    align-items: baseline;
+    font-size: 4em;
+    font-weight: bolder;
+    border: 3px solid black;
+    position: relative;
+    cursor: pointer;
+    background-size: 100% 100%;
 }
 
 .guesscard {
@@ -105,7 +105,14 @@ p {
     width: 495px;
     height: 50px;
     margin-top: 5em;
-  }
+    transition: opacity 0.2s ease-in-out;
+}
+
+.guesscard:hover,
+.memorycard:hover,
+.speedcard:hover {
+  transform: scale(1.10);
+}
 
 a,
 a:visited{
@@ -120,7 +127,7 @@ a:hover {
 
 .achievement{
   color: white;
-  background: linear-gradient(to top, blue, #007FFF);
+  background: linear-gradient(to bottom, rgb(24, 61, 83), #333333); 
   text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black;
   text-align: center;
   font-family: cursive;
@@ -218,7 +225,7 @@ a:hover {
         text-align: center;
         font-size: 2.5em;
         border-radius: 2em;
-        background: linear-gradient(to bottom, #FF8C00, #FFA500);
+        background: linear-gradient(to bottom, rgb(24, 61, 83), #333333); 
         margin-top: 150px;
         margin-left: auto;
         margin-right: auto;
@@ -227,70 +234,47 @@ a:hover {
         font-weight: bold;
     }
     
+    
     .card-container {
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
     }
-    
-    .guesscard {
-        all:unset;
+
+    .guesscard,
+    .memorycard,
+    .speedcard {
+        all: unset;
         border-radius: 10px;
-        background-image: url("../../../assets/images/Guess\ The\ Animal\ Card.jpg");
-        background-size: 100% 100%;
-        height: 400px;
-        width: 500px;
-        margin: 50px 100px ;
-        padding: 16px;
-        display: flex;
-        transition: all 0.2s ease-in-out;
-        align-items:last baseline;
-        font-size: 4em;
-        font-weight: bolder;
-        border: 3px solid black;
-        position: relative;
-        cursor: pointer;
-    
-    }
-    
-    .memorycard {
-        all:unset;
-        border-radius: 10px;
-        background-image: url("../../../assets/images/Memory\ Lane\ Card.jpg");
         background-size: 100% 100%;
         height: 400px;
         width: 500px;
         margin: 50px 100px;
         padding: 16px;
         display: flex;
-        align-items:last baseline;
         transition: all 0.2s ease-in-out;
-        font-size: 4em;
-        font-weight: bolder;
-        border: 3px solid black;
-        cursor: pointer;
-    }
-    
-    
-    .speedcard {
-        all:unset;
-        border-radius: 10px;
-        background-image: url("../../../assets/images/Speedster\ Card.jpg");
-        background-size: 100% 100%;
-        height: 400px;
-        width: 500px;
-        margin: 50px 100px ;
-        padding: 16px;
-        display: flex;
-        transition: all 0.2s ease-in-out;
-        align-items:last baseline;
+        align-items: baseline;
         font-size: 4em;
         font-weight: bolder;
         border: 3px solid black;
         position: relative;
         cursor: pointer;
+    }
+
+
+
+
+    .guesscard {
+        background-image: url("../../../assets/images/Guess\ The\ Animal\ Card.jpg");
+    }
     
+    .memorycard {
+        background-image: url("../../../assets/images/Memory\ Lane\ Card.jpg");
+    }
+  
+  .speedcard {
+    background-image: url("../../../assets/images/Speedster\ Card.jpg");
     }
     
     .fadecard {
@@ -303,8 +287,12 @@ a:hover {
         border-radius: 10px;
         width: 495px;
         height: 50px;
-        margin-top: 5em;
-      }
+        margin-top: 5em; 
+    }
 
-
+    .guesscard:hover,
+    .memorycard:hover,
+    .speedcard:hover {
+      transform: scale(1.10);
+    }
 }
