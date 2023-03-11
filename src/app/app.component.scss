@@ -70,10 +70,12 @@ mat-toolbar {
 
 .welcome{
   color: black;
-  font-size: calc(200%);
+  font-size: 40px;
   font-weight: bold;
   font-family: cursive;
   padding: 10px;
+  text-align: center;
+  line-height: 40px;
 }
 
 .menu-container{
