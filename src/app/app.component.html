@@ -11,15 +11,10 @@
     </a>
   </div>
 
-  <div class="welcome" *ngIf="(authService.currentUser$ | async)">
-    <ng-container *ngIf="authService.currentUser$ | async as user" >
-        Welcome {{user.displayName}}!
-    </ng-container>
-  </div>
-
   <div class="login-container">
   <ng-container *ngIf="authService.currentUser$ | async as user; else loginButton">
-    <button mat-button [matMenuTriggerFor]="userMenu" class="drop-button"> 
+    <button mat-button [matMenuTriggerFor]="userMenu"> 
+      <mat-icon>person</mat-icon>
       <mat-icon>expand_more</mat-icon>
     </button>
   </ng-container>
@@ -34,11 +29,16 @@
 
   <mat-menu #userMenu="matMenu">
     <div class="menu-container">
-    <button class="menu-button" type="button" onclick="location.href='http://localhost:4200/editprofile'">Edit profile</button>
-    <button class="menu-button" type="button" onclick="location.href='http://localhost:4200/aboutus'">About us</button> 
-    <button class="menu-button" type="button" onclick="location.href='http://localhost:4200/contact'">Contact</button> 
-    <button (click)="logout()"  class="menu-button">Logout</button>
-  </div>
+      <div class="welcome" *ngIf="(authService.currentUser$ | async)">
+        <ng-container *ngIf="authService.currentUser$ | async as user">
+          Welcome {{user.displayName}}!
+        </ng-container>
+      </div>
+      <button class="menu-button" type="button" onclick="location.href='http://localhost:4200/editprofile'">Edit profile</button>
+      <button class="menu-button" type="button" onclick="location.href='http://localhost:4200/aboutus'">About us</button> 
+      <button class="menu-button" type="button" onclick="location.href='http://localhost:4200/contact'">Contact</button> 
+      <button (click)="logout()" class="menu-button">Logout</button>
+    </div>
   </mat-menu>
 </mat-toolbar>
 

@@ -45,15 +45,6 @@ mat-toolbar {
   position: absolute;
 }
 
-.welcome{
-  margin-left: 31em;
-  color: white;
-  font-size: 50px;
-  font-weight: bold;
-  font-family: cursive;
-  position: absolute;
-}
-
 .login-container{
   background-color: white;
   color: black;
@@ -62,8 +53,9 @@ mat-toolbar {
   font-weight: bold;
   font-size: larger;
   margin-left: 55em;
-  position: absolute;
+  position: relative;
 }
+
 
 .log-button{
   font-size: 25px;
@@ -71,23 +63,29 @@ mat-toolbar {
   font-weight: bold;
   }
 
-.drop-button{
-  font-size: 25px;
-  font-family: cursive;
+.mat-icon {
+  transform: scale(2);
+  margin-right: px;
+}
+
+.welcome{
+  color: black;
+  font-size: calc(200%);
   font-weight: bold;
-  }
+  font-family: cursive;
+  padding: 10px;
+}
 
 .menu-container{
   display: flex;
   flex-direction: column;
-  
 }
 
 .menu-button {
-  font-size: 25px;
+  font-size: 20px;
   font-family: cursive;
   font-weight: bold;
-  width: 10em;
+  width: 14em;
   padding: 10px;
   border: none;
   background-color: #F8F8FF;
@@ -95,7 +93,10 @@ mat-toolbar {
   cursor: pointer;
   transition: background-color 0.3s ease-in-out;
   border-top: 1px solid black;
+}
 
+.menu-button:first-of-type {
+  margin-top: 10px;
 }
 
 .menu-button:hover {
@@ -200,12 +201,6 @@ a:hover {
 @media screen and (max-width: 1250px) {
   .signup {
     margin-left: 9em;
-    font-size: 30px;
-    position: absolute;
-  }
-  
-  .welcome {
-    margin-left: 18em;
     font-size: 30px;
     position: absolute;
   }
