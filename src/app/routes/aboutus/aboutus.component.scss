@@ -8,50 +8,6 @@
     width: 2560px;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-        margin: 4px 0;
-        display: flex;
-        color:white;
-        text-align: center;
-        justify-content: center;
-        font-size: 1.5em;
-        margin-top: 2em;
-        max-width: max-content;
-        margin-left: 5em;
-        padding: 15px;
-        background-color:#125699;
-        border-radius: 5em;
-}
-
-p {
-    margin: 0;
-}
-
-.spacer {
-    flex: 1;
-}
-
-a,
-a:visited{
-    color:white;
-    font-weight: bold;
-}
-a:hover {
-    color: #1d2cf3;
-    text-decoration:double;
-    font-weight: bolder;
-}
-
-.circle-link:hover {
-transform: translateY(-0.25rem);
-box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
-}
-
 .header{
     display: flex;
     flex-wrap: wrap;
@@ -83,6 +39,49 @@ box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
 
 
 /* Responsive Styles */
+@media screen and (max-width: 15in) {
+    :host {
+        font-family: cursive;
+        font-size: 14px;
+        color: #333;
+        box-sizing: border-box;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        width: 1280px;
+    }
+
+    .header{
+        display: flex;
+        flex-wrap: wrap;
+        color:white;
+        background: linear-gradient(to bottom, rgb(24, 61, 83), #333333); 
+        text-shadow: -0.5px -0.5px 0 black, 0.5px -0.5px 0 black, -0.5px 0.5px 0 black, 0.5px 0.5px 0 black;
+        text-align: left;
+        font-size: 1.5em;
+        margin-top: 5em;
+        width: fit-content;
+        margin-left: 5em;
+        padding: 0.5em;
+        font-weight: bold;
+        border-radius: 5px;
+        border: 1px solid black;
+        justify-content: center;
+        width: 25%;
+    }
+    
+    .body{
+        margin-top: 0.25em;
+        margin-left: 5em;
+        margin-right: 5em;
+        font-size: 1.625em;
+        line-height: 2em;
+        padding: 2.5px;
+        color: white;
+    }
+    
+    
+}
+
 @media screen and (max-width: 1250px) {
     :host {
         font-family: cursive;
