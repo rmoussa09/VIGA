@@ -5,16 +5,7 @@
     box-sizing: border-box;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    width: 2580px;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-
+    width: 2560px;
 }
 
 p {
@@ -141,31 +132,242 @@ a:hover {
   width: fit-content;
   cursor: pointer;
 }
-
-.body{
-    margin-top: 1em;
-    margin-left: 5em;
-    margin-right: 5em;
-    font-size: 3em;
-    line-height: 2em;
-    background-color: wheat;
-    border-radius: 10px;
-    border: 1px solid black;
-    padding: 5px;
-}
-
-.contacthead{
-    margin-left: 40%;
-    font-weight: bold;
-    text-decoration: underline;
-}
-
-.contactlist{
-    margin-left: 40%;
-    margin-bottom: 1em;
-}
   
 /* Responsive Styles */
+@media screen and (max-width: 18in) {   
+      .content {
+        display: flex;
+        margin: 61.5px auto 24px;
+        padding: 0 8px;
+        max-width: 720px;
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .gameheader {
+        top: 75px;
+        left: 37.5px;
+        right: 37.5px;
+        height: 45px;
+        color: white;
+        text-shadow: -0.75px -0.75px 0 black, 0.75px -0.75px 0 black, -0.75px 0.75px 0 black, 0.75px 0.75px 0 black;
+        text-align: center;
+        font-size: 4.5em;
+        border-radius: 1.5em;
+        background: linear-gradient(to bottom, rgb(24, 61, 83), #333333); 
+        margin-top: 131.25px;
+        margin-left: auto;
+        margin-right: auto;
+        width: 48.75%;
+        padding-top: 18.75px;
+        font-weight: bold;
+      }
+      
+      .card-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+      }
+      
+      .guesscard,
+      .memorycard,
+      .speedcard {
+        all: unset;
+        border-radius: 7.5px;
+        height: 300px;
+        width: 375px;
+        margin: 37.5px 75px;
+        padding: 12px;
+        display: flex;
+        transition: all 0.2s ease-in-out;
+        align-items: baseline;
+        font-size: 2.75em;
+        font-weight: bolder;
+        border: 2.25px solid black;
+        position: relative;
+        cursor: pointer;
+        background-size: 100% 100%;
+      }
+      
+      .guesscard {
+        background-image: url("../../../assets/images/Guess\ The\ Animal\ Card.jpg");
+      }
+      
+      .memorycard {
+        background-image: url("../../../assets/images/Memory\ Lane\ Card.jpg");
+      }
+      
+      .speedcard {
+        background-image: url("../../../assets/images/Speedster\ Card.jpg");
+      }
+      
+      .fadecard {
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%, 0%);
+        background-color: rgba(24, 61, 83, .75);
+        padding: 20x;
+        color: #fff;
+        border-radius: 7.5px;
+        width: 361px;
+        height: 37.5px;
+        margin-top: 5em;
+        transition: opacity 0.2s ease-in-out;
+      }
+    
+      .guesscard:hover,
+      .memorycard:hover,
+      .speedcard:hover {
+        transform: scale(1.075);
+      }
+      
+      a,
+      a:visited {
+        color: white;
+        font-weight: bold;
+      }
+      
+      a:hover {
+        color: #1d2cf3;
+        text-decoration: double;
+        font-weight: bolder;
+      }
+        
+      .achievement{
+        color: white;
+        background: linear-gradient(to bottom, rgb(24, 61, 83), #333333); 
+        text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black;
+        text-align: center;
+        font-family: cursive;
+        font-size: 2em;
+        margin-top: 1.5em;
+        margin-left: 40em;
+        padding: 1em;
+        font-weight: bold;
+        border-radius: 10px;
+        border: 2px solid black;
+        width: fit-content;
+        cursor: pointer;
+      }
+}
+
+@media screen and (max-width: 15in) {
+        .content {
+        display: flex;
+        margin: 41px auto 16px;
+        padding: 0 8px;
+        max-width: 480px;
+        flex-direction: column;
+        align-items: center;
+        }
+        
+        .gameheader {
+        top: 50px;
+        left: 25px;
+        right: 25px;
+        height: 35px;
+        color: white;
+        text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black;
+        text-align: center;
+        font-size: 3em;
+        border-radius: 1em;
+        background: linear-gradient(to bottom, rgb(24, 61, 83), #333333);
+        margin-top: 87.5px;
+        margin-left: auto;
+        margin-right: auto;
+        width: 32.5%;
+        padding-top: 12.5px;
+        font-weight: bold;
+        }
+        
+        .card-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        }
+        
+        .guesscard,
+        .memorycard,
+        .speedcard {
+        all: unset;
+        border-radius: 5px;
+        height: 200px;
+        width: 250px;
+        margin: 25px 50px;
+        padding: 8px;
+        display: flex;
+        transition: all 0.2s ease-in-out;
+        align-items: baseline;
+        font-size: 2em;
+        font-weight: bolder;
+        border: 1.5px solid black;
+        position: relative;
+        cursor: pointer;
+        background-size: 100% 100%;
+        }
+        
+        .guesscard {
+        background-image: url("../../../assets/images/Guess\ The\ Animal\ Card.jpg");
+        }
+        
+        .memorycard {
+        background-image: url("../../../assets/images/Memory\ Lane\ Card.jpg");
+        }
+        
+        .speedcard {
+        background-image: url("../../../assets/images/Speedster\ Card.jpg");
+        }
+        
+        .fadecard {
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%, 0%);
+        background-color: rgba(24, 61, 83, .75);
+        padding: 10px;
+        color: #fff;
+        border-radius: 5px;
+        width: 247.5px;
+        height: 25px;
+        margin-top: 5em;
+        transition: opacity 0.2s ease-in-out;
+        }
+        
+        .guesscard:hover,
+        .memorycard:hover,
+        .speedcard:hover {
+        transform: scale(1.05);
+        }
+        
+        a,
+        a:visited {
+        color: white;
+        font-weight: bold;
+        }
+        
+        a:hover {
+        color: #1d2cf3;
+        text-decoration: double;
+        font-weight: bolder;
+        }
+        
+        .achievement{
+            color: white;
+            background: linear-gradient(to bottom, rgb(24, 61, 83), #333333); 
+            text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black;
+            text-align: center;
+            font-family: cursive;
+            font-size: 1.5em;
+            margin-top: 2em;
+            margin-left: 55.5em;
+            padding: 1em;
+            font-weight: bold;
+            border-radius: 10px;
+            border: 2px solid black;
+            width: fit-content;
+            cursor: pointer;
+          }
+}
+
 @media screen and (max-width: 1250px) {
     :host {
         font-family: cursive;
@@ -295,4 +497,21 @@ a:hover {
     .speedcard:hover {
       transform: scale(1.10);
     }
+
+    .achievement{
+        color: white;
+        background: linear-gradient(to bottom, rgb(24, 61, 83), #333333); 
+        text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black;
+        text-align: center;
+        font-family: cursive;
+        font-size: 2em;
+        margin-top: 2em;
+        margin-right: 55em;
+        padding: 1em;
+        font-weight: bold;
+        border-radius: 10px;
+        border: 2px solid black;
+        width: fit-content;
+        cursor: pointer;
+      }
 }

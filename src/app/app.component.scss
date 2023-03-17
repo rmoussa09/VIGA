@@ -5,19 +5,7 @@
     box-sizing: border-box;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  margin: 8px 0;
-}
-
-.spacer {
-  flex: 1;
+    width: 2560px;
 }
 
 mat-toolbar {
@@ -34,6 +22,7 @@ mat-toolbar {
   font-weight: 600;
   font-size: 30px;
   height: 200px;
+  width: 2560px;
 }
 
 .signup{
@@ -65,7 +54,6 @@ mat-toolbar {
 
 .mat-icon {
   transform: scale(2);
-  margin-right: px;
 }
 
 .welcome{
@@ -75,7 +63,7 @@ mat-toolbar {
   font-family: cursive;
   padding: 10px;
   text-align: center;
-  line-height: 40px;
+  line-height: 50px;
 }
 
 .menu-container{
@@ -141,66 +129,275 @@ a:hover {
   color: red;
 }
 
-.circle-link {
-  height: 40px;
-  width: 40px;
-  border-radius: 40px;
-  margin: 8px;
-  background-color: white;
-  border: 1px solid #eeeeee;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-  transition: 1s ease-out;
-}
-
-.circle-link:hover {
-  transform: translateY(-0.25rem);
-  box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
-}
-
-.header{
-  margin: 8pc 0;
-}
-
-.body{
-  margin: 8px 0;
-}
-
 
 
 /* Responsive Styles */
-@media screen and (min-width: 1250px) and (max-width: 1750px) {
-  .signup {
-    margin-left: 11em;
-    font-size: 40px;
+@media screen and (max-width: 18in){
+
+    
+  mat-toolbar {
+    justify-content: space-between;
     position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    background-color: rgb(24, 61, 83);
+    color: white;
+    font-weight: 600;
+    font-size: 22.5px;
+    height: 150px;
   }
   
-  .welcome {
-    margin-left: 24em;
-    font-size: 40px;
+  .signup{
+    margin-left: 15em;
+    color: white;
+    font-size: 37.5px;
+    font-weight: bold;
+    font-family: cursive;
     position: absolute;
   }
 
-  .login-container {
-    margin-left: 35em;
+  .login-container{
+    background-color: white;
+    color: black;
+    padding: 7.5px 15px;
+    border-radius: 7.5em;
+    font-weight: bold;
+    font-size: larger;
+    margin-left: 55em;
+    position: relative;
+  }
+    
+    .log-button{
+    font-size: 18.75px;
+    font-family: cursive;
+    font-weight: bold;
+  }
+
+  .mat-icon {
+    transform: scale(1.5);
+    margin-right: 0.25px;
+    }
+    
+    .welcome{
+    color: black;
+    font-size: 30px;
+    font-weight: bold;
+    font-family: cursive;
+    padding: 7.5px;
+    text-align: center;
+    line-height: 40px;
+    }
+    
+    .menu-container{
+      display: flex;
+      flex-direction: column;
+      width: 14em;
+    }
+    
+    .menu-button {
+      font-size: 20px;
+      font-family: cursive;
+      font-weight: bold;
+      width: 11.15em;
+      padding: 10px;
+      border: none;
+      background-color: #F8F8FF;
+      color: black;
+      cursor: pointer;
+      transition: background-color 0.3s ease-in-out;
+      border-top: 1px solid black;
+    }
+    .menu-button:first-of-type {
+      margin-top: 10px;
+    }
+    
+    .menu-button:hover {
+      background: linear-gradient(to bottom, rgb(24, 61, 83), #333333); 
+      text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black;
+      color: #F8F8FF;
+    }
+    
+    .logo-container {
+      width: 0%;
+      text-align: center;
+      justify-content: center;
+      margin-left: 2em;
+      position: absolute;
+    }
+    
+    .logo {
+      display: block;
+      margin: 0 auto;
+      height: 112.5px;
+      width: 300px;
+    }
+    
+    .content {
+      display: flex;
+      margin: 82px auto 32px;
+      padding: 0 16px;
+      max-width: 960px;
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    a,
+    a:visited,
+    a:hover {
+      color: white;
+      text-decoration: none;
+    }
+    a:hover {
+      color: red;
+    }
+}
+
+@media screen and (max-width: 15in){
+
+    
+    mat-toolbar {
+    justify-content: space-between;
     position: absolute;
-  }
-  
-  .logo-container {
-    margin-left: 2em;
-  }
-  
-  .logo {
-    height: 125px;
-    width: 300px;
-  }
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    background-color: rgb(24, 61, 83);
+    color: white;
+    font-weight: 600;
+    font-size: 15px;
+    height: 100px;
+    }
+    
+    .signup{
+    margin-left: 15em;
+    color: white;
+    font-size: 25px;
+    font-weight: bold;
+    font-family: cursive;
+    position: absolute;
+    }
+    
+    .login-container{
+      background-color: white;
+      color: black;
+      padding: 5px 10px;
+      border-radius: 5em;
+      font-weight: bold;
+      font-size: larger;
+      margin-left: 55em;
+      position: relative;
+    }
+    
+    .log-button{
+    font-size: 12.5px;
+    font-family: cursive;
+    font-weight: bold;
+    }
+    
+    .mat-icon {
+    transform: scale(1.5);
+    margin-right: px;
+    }
+    
+    .welcome{
+    color: black;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: cursive;
+    padding: 5px;
+    text-align: center;
+    line-height: 20px;
+    }
+    
+    .menu-container{
+    display: flex;
+    flex-direction: column;
+    width: 9em;
+    }
+    
+    .menu-button {
+    font-size: 10px;
+    font-family: cursive;
+    font-weight: bold;
+    width: 14.20em;
+    padding: 5px;
+    border: none;
+    background-color: #F8F8FF;
+    color: black;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+    border-top: 0.5px solid black;
+    }
+    
+    .menu-button:first-of-type {
+    margin-top: 5px;
+    }
+    
+    .menu-button:hover {
+    background: linear-gradient(to bottom, rgb(24, 61, 83), #333333);
+    text-shadow: -0.5px -0.5px 0 black, 0.5px -0.5px 0 black, -0.5px 0.5px 0 black, 0.5px 0.5px 0 black;
+    color: #F8F8FF;
+    }
+    
+    .logo-container {
+    width: 0%;
+    text-align: center;
+    justify-content: center;
+    margin-left: 1em;
+    position: absolute;
+    }
+    
+    .logo {
+    display: block;
+    margin: 0 auto;
+    height: 75px;
+    width: 200px;
+    }
+    
+    .content {
+    display: flex;
+    margin: 41px auto 16px;
+    padding: 0 8px;
+    max-width: 480px;
+    flex-direction: column;
+    align-items: center;
+    }
+    
+    a,
+    a:visited,
+    a:hover {
+    color: white;
+    text-decoration: none;
+    }
+    a:hover {
+    color: red;
+    }
 }
 
 @media screen and (max-width: 1250px) {
+  mat-toolbar {
+    justify-content: space-between;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    background-color: rgb(24, 61, 83);
+    color: white;
+    font-weight: 600;
+    font-size: 30px;
+    height: 100px;
+  }
+  
   .signup {
     margin-left: 9em;
     font-size: 30px;
