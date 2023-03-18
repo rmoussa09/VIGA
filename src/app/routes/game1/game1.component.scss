@@ -12,23 +12,6 @@
     width: 2560px;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-        margin: 8px 0;
-}
-
-p {
-    margin: 0;
-}
-
-.spacer {
-    flex: 1;
-}
-
 .content {
     display: flex;
     margin: 82px auto 32px;
@@ -117,25 +100,6 @@ a:hover {
     font-weight: bolder;
 }
 
-.circle-link {
-    height: 40px;
-    width: 40px;
-    border-radius: 40px;
-    margin: 8px;
-    background-color: white;
-    border: 1px solid #eeeeee;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-    transition: 1s ease-out;
-}
-
-.circle-link:hover {
-transform: translateY(-0.25rem);
-box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
-}
 
 .header{
     display: flex;
@@ -165,6 +129,137 @@ box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
 }
 
 /* Responsive Styles */
+@media screen and (max-width:15in){
+    :host {
+        font-family: cursive;
+        font-size: 7px;
+        color: #333;
+        box-sizing: border-box;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        background-size: 100%;
+        background-attachment: scroll;
+        width: 1280px;
+    }
+    
+    .content {
+        display: flex;
+        margin: 41px auto 16px;
+        padding: 0 8px;
+        max-width: 480px;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .gameheader {
+        top: 50px;
+        left: 25px;
+        right: 25px;
+        height: 30px;
+        color: white;
+        text-shadow: -0.5px -0.5px 0 black, 0.5px -0.5px 0 black, -0.5px 0.5px 0 black, 0.5px 0.5px 0 black;
+        text-align: center;
+        font-size: 2.5em;
+        border-radius: 1em;
+        background: linear-gradient(to bottom, rgb(24, 61, 83), #333333);
+        margin-left: auto;
+        margin-right: auto;
+        width: 15em;
+        padding-top: 12.5px;
+        font-weight: bold;
+    }
+    
+    .card-container {
+        display: flex;
+        justify-content: center;
+    }
+    
+    .guesscard,
+    .memorycard,
+    .speedcard {
+        all: unset;
+        border-radius: 2px;
+        height: 50px;
+        width: 300px;
+        margin: 0 50px 16px;
+        padding: 8px;
+        display: flex;
+        transition: all 0.1s ease-in-out;
+        align-items: last baseline;
+        font-size: 2em;
+        font-weight: bolder;
+        border: 1.5px solid black;
+        position: relative;
+        cursor: pointer;
+        background-size: 100% 100%;
+    }
+    
+    .guesscard {
+        background-image: url("../../../assets/images/Guess\ The\ Animal\ Card.jpg");
+    }
+    
+    .memorycard {
+        background-image: url("../../../assets/images/Memory\ Lane\ Card.jpg");
+    }
+    
+    .speedcard {
+        background-image: url("../../../assets/images/Speedster\ Card.jpg");
+    }
+    
+    .fadecard {
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%, 0%);
+        background-color: rgba(24, 61, 83, .75);
+        padding: 10px;
+        color: #fff;
+        border-radius: 5px;
+        width: 300px;
+        height: 15px;
+        margin-top: 25px;
+    }
+    
+    a,
+    a:visited {
+        color: white;
+        font-weight: bold;
+    }
+    
+    a:hover {
+        color: #1d2cf3;
+        text-decoration: double;
+        font-weight: bolder;
+    }
+    
+    .header {
+        display: flex;
+        flex-wrap: wrap;
+        color: white;
+        background: linear-gradient(to bottom, rgb(24, 61, 83), #333333);
+        text-shadow: -0.5px -0.5px 0 black, 0.5px -0.5px 0 black, -0.5px 0.5px 0 black, 0.5px 0.5px 0 black;
+        text-align: left;
+        font-size: 5em;
+        margin-top: 3em;
+        width: fit-content;
+        margin-left: 3em;
+        padding: 0.5em;
+        font-weight: bold;
+        border-radius: 5px;
+        border: 1px solid black;
+    }
+        
+        .body {
+        margin-top: 0.5em;
+        margin-left: 5em;
+        margin-right: 5em;
+        font-size: 5em;
+        line-height: 1em;
+        padding: 2.5px;
+        color: white;
+    }
+      
+}
+
 @media screen and (max-width: 1250px) {
     :host {
         font-family: cursive;
