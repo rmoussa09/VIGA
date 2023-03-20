@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-sptitle',
@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./sptitle.component.scss']
 })
 export class SptitleComponent {
+  @Output() startGameClicked = new EventEmitter();
 
+  startGame() {
+    this.startGameClicked.emit();
+  }
 }
