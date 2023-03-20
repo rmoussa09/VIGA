@@ -1,5 +1,5 @@
 <div class="speedster-container" *ngIf="!gameOver">
-  <div class=background><app-sptitle *ngIf="!gameStarted" (startGameClicked)="startGame()"></app-sptitle></div>
+  <div class=title-container><app-sptitle *ngIf="!gameStarted" (startGameClicked)="startGame()"></app-sptitle></div>
   <div class="command-container" *ngIf="gameStarted && !gameOver">{{ currentCommand }}</div>
 
   <div class="score-container" *ngIf="gameStarted && !gameOver">
