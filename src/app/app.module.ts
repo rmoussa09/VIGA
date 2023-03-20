@@ -25,6 +25,7 @@ import { MltitleComponent } from './components/games/memoryGame/mltitle/mltitle.
 import { SptitleComponent } from './components/games/speedgame/sptitle/sptitle.component';
 import { ChangeBgDirective } from './directives/change-bg.directive';
 import { HttpClientModule } from '@angular/common/http';
+import { SpeedsterComponent } from './components/games/speedgame/speedster/speedster.component';
 
 
 @NgModule({
@@ -38,6 +39,7 @@ import { HttpClientModule } from '@angular/common/http';
     MltitleComponent,
     SptitleComponent,
     ChangeBgDirective,
+    SpeedsterComponent,
   ],
   
   imports: [
