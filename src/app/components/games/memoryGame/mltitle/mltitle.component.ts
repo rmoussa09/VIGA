@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-mltitle',
@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./mltitle.component.scss']
 })
 export class MltitleComponent {
+  @Output() startGameClicked = new EventEmitter();
 
+  startGame() {
+    this.startGameClicked.emit();
+  }
 }
