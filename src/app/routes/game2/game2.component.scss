@@ -78,8 +78,8 @@ svg.material-icons:not(:last-child) {
 .memorycard,
 .speedcard {
   all: unset;
-  border-radius: 4px;
-  height: 100px;
+  border-radius: 10px;
+  height: 250px;
   width: 600px;
   margin: 0 100px 32px;
   padding: 16px;
@@ -92,6 +92,12 @@ svg.material-icons:not(:last-child) {
   position: relative;
   cursor: pointer;
   background-size: 100% 100%;
+}
+
+.guesscard:hover,
+.memorycard:hover,
+.speedcard:hover {
+  transform: scale(1.10);
 }
 
 .guesscard {
