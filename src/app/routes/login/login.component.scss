@@ -1,0 +1,75 @@
+:host{
+    background-image: url("../../../assets/images/background.jpg");
+    background-repeat: repeat;
+    background-size: 100% 100%;
+    background-attachment: scroll;
+    width: 2560px;
+    height: 1180px;
+}
+
+html, body { height: 100%; }
+body { 
+    margin: 0; 
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    font-size: 20px;
+}
+
+
+.form-container {
+    display: block;
+    max-width: 800px;
+    height: 400px;
+    margin: auto;
+    margin-top: 10%;
+
+    background: #eceff1;
+    padding: 48px;
+    border-radius: 16px;
+    border-radius: 10px;
+    border: 3px solid black;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 1);
+}
+
+.form-container mat-form-field {
+    width: 100%;
+    font-size: 20px;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+}
+
+.margin-top {
+    margin-top: 30px;
+    font-size: 30px;
+    line-height: 40px;
+    font-family: cursive;
+}
+
+.margin-text {
+    margin-top: 15px;
+    font-size: 30px;
+    font-family: cursive;
+}
+
+.log-button{
+    padding:30px;
+    font-size: 20px;
+    background-color: #0069d9;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.sign-up-link {
+    font-size: px;
+    margin-left: 8px;
+}
+
+.h1{
+    font-size: 40px;
+    margin-bottom: 30px;
+    font-family:cursive;
+}

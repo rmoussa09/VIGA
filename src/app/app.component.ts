@@ -8,9 +8,10 @@ import { AuthenticationService } from './services/authentication.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  constructor(public authService: AuthenticationService, private router: Router) {
-
+  title(title: any) {
+    throw new Error('Method not implemented.');
   }
+  constructor(public authService: AuthenticationService, private router: Router) {}
 
   logout() {
     this.authService.logout().subscribe(() => {

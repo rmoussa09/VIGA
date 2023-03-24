@@ -2,12 +2,19 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
-import { HomeComponent } from './home/home.component';
-import { Game1Component } from './game1/game1.component';
-import { Game2Component } from './game2/game2.component';
-import { Game3Component } from './game3/game3.component';
-import { RegisterComponent } from './register/register.component';
-import { LoginComponent } from './login/login.component';
+import { HomeComponent } from './routes/home/home.component';
+import { Game1Component } from './routes/game1/game1.component';
+import { Game2Component } from './routes/game2/game2.component';
+import { Game3Component } from './routes/game3/game3.component';
+import { RegisterComponent } from './routes/register/register.component';
+import { LoginComponent } from './routes/login/login.component';
+import { AboutusComponent } from './routes/aboutus/aboutus.component';
+import { ContactComponent } from './routes/contact/contact.component';
+import { EditprofileComponent } from './routes/editprofile/editprofile.component';
+import { AchievementsComponent } from './routes/achievements/achievements.component';
+import { WelcomeComponent } from './components/games/animalGame/welcome/welcome.component';
+import { QuestionComponent } from './components/games/animalGame/question/question.component';
+import { ThankyouComponent } from './routes/thankyou/thankyou.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'home', pathMatch:'full'},
@@ -17,6 +24,13 @@ const routes: Routes = [
   {path: 'game3', component: Game3Component},
   {path: 'register', component: RegisterComponent},
   {path: 'login', component: LoginComponent},
+  {path: 'aboutus', component: AboutusComponent},
+  {path: 'contact', component: ContactComponent},
+  {path: 'editprofile', component: EditprofileComponent},
+  {path: 'achievements', component: AchievementsComponent},
+  {path: 'thankyou', component: ThankyouComponent},
+  {path: 'welcome', component: WelcomeComponent},
+  {path: 'question', component: QuestionComponent},
 ];
 
 @NgModule({
@@ -24,4 +38,5 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
-export const routingComponents = [HomeComponent, Game1Component, Game2Component, Game3Component,RegisterComponent, LoginComponent,]
+
+export const routingComponents = [HomeComponent, Game1Component, Game2Component, Game3Component,RegisterComponent, LoginComponent, AboutusComponent, LoginComponent, EditprofileComponent, AchievementsComponent, ThankyouComponent, WelcomeComponent, QuestionComponent]

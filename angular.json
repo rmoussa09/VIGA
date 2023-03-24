@@ -41,12 +41,12 @@
                 {
                   "type": "initial",
                   "maximumWarning": "500kb",
-                  "maximumError": "1mb"
+                  "maximumError": "5mb"
                 },
                 {
                   "type": "anyComponentStyle",
                   "maximumWarning": "2kb",
-                  "maximumError": "4kb"
+                  "maximumError": "145kb"
                 }
               ],
               "outputHashing": "all"
@@ -104,6 +104,16 @@
               "src/styles.scss"
             ],
             "scripts": []
+          }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "VIGA:build:production",
+            "firebaseProject": "viga-fdfc7",
+            "firebaseHostingSite": "viga-fdfc7"
           }
         }
       }

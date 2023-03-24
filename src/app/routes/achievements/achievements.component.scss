@@ -1,0 +1,359 @@
+:host {
+  font-family: cursive;
+  font-size: 14px;
+  color: #333;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  width: 2560px;
+}
+
+.content {
+  display: flex;
+  margin: 82px auto 32px;
+  padding: 0 16px;
+  max-width: 960px;
+  flex-direction: column;
+  align-items: center;
+}
+
+a,
+a:visited{
+  color:white;
+  font-weight: bold;
+}
+a:hover {
+  color: #1d2cf3;
+  text-decoration:double;
+  font-weight: bolder;
+}
+
+.header{
+  color:white;
+  background: linear-gradient(to bottom, rgb(24, 61, 83), #333333); 
+  text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black;
+  text-align: left;
+  font-size: 3em;
+  margin-top: 4em;
+  margin-left: 5em;
+  padding: 1em;
+  font-weight: bold;
+  border-radius: 10px;
+  border: 2px solid black;
+  width: 25%;
+  line-height: 40px;
+}
+
+.trophy-image {
+    width: 200px;
+    height: auto;
+  }
+
+.table-container {
+  width: 100em;
+  margin-top: 3em;
+  margin-left: 15em;
+  border: 5px solid black;
+  border-radius: 30px;
+  background-color: #585858;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 1);
+  overflow: hidden;
+}
+
+.achievement-table {
+  width: 100em;
+  border-collapse: collapse;
+}
+
+.achievement-table th{
+  padding-top: 10px;
+  padding-left: 10px;
+  text-align: left;
+}
+
+.achievement-table td{
+  padding-left: 10px;
+  padding-top: 10px;
+  padding-right: 300px;
+  background-color: #3a3939;
+}
+.achievement-table td:first-child {
+  position: relative;
+}
+
+.achievement-table td:first-child::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 90%;
+  height: 1px;
+  background-color: white;
+}
+
+.tdtext{
+  font-size: 2.5em;
+  justify-content: center;
+  color: white;
+}
+
+.progress-bar {
+  border-top: white;
+  width: 100%;
+  height: 10px;
+  background-color: #f2f2f2;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.progress {
+  height: 100%;
+  background-color: #4CAF50;
+  border-radius: 5px;
+  width: 100%;
+}
+
+.percentage {
+  position: absolute;
+  right: 0;
+  top: 45%;
+  color: white;
+  font-size: 2em;
+  margin-right: 7em;
+}
+
+/* Responsive Styles */
+@media screen and (max-width:15in){
+  :host {
+    font-family: cursive;
+    font-size: 7px;
+    color: #333;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    width: 1280px;
+  }
+  
+  .content {
+    display: flex;
+    margin: 41px auto 16px;
+    padding: 0 8px;
+    max-width: 480px;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  a,
+  a:visited{
+    color:white;
+    font-weight: bold;
+  }
+
+  a:hover {
+    color: #1d2cf3;
+    text-decoration:double;
+    font-weight: bolder;
+  }
+  
+  .header{
+    color:white;
+    background: linear-gradient(to bottom, rgb(24, 61, 83), #333333); 
+    text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black;
+    text-align: left;
+    font-size: 3em;
+    margin-top: 4em;
+    margin-left: 5em;
+    padding: 1em;
+    font-weight: bold;
+    border-radius: 10px;
+    border: 1px solid black;
+    width: 25%;
+    line-height: 20px;
+  }
+  
+  .trophy-image {
+      width: 100px;
+      height: auto;
+    }
+  
+  .table-container {
+    width: 100em;
+    margin-top: 3em;
+    margin-left: 15em;
+    border: 2.5px solid black;
+    border-radius: 15px;
+    background-color: #585858;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 1);
+    overflow: hidden;
+  }
+  
+  .achievement-table {
+    width: 100em;
+    border-collapse: collapse;
+  }
+  
+  .achievement-table th{
+    padding-top: 5px;
+    padding-left: 5px;
+    text-align: left;
+  }
+  
+  .achievement-table td{
+    padding-left: 5px;
+    padding-top: 5px;
+    padding-right: 150px;
+    background-color: #3a3939;
+  }
+  .achievement-table td:first-child {
+    position: relative;
+  }
+  
+  .achievement-table td:first-child::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 90%;
+    height: 1px;
+    background-color: white;
+  }
+  
+  .tdtext{
+    font-size: 2.75em;
+    justify-content: center;
+    color: white;
+  }
+  
+  .progress-bar {
+    border-top: white;
+    width: 100%;
+    height: 5px;
+    background-color: #f2f2f2;
+    border-radius: 2.5px;
+    overflow: hidden;
+  }
+  
+  .progress {
+    height: 100%;
+    background-color: #4CAF50;
+    border-radius: 2.5px;
+    width: 100%;
+  }
+  
+  .percentage {
+    position: absolute;
+    right: 0;
+    top: 22.5%;
+    color: white;
+    font-size: 3em;
+    margin-right: 3.5em;
+  }
+  
+}
+
+@media screen and (max-width: 1250px) {
+:host {
+    font-family: cursive;
+    font-size: 14px;
+    color: #333;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    width: 100%;
+}
+
+.header{
+    color:white;
+    background: linear-gradient(to top, #FF8C00, #FFA500);
+    text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black;
+    text-align: left;
+    font-size: 3em;
+    margin-top: 4em;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 1em;
+    font-weight: bold;
+    border-radius: 10px;
+    border: 2px solid black;
+    width: 75%;
+    line-height: 40px;
+}
+
+.trophy-image {
+  width: 100px;
+  height: auto;
+}
+
+.table-container {
+  width: 75em;
+  margin-top: 3em;
+  margin-left: 0em;
+  border: 5px solid black;
+  border-radius: 30px;
+  background-color: #585858;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 1);
+  overflow: hidden;
+}
+
+.achievement-table {
+  width: 100em;
+  border-collapse: collapse;
+}
+
+.achievement-table th{
+  padding-top: 10px;
+  padding-left: 10px;
+  text-align: left;
+}
+
+.achievement-table td{
+  padding-left: 10px;
+  padding-top: 10px;
+  padding-right: 300px;
+  background-color: #3a3939;
+}
+.achievement-table td:first-child {
+  position: relative;
+}
+
+.achievement-table td:first-child::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 90%;
+  height: 1px;
+  background-color: white;
+}
+
+.tdtext{
+  font-size: 2em;
+  justify-content: center;
+  color: white;
+}
+
+.progress-bar {
+  border-top: white;
+  width: 50%;
+  height: 10px;
+  background-color: #f2f2f2;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.progress {
+  height: 100%;
+  background-color: #4CAF50;
+  border-radius: 5px;
+  width: 100%;
+}
+
+.percentage {
+  position: absolute;
+  left: 0;
+  top: 45%;
+  color: white;
+  font-size: 2em;
+  margin-left: 18em;
+}
+}

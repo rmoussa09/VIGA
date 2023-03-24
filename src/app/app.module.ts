@@ -15,21 +15,46 @@ import { environment } from '../environments/environment';
 import { provideAuth,getAuth } from '@angular/fire/auth';
 import { MatMenuModule } from '@angular/material/menu';
 import { HotToastModule } from '@ngneat/hot-toast';
-import { GuessanimalComponent } from './guessanimal/guessanimal.component';
+import { GuessanimalComponent } from './components/games/animalGame/guessanimal/guessanimal.component';
+import { Gameborder1Component } from './components/gameborder1/gameborder1.component';
+import { Gameborder2Component } from './components/gameborder2/gameborder2.component';
+import { Gameborder3Component } from './components/gameborder3/gameborder3.component';
+import { provideFirestore,getFirestore } from '@angular/fire/firestore';
+import { provideStorage,getStorage } from '@angular/fire/storage';
+import { MltitleComponent } from './components/games/memoryGame/mltitle/mltitle.component';
+import { SptitleComponent } from './components/games/speedgame/sptitle/sptitle.component';
+import { ChangeBgDirective } from './directives/change-bg.directive';
+import { HttpClientModule } from '@angular/common/http';
+import { SpeedsterComponent } from './components/games/speedgame/speedster/speedster.component';
+import { MemoryLAneComponent } from './components/games/memoryGame/memory-lane/memory-lane.component';
+import { SplevelComponent } from './components/games/speedgame/splevel/splevel.component';
+import { SplevelpageComponent } from './components/games/speedgame/splevelpage/splevelpage.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     routingComponents,
-    GuessanimalComponent
+    GuessanimalComponent,
+    Gameborder1Component,
+    Gameborder2Component,
+    Gameborder3Component,
+    MltitleComponent,
+    SptitleComponent,
+    ChangeBgDirective,
+    SpeedsterComponent,
+    MemoryLAneComponent,
+    SplevelComponent,
+    SplevelpageComponent,
   ],
+  
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
     MatToolbarModule,
+    HttpClientModule,
     MatIconModule,
     MatButtonModule,
     MatFormFieldModule,
@@ -37,7 +62,9 @@ import { GuessanimalComponent } from './guessanimal/guessanimal.component';
     MatMenuModule,
     HotToastModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
-    provideAuth(() => getAuth())
+    provideAuth(() => getAuth()),
+    provideFirestore(() => getFirestore()),
+    provideStorage(() => getStorage())
   ],
   providers: [],
   bootstrap: [AppComponent]

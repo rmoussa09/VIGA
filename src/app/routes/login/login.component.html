@@ -1,0 +1,30 @@
+<div class="form-container">
+    <div class="h1">Login</div>
+    <form [formGroup]="loginForm" (ngSubmit)="submit()">
+        <mat-form-field>
+            <input matInput placeholder="Email Address" formControlName="email"/>
+            <mat-error *ngIf="email?.errors?.['required']">
+                Email is required
+            </mat-error>
+            <mat-error *ngIf="email?.errors?.['email']">
+                Please enter a correct email format
+            </mat-error>
+        </mat-form-field>      
+        <mat-form-field appearance="fill">
+          <input matInput placeholder="Password" formControlName="password" [type]="hide ? 'password' : 'text'">
+          <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
+          <mat-error *ngIf="password?.errors?.['required']">
+            Password is required
+          </mat-error>
+        </mat-form-field>
+        <div class="center margin-top">
+            <button mat-raised-button color="primary" type="submit" class="log-button">
+                Login
+            </button>
+        </div>
+        <span class="center margin-top">New to VIGA?</span>
+        <span class="center margin-text"><a clas="sign-up-link" href="http://localhost:4200/register">Sign Up!</a></span>
+    </form>
+</div>

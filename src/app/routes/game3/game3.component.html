@@ -1,0 +1,34 @@
+<!-- Game Title -->
+<div class="header" role="placeholder-header">
+  <div tabindex="1"><p>Welcome to Speedster!</p></div>
+</div>
+
+<!-- Tutorial -->
+<div class="body" role="placeholder-body">
+  <div tabindex="2"><p>Instructions: Random commands will be given to you. Press the arrow keys or space bar in time before the command disappears.
+  </p></div>
+</div>
+
+<!-- Speedster -->
+<app-speedster></app-speedster>
+
+<!-- Games Header -->
+<div class="gameheader" role="gameheader">
+  <div tabindex="4"><span>Other Games You Might Like</span></div>
+</div>
+
+<!-- Game Cards -->
+<div class="content" role="cards">
+
+  <div class="card-container">
+    <div tabindex="2"><button class="guesscard" type="button" onclick="location.href='http://localhost:4200/game1'">
+      <div class="fadecard"><span>Guess the Animal!</span></div>
+    </button></div>
+
+    <div tabindex="3"><button class="memorycard" type="button" onclick="location.href='http://localhost:4200/game2'">
+      <div class="fadecard"><span>Memory Lane!</span></div>
+    </button></div>
+
+</div>
+
+<router-outlet></router-outlet>
