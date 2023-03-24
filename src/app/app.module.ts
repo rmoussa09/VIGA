@@ -26,6 +26,7 @@ import { SptitleComponent } from './components/games/speedgame/sptitle/sptitle.c
 import { ChangeBgDirective } from './directives/change-bg.directive';
 import { HttpClientModule } from '@angular/common/http';
 import { SpeedsterComponent } from './components/games/speedgame/speedster/speedster.component';
+import { MemoryLAneComponent } from './components/games/memoryGame/memory-lane/memory-lane.component';
 import { SplevelComponent } from './components/games/speedgame/splevel/splevel.component';
 import { SplevelpageComponent } from './components/games/speedgame/splevelpage/splevelpage.component';
 
@@ -42,6 +43,7 @@ import { SplevelpageComponent } from './components/games/speedgame/splevelpage/s
     SptitleComponent,
     ChangeBgDirective,
     SpeedsterComponent,
+    MemoryLAneComponent,
     SplevelComponent,
     SplevelpageComponent,
   ],

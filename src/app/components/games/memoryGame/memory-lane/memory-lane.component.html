@@ -1,0 +1,21 @@
+<div class="speedster-container" *ngIf="!gameOver">
+    <div class=title-container><app-mltitle *ngIf="!gameStarted" (startGameClicked)="startGame()"></app-mltitle></div>
+    <div class="command-container" *ngIf="gameStarted && !gameOver">{{ memory[index] }}</div>
+  
+    <div class="score-container" *ngIf="gameStarted && !gameOver">
+      <div class="score-label">Score:</div>
+      <div class="score">{{ score }}</div>
+    </div>
+
+    <div class="timer-container" *ngIf="gameStarted && !gameOver">
+      <div class="timer-label">Level:</div>
+      <div class="timer">{{maxIndex}}</div>
+    </div>
+  </div>
+  
+  <div class="game-over-container" *ngIf="gameOver">
+    <div class="game-over-label">Game Over!</div>
+    <div class="final-score">Final Score: {{ score }}</div>
+    <button class="play-again-button" (click)="playAgain()">Play Again</button>
+  </div>
+  
