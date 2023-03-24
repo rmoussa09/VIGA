@@ -1,6 +1,10 @@
 <div class="speedster-container" *ngIf="!gameOver">
-  <app-sptitle *ngIf="!gameStarted" (startGameClicked)="displayLevelSelectScreen()"></app-sptitle>
-  <app-splevel *ngIf="displayLevelSelect" [level]="currentLevel" [levelCompleted]="levelCompleted" (startLevelClicked)="startGame()" (nextLevelClicked)="nextLevel()" (levelSelectClicked)="levelSelect($event)"></app-splevel>
+  <app-sptitle *ngIf="!gameStarted && !displayLevelSelect" (startGameClicked)="displayLevelSelectScreen()"></app-sptitle>
+  <div class="level-select-container" *ngIf="displayLevelSelect && !gameStarted">
+    <app-splevelpage *ngIf="!levelCompleted && displayLevelSelect" (levelSelect)="levelSelected($event)"></app-splevelpage>
+  </div>
+
+<app-splevel *ngIf="!gameStarted && displayLevelSelect" [level]="currentLevel" [levelCompleted]="levelCompleted" (startLevelClicked)="startLevel()" (nextLevelClicked)="nextLevel()" (levelSelectClicked)="levelSelect($event)"></app-splevel>
 
   <div class="command-container" *ngIf="gameStarted && !levelCompleted">{{ currentCommand }}</div>
 
@@ -13,6 +17,8 @@
     <div class="timer-label">Time Left:</div>
     <div class="timer">{{ (COMMAND_TIME_LIMIT - timeLeft) / 1000 | number:'1.0-0' }}</div>
   </div>
+
+
 </div>
 
 <div class="game-over-container" *ngIf="gameOver">
@@ -20,3 +26,5 @@
   <div class="final-score">Final Score: {{ score }}</div>
   <button class="play-again-button" (click)="playAgain()">Play Again</button>
 </div>
+
+

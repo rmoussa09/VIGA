@@ -1,4 +1,5 @@
 import { Component, HostListener } from '@angular/core';
+import { SplevelpageComponent } from '../splevelpage/splevelpage.component';
 
 enum Command {
   UP = 'up',
@@ -11,10 +12,11 @@ enum Command {
 @Component({
   selector: 'app-speedster',
   templateUrl: './speedster.component.html',
-  styleUrls: ['./speedster.component.scss']
+  styleUrls: ['./speedster.component.scss'],
+  entryComponents: [SplevelpageComponent]
 })
 export class SpeedsterComponent {
-  public COMMAND_TIME_LIMIT = 10000; // 10 seconds
+  public COMMAND_TIME_LIMIT = 15000; // 15 seconds
 
   gameStarted = false;
   gameOver = false;
@@ -23,6 +25,7 @@ export class SpeedsterComponent {
   score = 0;
   displayLevelSelect = false;
   currentLevel = 1;
+  levelSelectedVisible = false;
 
   currentCommand!: Command;
   commands = [Command.UP, Command.DOWN, Command.LEFT, Command.RIGHT, Command.SPACE];
@@ -46,6 +49,7 @@ export class SpeedsterComponent {
 
   startGame() {
     this.level = 1;
+    this.levelSelectedVisible = false;
     this.startLevel();
   }
 
@@ -55,7 +59,7 @@ export class SpeedsterComponent {
     this.levelCompleted = false;
     this.score = 0;
     this.timeLeft = 0;
-    this.COMMAND_TIME_LIMIT = 11000 - this.currentLevel * 1000;
+    this.COMMAND_TIME_LIMIT = 16000 - this.currentLevel * 1000;
     this.timer = setInterval(() => {
       this.timeLeft += 100;
       if (this.timeLeft >= this.COMMAND_TIME_LIMIT) {
@@ -76,7 +80,8 @@ export class SpeedsterComponent {
     this.gameOver = false;
     this.score = 0;
     this.timeLeft = 0;
-    this.COMMAND_TIME_LIMIT = 11000 - this.currentLevel * 1000;
+    this.COMMAND_TIME_LIMIT = 16000 - this.currentLevel * 1000;
+    this.startLevel();
   }
   
 
@@ -85,10 +90,17 @@ export class SpeedsterComponent {
     this.startLevel();
   }
 
+  levelSelected(level: number) {
+    this.currentLevel = level;
+    this.levelSelectedVisible = true;
+    this.gameStarted = false;
+  }
+
   displayLevelSelectScreen() {
     this.displayLevelSelect = true;
     this.gameStarted = false;
   }
+
 
   showNextCommand() {
     this.currentCommand = this.getRandomCommand();
@@ -112,7 +124,7 @@ export class SpeedsterComponent {
 
   endGame() {
     clearInterval(this.timer);
-    const levelScoreRequirement = 5 * this.currentLevel + 5;
+    const levelScoreRequirement = 5 * this.currentLevel + 2;
     if (this.score >= levelScoreRequirement) {
       this.levelCompleted = true;
       this.displayLevelSelectScreen();
@@ -123,7 +135,7 @@ export class SpeedsterComponent {
   }
   
   checkLevelCompletion() {
-    const levelScoreRequirement = 5 * this.currentLevel + 5;
+    const levelScoreRequirement = 5 * this.currentLevel + 2;
     if (this.score >= levelScoreRequirement) {
       this.endGame();
     }
