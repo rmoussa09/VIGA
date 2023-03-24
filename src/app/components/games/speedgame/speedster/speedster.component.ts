@@ -124,7 +124,7 @@ export class SpeedsterComponent {
 
   endGame() {
     clearInterval(this.timer);
-    const levelScoreRequirement = 5 * this.currentLevel + 2;
+    const levelScoreRequirement = (this.currentLevel + this.currentLevel);
     if (this.score >= levelScoreRequirement) {
       this.levelCompleted = true;
       this.displayLevelSelectScreen();
@@ -135,7 +135,7 @@ export class SpeedsterComponent {
   }
   
   checkLevelCompletion() {
-    const levelScoreRequirement = 5 * this.currentLevel + 2;
+    const levelScoreRequirement = (this.currentLevel  + this.currentLevel);
     if (this.score >= levelScoreRequirement) {
       this.endGame();
     }
