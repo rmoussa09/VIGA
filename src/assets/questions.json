@@ -1,12 +1,13 @@
 {
     "questions": [{
-            "questionText": "What animal makes the **moo** noise?",
+            "questionText": "What animal makes this noise **moo**?",
             "questionAudio": "",
+            "soundAudio": "",
             "options": [{
                     "picture": "https://upload.wikimedia.org/wikipedia/commons/0/0c/Cow_female_black_white.jpg",
                     "text": "cow",
                     "correct": true,
-                    "audio": ""
+                    "textAudio": ""
                 },
                 {
                     "text": "chicken",
@@ -23,7 +24,7 @@
             ]
         },
         {
-        "questionText": "What animal makes the **ribbit** noise?",
+        "questionText": "What animal makes this noise **ribbit**?",
             "questionAudio": "",
             "options": [{
                     "text": "monkey",

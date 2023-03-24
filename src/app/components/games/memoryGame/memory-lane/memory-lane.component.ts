@@ -5,7 +5,6 @@ enum Command {
   DOWN = 'down',
   LEFT = 'left',
   RIGHT = 'right',
-  SPACE = 'space'
 }
 
 @Component({
@@ -17,9 +16,12 @@ export class MemoryLAneComponent {
   gameStarted = false;
   gameOver = false;
   score = 0;
+  index = 0;
+  maxIndex = 0;
   currentCommand!: Command;
-  commands = [Command.UP, Command.DOWN, Command.LEFT, Command.RIGHT, Command.SPACE];
-  memory = []
+  commands = [Command.UP, Command.DOWN, Command.LEFT, Command.RIGHT];
+  stringCommands = ['arrowup', 'arrowdown', 'arrowleft', 'arrowright'];
+  memory: Command[] = [];
 
   constructor() {}
 
@@ -37,6 +39,8 @@ export class MemoryLAneComponent {
   startGame() {
     this.gameStarted = true;
     this.score = 0;
+    this.index = 0;
+    this.getRandomCommand();
     this.showNextCommand();
   }
 
@@ -46,23 +50,31 @@ export class MemoryLAneComponent {
   }
 
   showNextCommand() {
-    this.currentCommand = this.getRandomCommand();
+    this.currentCommand = this.memory[this.index];
+    this.index++;
+    this.checkMaxIndex();
   }
 
-  getRandomCommand(): Command {
+  getRandomCommand() {
     const index = Math.floor(Math.random() * this.commands.length);
-    return this.commands[index];
+    this.memory.push(this.commands[index]);
   }
 
   checkCommand(command: Command) {
-    if (command === this.currentCommand) {
-      this.score++;
+    if (command === this.memory[this.index]) {
       this.showNextCommand();
+      this.score++;
     } else {
       this.endGame();
     }
   }
 
+  checkMaxIndex() {
+    if (this.index > this.maxIndex) {
+      this.maxIndex = this.index;
+    }
+  }
+  
   endGame() {
     this.gameOver = true;
   }
@@ -77,8 +89,6 @@ export class MemoryLAneComponent {
         return Command.LEFT;
       case 'arrowright':
         return Command.RIGHT;
-      case ' ':
-        return Command.SPACE;
       default:
         return undefined;
     }
