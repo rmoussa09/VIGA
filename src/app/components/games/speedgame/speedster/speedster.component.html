@@ -1,13 +1,15 @@
 <div class="speedster-container" *ngIf="!gameOver">
-  <div class=title-container><app-sptitle *ngIf="!gameStarted" (startGameClicked)="startGame()"></app-sptitle></div>
-  <div class="command-container" *ngIf="gameStarted && !gameOver">{{ currentCommand }}</div>
+  <app-sptitle *ngIf="!gameStarted" (startGameClicked)="displayLevelSelectScreen()"></app-sptitle>
+  <app-splevel *ngIf="displayLevelSelect" [level]="currentLevel" [levelCompleted]="levelCompleted" (startLevelClicked)="startGame()" (nextLevelClicked)="nextLevel()" (levelSelectClicked)="levelSelect($event)"></app-splevel>
 
-  <div class="score-container" *ngIf="gameStarted && !gameOver">
+  <div class="command-container" *ngIf="gameStarted && !levelCompleted">{{ currentCommand }}</div>
+
+  <div class="score-container" *ngIf="gameStarted && !levelCompleted">
     <div class="score-label">Score:</div>
     <div class="score">{{ score }}</div>
   </div>
 
-  <div class="timer-container" *ngIf="gameStarted && !gameOver">
+  <div class="timer-container" *ngIf="gameStarted && !levelCompleted">
     <div class="timer-label">Time Left:</div>
     <div class="timer">{{ (COMMAND_TIME_LIMIT - timeLeft) / 1000 | number:'1.0-0' }}</div>
   </div>

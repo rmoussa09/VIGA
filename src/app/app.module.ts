@@ -26,6 +26,7 @@ import { SptitleComponent } from './components/games/speedgame/sptitle/sptitle.c
 import { ChangeBgDirective } from './directives/change-bg.directive';
 import { HttpClientModule } from '@angular/common/http';
 import { SpeedsterComponent } from './components/games/speedgame/speedster/speedster.component';
+import { SplevelComponent } from './components/games/speedgame/splevel/splevel.component';
 
 
 @NgModule({
@@ -40,6 +41,7 @@ import { SpeedsterComponent } from './components/games/speedgame/speedster/speed
     SptitleComponent,
     ChangeBgDirective,
     SpeedsterComponent,
+    SplevelComponent,
   ],
   
   imports: [

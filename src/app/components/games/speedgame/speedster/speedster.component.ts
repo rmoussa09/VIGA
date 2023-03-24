@@ -18,13 +18,19 @@ export class SpeedsterComponent {
 
   gameStarted = false;
   gameOver = false;
+  levelCompleted = false;
+  level = 1;
   score = 0;
+  displayLevelSelect = false;
+  currentLevel = 1;
+
   currentCommand!: Command;
   commands = [Command.UP, Command.DOWN, Command.LEFT, Command.RIGHT, Command.SPACE];
 
   timer!: any;
   timeLeft!: number;
 
+  
   constructor() {}
 
   @HostListener('document:keydown', ['$event'])
@@ -39,9 +45,17 @@ export class SpeedsterComponent {
   }
 
   startGame() {
+    this.level = 1;
+    this.startLevel();
+  }
+
+  startLevel() {
     this.gameStarted = true;
+    this.gameOver = false;
+    this.levelCompleted = false;
     this.score = 0;
     this.timeLeft = 0;
+    this.COMMAND_TIME_LIMIT = 11000 - this.currentLevel * 1000;
     this.timer = setInterval(() => {
       this.timeLeft += 100;
       if (this.timeLeft >= this.COMMAND_TIME_LIMIT) {
@@ -50,10 +64,30 @@ export class SpeedsterComponent {
     }, 100);
     this.showNextCommand();
   }
+  
 
   playAgain() {
+    this.startLevel();
+  }
+
+  nextLevel() {
+    this.currentLevel++;
+    this.levelCompleted = false;
     this.gameOver = false;
-    this.startGame();
+    this.score = 0;
+    this.timeLeft = 0;
+    this.COMMAND_TIME_LIMIT = 11000 - this.currentLevel * 1000;
+  }
+  
+
+  levelSelect(level: number) {
+    this.currentLevel = level;
+    this.startLevel();
+  }
+
+  displayLevelSelectScreen() {
+    this.displayLevelSelect = true;
+    this.gameStarted = false;
   }
 
   showNextCommand() {
@@ -69,6 +103,7 @@ export class SpeedsterComponent {
   checkCommand(command: Command) {
     if (command === this.currentCommand) {
       this.score++;
+      this.checkLevelCompletion();
       this.showNextCommand();
     } else {
       this.endGame();
@@ -77,9 +112,23 @@ export class SpeedsterComponent {
 
   endGame() {
     clearInterval(this.timer);
-    this.gameOver = true;
+    const levelScoreRequirement = 5 * this.currentLevel + 5;
+    if (this.score >= levelScoreRequirement) {
+      this.levelCompleted = true;
+      this.displayLevelSelectScreen();
+    } else {
+      this.levelCompleted = false;
+      this.gameOver = true;
+    }
   }
-
+  
+  checkLevelCompletion() {
+    const levelScoreRequirement = 5 * this.currentLevel + 5;
+    if (this.score >= levelScoreRequirement) {
+      this.endGame();
+    }
+  }
+  
   getCommandFromKey(key: string): Command | undefined {
     switch (key.toLowerCase()) {
       case 'arrowup':
