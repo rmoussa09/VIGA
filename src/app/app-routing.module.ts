@@ -15,6 +15,7 @@ import { AchievementsComponent } from './routes/achievements/achievements.compon
 import { WelcomeComponent } from './components/games/animalGame/welcome/welcome.component';
 import { QuestionComponent } from './components/games/animalGame/question/question.component';
 import { ThankyouComponent } from './routes/thankyou/thankyou.component';
+import { LeaderboardsComponent } from './routes/leaderboards/leaderboards.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'home', pathMatch:'full'},
@@ -28,6 +29,7 @@ const routes: Routes = [
   {path: 'contact', component: ContactComponent},
   {path: 'editprofile', component: EditprofileComponent},
   {path: 'achievements', component: AchievementsComponent},
+  {path: 'leaderboards', component: LeaderboardsComponent},
   {path: 'thankyou', component: ThankyouComponent},
   {path: 'welcome', component: WelcomeComponent},
   {path: 'question', component: QuestionComponent},
