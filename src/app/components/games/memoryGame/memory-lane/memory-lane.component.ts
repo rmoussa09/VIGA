@@ -15,9 +15,10 @@ enum Command {
 export class MemoryLAneComponent {
   gameStarted = false;
   gameOver = false;
+  levelWon = false;
   score = 0;
   index = 0;
-  maxIndex = 0;
+  level = 0;
   currentCommand!: Command;
   commands = [Command.UP, Command.DOWN, Command.LEFT, Command.RIGHT];
   stringCommands = ['arrowup', 'arrowdown', 'arrowleft', 'arrowright'];
@@ -37,11 +38,11 @@ export class MemoryLAneComponent {
   }
 
   startGame() {
+    this.getRandomCommand();
+    this.showNextCommand();
     this.gameStarted = true;
     this.score = 0;
     this.index = 0;
-    this.getRandomCommand();
-    this.showNextCommand();
   }
 
   playAgain() {
@@ -52,7 +53,7 @@ export class MemoryLAneComponent {
   showNextCommand() {
     this.currentCommand = this.memory[this.index];
     this.index++;
-    this.checkMaxIndex();
+    this.checkLevel();
   }
 
   getRandomCommand() {
@@ -69,9 +70,9 @@ export class MemoryLAneComponent {
     }
   }
 
-  checkMaxIndex() {
-    if (this.index > this.maxIndex) {
-      this.maxIndex = this.index;
+  checkLevel() {
+    if (this.index > this.level) {
+      this.level = this.index;
     }
   }
   
