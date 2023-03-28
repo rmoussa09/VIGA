@@ -1,4 +1,5 @@
 import { Component, HostListener } from '@angular/core';
+
 import { SplevelpageComponent } from '../splevelpage/splevelpage.component';
 
 enum Command {
@@ -26,7 +27,7 @@ export class SpeedsterComponent {
   displayLevelSelect = false;
   currentLevel = 1;
   levelSelectedVisible = false;
-
+  mainMenuVisible = false;
   currentCommand!: Command;
   commands = [Command.UP, Command.DOWN, Command.LEFT, Command.RIGHT, Command.SPACE];
 
@@ -49,17 +50,45 @@ export class SpeedsterComponent {
 
   startGame() {
     this.level = 1;
+    this.currentLevel = -1;
     this.levelSelectedVisible = false;
+    this.mainMenuVisible = true;
+    this.displayLevelSelect = false;
+    this.gameStarted = false;
+  }
+
+  displayLevelSelectScreen() {
+    this.displayLevelSelect = true;
+    this.mainMenuVisible = false;
+    this.gameStarted = false;
+  }
+
+  startEndlessMode() {
+    this.gameStarted = true;
+    this.gameOver = false;
+    this.levelCompleted = false;
+    this.score = 0;
+    this.timeLeft = 0;
+    this.COMMAND_TIME_LIMIT = 10000; // 10 seconds
+    this.currentLevel = -1; // Set to -1 to indicate endless mode
     this.startLevel();
+  }
+  
+  exitGame() {
+    this.gameStarted = false;
+    this.gameOver = false;
+    this.levelCompleted = false;
+    this.displayLevelSelect = false;
+    this.mainMenuVisible = false;
   }
 
   startLevel() {
     this.gameStarted = true;
     this.gameOver = false;
     this.levelCompleted = false;
-    this.score = 0;
-    this.timeLeft = 0;
-    this.COMMAND_TIME_LIMIT = 16000 - this.currentLevel * 1000;
+    if (this.currentLevel !== -1) { // Check if not in endless mode
+      this.COMMAND_TIME_LIMIT = 16000 - this.currentLevel * 1000;
+    }
     this.timer = setInterval(() => {
       this.timeLeft += 100;
       if (this.timeLeft >= this.COMMAND_TIME_LIMIT) {
@@ -69,9 +98,18 @@ export class SpeedsterComponent {
     this.showNextCommand();
   }
   
+  
 
   playAgain() {
+    this.score = 0;
     this.startLevel();
+  }
+
+  returnToMainMenu() {
+    this.gameOver = false;
+    this.gameStarted = false;
+    this.mainMenuVisible = true;
+    this.displayLevelSelect = false;
   }
 
   nextLevel() {
@@ -85,9 +123,10 @@ export class SpeedsterComponent {
   }
   
 
-  levelSelect(level: number) {
-    this.currentLevel = level;
-    this.startLevel();
+  levelSelect() {
+    this.gameStarted = false;
+    this.displayLevelSelect = true;
+    this.levelCompleted = false;
   }
 
   levelSelected(level: number) {
@@ -95,12 +134,6 @@ export class SpeedsterComponent {
     this.levelSelectedVisible = true;
     this.gameStarted = false;
   }
-
-  displayLevelSelectScreen() {
-    this.displayLevelSelect = true;
-    this.gameStarted = false;
-  }
-
 
   showNextCommand() {
     this.currentCommand = this.getRandomCommand();
@@ -115,22 +148,35 @@ export class SpeedsterComponent {
   checkCommand(command: Command) {
     if (command === this.currentCommand) {
       this.score++;
-      this.checkLevelCompletion();
+  
+      if (this.currentLevel === -1) { // Endless mode
+        if (this.score % 5 === 0) {
+          this.COMMAND_TIME_LIMIT = Math.max(3000, this.COMMAND_TIME_LIMIT - 1000);
+        }
+      } else {
+        this.checkLevelCompletion();
+      }
       this.showNextCommand();
     } else {
       this.endGame();
     }
   }
+  
 
   endGame() {
     clearInterval(this.timer);
-    const levelScoreRequirement = (this.currentLevel + this.currentLevel);
-    if (this.score >= levelScoreRequirement) {
-      this.levelCompleted = true;
-      this.displayLevelSelectScreen();
-    } else {
-      this.levelCompleted = false;
+    if (this.currentLevel === -1) { // Endless mode
       this.gameOver = true;
+      this.levelCompleted = false;
+    } else {
+      const levelScoreRequirement = (this.currentLevel + this.currentLevel);
+      if (this.score >= levelScoreRequirement) {
+        this.levelCompleted = true;
+        this.displayLevelSelectScreen();
+      } else {
+        this.levelCompleted = false;
+        this.gameOver = true;
+      }
     }
   }
   
@@ -157,4 +203,8 @@ export class SpeedsterComponent {
         return undefined;
     }
   }
+
+
+
+  
 }

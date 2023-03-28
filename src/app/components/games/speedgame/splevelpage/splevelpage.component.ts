@@ -16,4 +16,6 @@ export class SplevelpageComponent {
   levelSelected(level: number) {
     this.levelSelect.emit(level);
   }
+
+  
 }

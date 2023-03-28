@@ -1,8 +1,8 @@
 <div class="container">
-    <div class="header">Level {{ level }}</div>
-    <div class="congratulations" *ngIf="levelCompleted">Congratulations! Level {{ level }} completed.</div>
+  <div class="header" *ngIf="level !== -1">Level {{ level }}</div>
+      <div class="congratulations" *ngIf="levelCompleted">Congratulations! Level {{ level }} completed.</div>
     <button class="next-level-button" *ngIf="levelCompleted && level < 10" (click)="nextLevel()">Next Level</button>
-    <button class="level-select-button" *ngIf="levelCompleted" (click)="levelSelect()">Level Select</button>
-    <button class="start-level-button" *ngIf="!levelCompleted" (click)="startLevel()">Start Level</button>
+    <button class="level-select-button" *ngIf="levelCompleted && level < 10" (click)="levelSelect()">Level Select</button>
+    <button class="start-level-button" *ngIf="!levelCompleted && level !== -1" (click)="startLevel()">Start Level</button>
   </div>
   

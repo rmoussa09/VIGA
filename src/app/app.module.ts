@@ -30,6 +30,7 @@ import { MemoryLAneComponent } from './components/games/memoryGame/memory-lane/m
 import { SplevelComponent } from './components/games/speedgame/splevel/splevel.component';
 import { SplevelpageComponent } from './components/games/speedgame/splevelpage/splevelpage.component';
 import { LeaderboardsComponent } from './routes/leaderboards/leaderboards.component';
+import { SpmainmenuComponent } from './components/games/speedgame/spmainmenu/spmainmenu.component';
 
 
 @NgModule({
@@ -48,6 +49,7 @@ import { LeaderboardsComponent } from './routes/leaderboards/leaderboards.compon
     SplevelComponent,
     SplevelpageComponent,
     LeaderboardsComponent,
+    SpmainmenuComponent,
   ],
   
   imports: [

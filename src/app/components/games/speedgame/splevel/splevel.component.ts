@@ -20,7 +20,8 @@ export class SplevelComponent {
     this.nextLevelClicked.emit();
   }
 
-  levelSelect() {
-    this.levelSelectClicked.emit();
-  }
+levelSelect() {
+  this.levelSelectClicked.emit();
+}
+  
 }
