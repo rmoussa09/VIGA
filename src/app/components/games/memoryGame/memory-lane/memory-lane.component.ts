@@ -24,6 +24,7 @@ export class MemoryLAneComponent{
   stringCommands = ['arrowup', 'arrowdown', 'arrowleft', 'arrowright'];
   memory: Command[] = [];
   copyMemory: String[] = [];
+  commandList = '';
 
   constructor() {}
 
@@ -42,6 +43,7 @@ export class MemoryLAneComponent{
   startGame() {
     this.checkLevel();
     this.getRandomCommand();
+    this.updateCommandList();
     this.showNextCommand();
     this.gameStarted = true;
     this.score = 0;
@@ -59,6 +61,11 @@ export class MemoryLAneComponent{
   getRandomCommand() {
     const index = Math.floor(Math.random() * this.commands.length);
     this.memory.push(this.commands[index]);
+    this.updateCommandList();
+  }
+
+  updateCommandList() {
+    this.commandList = this.memory.map(command => command.toLowerCase()).join(', ');
   }
 
   showNextCommand() {
