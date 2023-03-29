@@ -55,3 +55,103 @@
       </div>
     </div>
   </div>
+  <audio controls>
+    <source src= "What animal makes this noise  (1).mp3" type="audio/mpeg">
+  </audio>
+  <audio controls>
+    <source src= "moo.mp3" type="audio/mpeg">
+  </audio>
+
+ 
+  <script>
+  // Fetch the questions from the JSON file
+fetch('questions.json')
+  .then(response => response.json())
+  .then(data => {
+    // Store the questions in a variable
+    const questions = data;
+
+    // Get the select element
+    const select = document.querySelector("select");
+
+    // Populate the select element with the animal names from the questions
+    questions.forEach(question => {
+      const option = document.createElement("option");
+      option.text = question.questionText;
+      select.add(option);
+    });
+
+    // Set the first option as selected
+    select.options[0].selected = true;
+
+    // Get the currently selected option
+    let selectedOption = select.options[select.selectedIndex];
+
+    // Add event listener for the select element to update the question when the selection changes
+    select.addEventListener("change", function(event) {
+      selectedOption = select.options[select.selectedIndex];
+      const index = questions.findIndex(question => question.questionText === selectedOption.text);
+      updateQuestion(index);
+    });
+
+    // Add event listener for arrow keys to update the selection in the select element
+    document.addEventListener("keydown", function(event) {
+      // Determine which arrow key was pressed
+      switch (event.key) {
+        // Left arrow key for previous option
+        case "ArrowLeft":
+          if (selectedOption.previousElementSibling !== null) {
+            selectedOption.previousElementSibling.selected = true;
+            selectedOption = select.options[select.selectedIndex];
+            select.dispatchEvent(new Event("change"));
+          }
+          break;
+
+        // Right arrow key for next option
+        case "ArrowRight":
+          if (selectedOption.nextElementSibling !== null) {
+            selectedOption.nextElementSibling.selected = true;
+            selectedOption = select.options[select.selectedIndex];
+            select.dispatchEvent(new Event("change"));
+          }
+          break;
+
+        // Ignore other keys
+        default:
+          return;
+      }
+
+      // Prevent default action of arrow keys (e.g. scrolling)
+      event.preventDefault();
+    });
+
+    // Function to update the question and options based on the selected option
+    function updateQuestion(index) {
+      const question = questions[index];
+      const questionElement = document.querySelector(".question h3");
+      questionElement.textContent = question.questionText;
+      const optionsContainer = document.querySelector(".options");
+      optionsContainer.innerHTML = "";
+      question.options.forEach(option => {
+        const optionElement = document.createElement("div");
+        optionElement.classList.add("option");
+        optionElement.setAttribute("onclick", `answer(${index+1}, ${option.correct})`);
+        const cardElement = document.createElement("div");
+        cardElement.classList.add("card");
+        if (option.correct) {
+          cardElement.classList.add("bg-success");
+        } else {
+          cardElement.classList.add("bg-danger");
+        }
+        const imageElement = document.createElement("img");
+        imageElement.src = option.picture;
+        imageElement.width = 250;
+        imageElement.height = 250;
+        cardElement.appendChild(imageElement);
+        optionElement.appendChild(cardElement);
+        optionsContainer.appendChild(optionElement);
+        
+      });
+    }
+  });
+  </script>
