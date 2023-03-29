@@ -30,7 +30,8 @@ export class SpeedsterComponent {
   mainMenuVisible = false;
   currentCommand!: Command;
   commands = [Command.UP, Command.DOWN, Command.LEFT, Command.RIGHT, Command.SPACE];
-  repeatAudioTimeout: any;
+  repeatAudioTimeout: any[] = [];
+  currentAudio: HTMLAudioElement | null = null;
 
   timer!: any;
   timeLeft!: number;
@@ -138,11 +139,14 @@ export class SpeedsterComponent {
   }
 
   showNextCommand() {
-    clearTimeout(this.repeatAudioTimeout);
+    if (this.repeatAudioTimeout) {
+      this.repeatAudioTimeout.forEach((timeout: any) => clearTimeout(timeout));
+    }
     this.currentCommand = this.getRandomCommand();
     this.playCommandAudio(this.currentCommand);
     this.timeLeft = 0;
   }
+  
   
 
   getRandomCommand(): Command {
@@ -180,6 +184,8 @@ export class SpeedsterComponent {
   
   endGame() {
     clearInterval(this.timer);
+    this.stopCurrentAudio();
+    this.clearRepeatAudioTimeouts();
     if (this.currentLevel === -1) { // Endless mode
       this.gameOver = true;
       this.levelCompleted = false;
@@ -266,9 +272,17 @@ export class SpeedsterComponent {
   }
   
   playAudioWithRepeats(audio: HTMLAudioElement, command: Command, delay: number, repeats: number) {
+    //Stops audio from playing when on next game phase
+    if (this.isGameOverOrLevelCompleted()) {
+      return;
+    }
+
     //Play initial audio
     audio.play();
   
+    //Update Audio
+    this.currentAudio = audio;
+
     //Clear previous repeat audio timeouts
     if (this.repeatAudioTimeout) {
       this.repeatAudioTimeout.forEach((timeout: any) => clearTimeout(timeout));
@@ -285,6 +299,24 @@ export class SpeedsterComponent {
       }, delay * i * 1000);
   
       this.repeatAudioTimeout.push(timeout);
+    }
+  }
+
+  isGameOverOrLevelCompleted(): boolean {
+    return this.gameOver || this.levelCompleted;
+  }
+  
+  clearRepeatAudioTimeouts() {
+    if (this.repeatAudioTimeout) {
+      this.repeatAudioTimeout.forEach((timeout: any) => clearTimeout(timeout));
+      this.repeatAudioTimeout = [];
+    }
+  }
+
+  stopCurrentAudio() {
+    if (this.currentAudio) {
+      this.currentAudio.pause();
+      this.currentAudio.currentTime = 0;
     }
   }
 }
