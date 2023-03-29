@@ -19,6 +19,7 @@ export class MemoryLAneComponent{
   chickenwinner = false;
   score = 0;
   index = 0;
+  i = 0;
   maxLevel = 11;
   level = 0;
   id: any;
@@ -26,6 +27,7 @@ export class MemoryLAneComponent{
   stringCommands = ['arrowup', 'arrowdown', 'arrowleft', 'arrowright'];
   memory: Command[] = [];
   commandList = '';
+
 
   constructor() {}
 
@@ -57,6 +59,7 @@ export class MemoryLAneComponent{
     this.checkIfEndGame();
     this.score = 0;
     this.index = 0;
+    this.i = 0;
   }
 
   continueEndless(){
@@ -109,7 +112,16 @@ export class MemoryLAneComponent{
       this.levelWon = true;
       this.getRandomCommand();
       this.updateCommandList();
+      this.playAudio();
+    
+    }
+  }
 
+  playAudio(){
+    this.playCommandAudio(this.memory[this.i]);
+    this.i++;
+    if(this.i < this.level){
+      setTimeout(this.playAudio, 3000);
     }
   }
   
@@ -146,6 +158,10 @@ export class MemoryLAneComponent{
       }
   }
 
+  isGameOverOrLevelCompleted(): boolean {
+    return this.gameOver || this.levelWon || this.chickenwinner;
+  }
+
   getCommandFromKey(key: string): Command | undefined {
     switch (key.toLowerCase()) {
       case 'arrowup':
@@ -161,6 +177,29 @@ export class MemoryLAneComponent{
     }
   }
 
+  playCommandAudio(command: Command) {
+    const audioPath = 'assets/speedgame/audio/';
+    let audioFile = '';
+  
+    switch (command) {
+      case Command.UP:
+        audioFile = 'up.mp3';
+        break;
+      case Command.DOWN:
+        audioFile = 'down.mp3';
+        break;
+      case Command.LEFT:
+        audioFile = 'left.mp3';
+        break;
+      case Command.RIGHT:
+        audioFile = 'right.mp3';
+        break;
+      default:
+        return;
+    }
+    const audio = new Audio(`${audioPath}${audioFile}`);
+    audio.play();
+    }
   
 
 }
