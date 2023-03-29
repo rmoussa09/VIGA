@@ -23,7 +23,6 @@ export class MemoryLAneComponent{
   commands = [Command.UP, Command.DOWN, Command.LEFT, Command.RIGHT];
   stringCommands = ['arrowup', 'arrowdown', 'arrowleft', 'arrowright'];
   memory: Command[] = [];
-  copyMemory: String[] = [];
   commandList = '';
 
   constructor() {}
@@ -50,10 +49,16 @@ export class MemoryLAneComponent{
     this.index = 0;
   }
 
+  continueGame() {
+    this.checkLevel();
+    this.showNextCommand();
+    this.score = 0;
+    this.index = 0;
+  }
+
   retryGame() {
     this.checkLevel();
     this.showNextCommand();
-    this.gameStarted = true;
     this.score = 0;
     this.index = 0;
   }
@@ -92,13 +97,16 @@ export class MemoryLAneComponent{
   checkIfWon() {
     if (this.score === this.memory.length) {
       this.levelWon = true;
+      this.getRandomCommand();
+      this.updateCommandList();
+
     }
   }
   
   playAgain() {
     this.gameOver = false;
     this.levelWon = false;
-    this.startGame();
+    this.continueGame();
   }
 
   tryAgain() {
@@ -109,6 +117,15 @@ export class MemoryLAneComponent{
 
   endGame() {
     this.gameOver = true;
+  }
+
+  exitGame(){
+    this.gameOver = false;
+    this.levelWon = false;
+    this.gameStarted = false;
+    this.memory = [];
+    this.index=0;
+    this.level=0;
   }
 
   getCommandFromKey(key: string): Command | undefined {
