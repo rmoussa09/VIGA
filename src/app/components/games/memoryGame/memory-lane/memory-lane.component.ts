@@ -40,6 +40,7 @@ export class MemoryLAneComponent{
 
 
   startGame() {
+    this.checkLevel();
     this.getRandomCommand();
     this.showNextCommand();
     this.gameStarted = true;
@@ -47,8 +48,8 @@ export class MemoryLAneComponent{
     this.index = 0;
   }
 
-  continueGame() {
-    this.getRandomCommand();
+  retryGame() {
+    this.checkLevel();
     this.showNextCommand();
     this.gameStarted = true;
     this.score = 0;
@@ -96,7 +97,7 @@ export class MemoryLAneComponent{
   tryAgain() {
     this.gameOver = false;
     this.levelWon = false;
-    this.startGame();
+    this.retryGame();
   }
 
   endGame() {
