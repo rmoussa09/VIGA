@@ -1,14 +1,22 @@
 <div class="container">
-    <div class="header">Select a level</div>
-    <button class="level-button" (click)="levelSelected(1)">Level 1</button>
-    <button class="level-button" (click)="levelSelected(2)">Level 2</button>
-    <button class="level-button" (click)="levelSelected(3)">Level 3</button>
-    <button class="level-button" (click)="levelSelected(4)">Level 4</button>
-    <button class="level-button" (click)="levelSelected(5)">Level 5</button>
-    <button class="level-button" (click)="levelSelected(6)">Level 6</button>
-    <button class="level-button" (click)="levelSelected(7)">Level 7</button>
-    <button class="level-button" (click)="levelSelected(8)">Level 8</button>
-    <button class="level-button" (click)="levelSelected(9)">Level 9</button>
-    <button class="level-button" (click)="levelSelected(10)">Level 10</button>
-    <button class="return-to-main-menu-button" (click)="returnToMainMenu()">Return to Main Menu</button>
+  <div class="header">Select a level</div>
+  <div class="levels-container">
+    <div class="column">
+      <button class="level-button" (click)="levelSelected(1)">Level 1</button>
+      <button class="level-button" (click)="levelSelected(2)">Level 2</button>
+      <button class="level-button" (click)="levelSelected(3)">Level 3</button>
+      <button class="level-button" (click)="levelSelected(4)">Level 4</button>
+      <button class="level-button" (click)="levelSelected(5)">Level 5</button>
+    </div>
+    <div class="column">
+      <button class="level-button" (click)="levelSelected(6)">Level 6</button>
+      <button class="level-button" (click)="levelSelected(7)">Level 7</button>
+      <button class="level-button" (click)="levelSelected(8)">Level 8</button>
+      <button class="level-button" (click)="levelSelected(9)">Level 9</button>
+      <button class="level-button" (click)="levelSelected(10)">Level 10</button>
+    </div>
   </div>
+  <button class="return-to-main-menu-button" (click)="returnToMainMenu()">Return to Main Menu</button>
+</div>
+
+

@@ -1,13 +1,13 @@
 import { Component, HostListener } from '@angular/core';
-
+import { Location } from '@angular/common';
 import { SplevelpageComponent } from '../splevelpage/splevelpage.component';
 
 enum Command {
-  UP = 'up',
-  DOWN = 'down',
-  LEFT = 'left',
-  RIGHT = 'right',
-  SPACE = 'space'
+  UP = 'Up',
+  DOWN = 'Down',
+  LEFT = 'Left',
+  RIGHT = 'Right',
+  SPACE = 'Space'
 }
 
 @Component({
@@ -30,12 +30,13 @@ export class SpeedsterComponent {
   mainMenuVisible = false;
   currentCommand!: Command;
   commands = [Command.UP, Command.DOWN, Command.LEFT, Command.RIGHT, Command.SPACE];
+  repeatAudioTimeout: any;
 
   timer!: any;
   timeLeft!: number;
 
   
-  constructor() {}
+  constructor(private location: Location) {}
 
   @HostListener('document:keydown', ['$event'])
   handleKeyDown(event: KeyboardEvent) {
@@ -133,12 +134,16 @@ export class SpeedsterComponent {
     this.currentLevel = level;
     this.levelSelectedVisible = true;
     this.gameStarted = false;
+    this.score = 0;
   }
 
   showNextCommand() {
+    clearTimeout(this.repeatAudioTimeout);
     this.currentCommand = this.getRandomCommand();
+    this.playCommandAudio(this.currentCommand);
     this.timeLeft = 0;
   }
+  
 
   getRandomCommand(): Command {
     const index = Math.floor(Math.random() * this.commands.length);
@@ -211,6 +216,75 @@ export class SpeedsterComponent {
         return Command.SPACE;
       default:
         return undefined;
+    }
+  }
+
+  getCommandImage(): string {
+    const imagePath = 'assets/speedgame/';
+    switch (this.currentCommand) {
+      case Command.UP:
+        return imagePath + 'up.png';
+      case Command.DOWN:
+        return imagePath + 'down.png';
+      case Command.LEFT:
+        return imagePath + 'left.png';
+      case Command.RIGHT:
+        return imagePath + 'right.png';
+      case Command.SPACE:
+        return imagePath + 'space.png';
+      default:
+        return '';
+    }
+  }  
+ 
+  playCommandAudio(command: Command) {
+    const audioPath = 'assets/speedgame/audio/';
+    let audioFile = '';
+  
+    switch (command) {
+      case Command.UP:
+        audioFile = 'up.mp3';
+        break;
+      case Command.DOWN:
+        audioFile = 'down.mp3';
+        break;
+      case Command.LEFT:
+        audioFile = 'left.mp3';
+        break;
+      case Command.RIGHT:
+        audioFile = 'right.mp3';
+        break;
+      case Command.SPACE:
+        audioFile = 'space.mp3';
+        break;
+      default:
+        return;
+    }
+  
+    const audio = new Audio(`${audioPath}${audioFile}`);
+    this.playAudioWithRepeats(audio, command, 3, 2);
+  }
+  
+  playAudioWithRepeats(audio: HTMLAudioElement, command: Command, delay: number, repeats: number) {
+    //Play initial audio
+    audio.play();
+  
+    //Clear previous repeat audio timeouts
+    if (this.repeatAudioTimeout) {
+      this.repeatAudioTimeout.forEach((timeout: any) => clearTimeout(timeout));
+    }
+  
+    this.repeatAudioTimeout = [];
+  
+    //Schedule repeat audios
+    for (let i = 1; i <= repeats; i++) {
+      const timeout = setTimeout(() => {
+        if (command === this.currentCommand && this.timeLeft <= this.COMMAND_TIME_LIMIT - delay * i) {
+          audio.play();
+        }
+      }, delay * i * 1000);
+  
+      this.repeatAudioTimeout.push(timeout);
     }
   }
 }

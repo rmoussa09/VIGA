@@ -11,7 +11,7 @@
   <app-splevel *ngIf="!gameStarted && displayLevelSelect" [level]="currentLevel" [levelCompleted]="levelCompleted" (startLevelClicked)="startLevel()" (nextLevelClicked)="nextLevel()" (levelSelectClicked)="levelSelect()" 
   (returnToMainMenuClicked)="returnToMainMenu()"></app-splevel>
 
-  <div class="command-container" *ngIf="gameStarted && !levelCompleted">{{ currentCommand }}</div>
+  <div class="command-container" *ngIf="gameStarted && !levelCompleted">{{ currentCommand }} <img [src]="getCommandImage()" alt="command-icon" class="command-icon" /></div>
 
   <div class="score-container" *ngIf="gameStarted && !levelCompleted">
     <div class="score-label">Score:</div>
@@ -32,4 +32,3 @@
   <button class="play-again-button" (click)="playAgain()">Play Again</button>
   <button class="return-to-main-menu-button" (click)="returnToMainMenu()">Return to Main Menu</button>
 </div>
-
