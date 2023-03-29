@@ -13,6 +13,7 @@ export class QuestionComponent{
   public questionList: any = [];
   public currentQuestion: number = 0;
   public points: number = 0;
+  quizStarted = false;
   counter = 60;
   correctAnswer: number = 0;
   inCorrectAnswer: number = 0;
@@ -24,6 +25,11 @@ export class QuestionComponent{
 
   ngOnInit(): void {
     this.name = localStorage.getItem("name")!;
+    this.getAllQuestions();
+  }
+
+  startQuiz() {
+    this.quizStarted = true;
     this.getAllQuestions();
   }
 
