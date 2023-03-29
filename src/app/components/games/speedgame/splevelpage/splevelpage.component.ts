@@ -10,6 +10,7 @@ import { Component, EventEmitter, Output } from '@angular/core';
 
 export class SplevelpageComponent {
   @Output() levelSelect = new EventEmitter<number>();
+  @Output() returnToMainMenuClicked = new EventEmitter();
 
   constructor(){}
 
@@ -17,5 +18,8 @@ export class SplevelpageComponent {
     this.levelSelect.emit(level);
   }
 
+  returnToMainMenu() {
+    this.returnToMainMenuClicked.emit();
+  }
   
 }

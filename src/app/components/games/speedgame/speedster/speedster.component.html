@@ -4,10 +4,11 @@
   <app-spmainmenu *ngIf="!gameStarted && mainMenuVisible" (levelModeClicked)="displayLevelSelectScreen()" (endlessModeClicked)="startEndlessMode()"
   (exitGameClicked)="exitGame()" ></app-spmainmenu>
     <div *ngIf="displayLevelSelect && !gameStarted">
-    <app-splevelpage *ngIf="!levelCompleted && displayLevelSelect" (levelSelect)="levelSelected($event)"></app-splevelpage>
+<app-splevelpage *ngIf="!levelCompleted && displayLevelSelect" (levelSelect)="levelSelected($event)" (returnToMainMenuClicked)="returnToMainMenu()"></app-splevelpage>
   </div>
 
-  <app-splevel *ngIf="!gameStarted && displayLevelSelect" [level]="currentLevel" [levelCompleted]="levelCompleted" (startLevelClicked)="startLevel()" (nextLevelClicked)="nextLevel()" (levelSelectClicked)="levelSelect()"></app-splevel>
+  <app-splevel *ngIf="!gameStarted && displayLevelSelect" [level]="currentLevel" [levelCompleted]="levelCompleted" (startLevelClicked)="startLevel()" (nextLevelClicked)="nextLevel()" (levelSelectClicked)="levelSelect()" 
+  (returnToMainMenuClicked)="returnToMainMenu()"></app-splevel>
 
   <div class="command-container" *ngIf="gameStarted && !levelCompleted">{{ currentCommand }}</div>
 
@@ -30,5 +31,4 @@
   <button class="play-again-button" (click)="playAgain()">Play Again</button>
   <button class="return-to-main-menu-button" (click)="returnToMainMenu()">Return to Main Menu</button>
 </div>
-
 

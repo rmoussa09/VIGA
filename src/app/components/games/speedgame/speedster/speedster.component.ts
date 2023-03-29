@@ -203,8 +203,4 @@ export class SpeedsterComponent {
         return undefined;
     }
   }
-
-
-
-  
 }
