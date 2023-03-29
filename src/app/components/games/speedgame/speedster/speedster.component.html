@@ -1,8 +1,9 @@
 <div class="speedster-container" *ngIf="!gameOver">
   <div class="title-container"><app-sptitle *ngIf="!gameStarted && !displayLevelSelect && !mainMenuVisible" (startGameClicked)="startGame()"></app-sptitle></div>
 
-  <app-spmainmenu *ngIf="!gameStarted && mainMenuVisible" (levelModeClicked)="displayLevelSelectScreen()" (endlessModeClicked)="startEndlessMode()"
+  <app-spmainmenu *ngIf="!gameStarted && mainMenuVisible" (levelModeClicked)="enterLevelMode()" (endlessModeClicked)="startEndlessMode()"
   (exitGameClicked)="exitGame()" ></app-spmainmenu>
+  
     <div *ngIf="displayLevelSelect && !gameStarted">
 <app-splevelpage *ngIf="!levelCompleted && displayLevelSelect" (levelSelect)="levelSelected($event)" (returnToMainMenuClicked)="returnToMainMenu()"></app-splevelpage>
   </div>

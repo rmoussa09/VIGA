@@ -162,7 +162,17 @@ export class SpeedsterComponent {
     }
   }
   
-
+  enterLevelMode() {
+    this.resetGameState();
+    this.displayLevelSelectScreen();
+  }
+  
+  
+  resetGameState() {
+    this.gameStarted = false;
+    this.levelCompleted = false;
+  }
+  
   endGame() {
     clearInterval(this.timer);
     if (this.currentLevel === -1) { // Endless mode
