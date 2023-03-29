@@ -1,4 +1,4 @@
-import { Component, HostListener } from '@angular/core';
+import { Component, HostListener, OnInit, OnDestroy } from '@angular/core';
 
 enum Command {
   UP = 'up',
@@ -12,17 +12,18 @@ enum Command {
   templateUrl: './memory-lane.component.html',
   styleUrls: ['./memory-lane.component.scss']
 })
-export class MemoryLAneComponent {
+export class MemoryLAneComponent{
   gameStarted = false;
   gameOver = false;
   levelWon = false;
   score = 0;
   index = 0;
   level = 0;
-  currentCommand!: Command;
+  id: any;
   commands = [Command.UP, Command.DOWN, Command.LEFT, Command.RIGHT];
   stringCommands = ['arrowup', 'arrowdown', 'arrowleft', 'arrowright'];
   memory: Command[] = [];
+  copyMemory: String[] = [];
 
   constructor() {}
 
@@ -37,6 +38,7 @@ export class MemoryLAneComponent {
     }
   }
 
+
   startGame() {
     this.getRandomCommand();
     this.showNextCommand();
@@ -45,15 +47,12 @@ export class MemoryLAneComponent {
     this.index = 0;
   }
 
-  playAgain() {
-    this.gameOver = false;
-    this.startGame();
-  }
-
-  showNextCommand() {
-    this.currentCommand = this.memory[this.index];
-    this.index++;
-    this.checkLevel();
+  continueGame() {
+    this.getRandomCommand();
+    this.showNextCommand();
+    this.gameStarted = true;
+    this.score = 0;
+    this.index = 0;
   }
 
   getRandomCommand() {
@@ -61,10 +60,16 @@ export class MemoryLAneComponent {
     this.memory.push(this.commands[index]);
   }
 
+  showNextCommand() {
+    this.index++;
+    this.checkLevel();
+  }
+
   checkCommand(command: Command) {
     if (command === this.memory[this.index]) {
       this.showNextCommand();
       this.score++;
+      this.checkIfWon();
     } else {
       this.endGame();
     }
@@ -75,7 +80,25 @@ export class MemoryLAneComponent {
       this.level = this.index;
     }
   }
+
+  checkIfWon() {
+    if (this.score === this.memory.length) {
+      this.levelWon = true;
+    }
+  }
   
+  playAgain() {
+    this.gameOver = false;
+    this.levelWon = false;
+    this.startGame();
+  }
+
+  tryAgain() {
+    this.gameOver = false;
+    this.levelWon = false;
+    this.startGame();
+  }
+
   endGame() {
     this.gameOver = true;
   }
@@ -94,4 +117,7 @@ export class MemoryLAneComponent {
         return undefined;
     }
   }
+
+  
+
 }
