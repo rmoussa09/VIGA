@@ -16,8 +16,10 @@ export class MemoryLAneComponent{
   gameStarted = false;
   gameOver = false;
   levelWon = false;
+  chickenwinner = false;
   score = 0;
   index = 0;
+  maxLevel = 11;
   level = 0;
   id: any;
   commands = [Command.UP, Command.DOWN, Command.LEFT, Command.RIGHT];
@@ -50,6 +52,14 @@ export class MemoryLAneComponent{
   }
 
   continueGame() {
+    this.checkLevel();
+    this.showNextCommand();
+    this.checkIfEndGame();
+    this.score = 0;
+    this.index = 0;
+  }
+
+  continueEndless(){
     this.checkLevel();
     this.showNextCommand();
     this.score = 0;
@@ -123,9 +133,17 @@ export class MemoryLAneComponent{
     this.gameOver = false;
     this.levelWon = false;
     this.gameStarted = false;
+    this.chickenwinner = false;
     this.memory = [];
     this.index=0;
     this.level=0;
+  }
+
+  checkIfEndGame() {
+      if (this.level === this.maxLevel) {
+        this.chickenwinner = true;
+        this.gameStarted = false;
+      }
   }
 
   getCommandFromKey(key: string): Command | undefined {

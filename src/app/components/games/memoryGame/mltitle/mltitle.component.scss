@@ -1,5 +1,7 @@
-.header{
-    width: 960px;
+
+  .container{
+    height: 800px;   
+    width: 1500px;
   }
   
   .header{
@@ -39,8 +41,9 @@
       font-weight: bold;
       padding: 1rem 2rem;
       margin-top: 2em;
-      margin-left: 11.5em;
+      margin-left: 6em;
       margin-bottom: 1em;
+      margin-right: 12em;
       border: none;
       border-radius: 0.5rem;
       background-color: #007bff;
@@ -50,7 +53,7 @@
       align-items: center;
     }
     
-    .start-button:hover, .play-again-button:hover {
+    .start-button:hover, .play-again-button:hover, .end-button:hover {
       background-color: #0062cc;
     }
   
