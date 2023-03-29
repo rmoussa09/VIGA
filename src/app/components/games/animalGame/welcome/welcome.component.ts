@@ -1,4 +1,4 @@
-import { Component, OnInit,ViewChild,ElementRef } from '@angular/core';
+import { Component, OnInit,ViewChild,ElementRef, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-welcome',
@@ -7,12 +7,16 @@ import { Component, OnInit,ViewChild,ElementRef } from '@angular/core';
             './../../../../../assets/bootstrap.css']
 })
 export class WelcomeComponent {
-  @ViewChild('name') nameKey!: ElementRef;
+  //@ViewChild('name') nameKey!: ElementRef;
+  @Output() startGameClicked = new EventEmitter();
+
+  startQuiz() {
+    this.startGameClicked.emit();
+  }
+
   constructor() { }
 
-  ngOnInit(): void {
-  }
-  startQuiz(){
+  /*startQuiz(){
     localStorage.setItem("name",this.nameKey.nativeElement.value);
-  }
+  }*/
 }

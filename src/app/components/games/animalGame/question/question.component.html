@@ -1,14 +1,15 @@
 <div class='container'>
     <div class="container mt-5">
-      <div class="card">
-        <div>
+      <div class=title-container><app-welcome *ngIf="!quizStarted" (startGameClicked)="startQuiz()"></app-welcome></div>
+      <div class="card" >
+        <div *ngIf="!isQuizCompleted && quizStarted">
           <div>
             <h4 style="font-family: cursive;">Guess the Animal!</h4>
             <span style="font-style: italic;">Welcome!</span>
           </div>
         </div>
         <br><br>
-        <ng-container *ngIf="!isQuizCompleted">
+        <ng-container *ngIf="!isQuizCompleted && quizStarted">
           <div class="d-flex justify-content-around py-3">
             <div class="score">
               <h5>Level {{points+1}}</h5>
