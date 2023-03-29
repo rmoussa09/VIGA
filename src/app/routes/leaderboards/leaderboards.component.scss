@@ -1,0 +1,289 @@
+:host {
+    font-family: cursive;
+    font-size: 14px;
+    color: #333;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    width: 2560px;
+  }
+  
+  .container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+  .content {
+    display: flex;
+    margin: 82px auto 32px;
+    padding: 0 16px;
+    max-width: 960px;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  a,
+  a:visited{
+    color:white;
+    font-weight: bold;
+  }
+  a:hover {
+    color: #1d2cf3;
+    text-decoration:double;
+    font-weight: bolder;
+  }
+  
+  .header{
+    color:white;
+    background: linear-gradient(to bottom, rgb(24, 61, 83), #333333); 
+    text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black;
+    text-align: left;
+    font-size: 3em;
+    margin-top: 4em;
+    margin-left: 1em;
+    padding: 1em;
+    font-weight: bold;
+    border-radius: 10px;
+    border: 2px solid black;
+    width: 25%;
+    line-height: 40px;
+  }
+  
+
+  
+  .table-container {
+    width: 60em;
+    margin-top: 3em;
+    margin: 3em;
+    border: 5px solid black;
+    border-radius: 30px;
+    background-color: #585858;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 1);
+    overflow: hidden;
+  }
+  
+  .achievement-table {
+    width: 100em;
+    border-collapse: collapse;
+  }
+  
+  .achievement-table th{
+    padding-top: 40px;
+    padding-bottom: 40px;
+    text-align: center;
+    justify-content: baseline;
+    line-height: 50px;
+  }
+  
+  .achievement-table td{
+    padding-left: 10px;
+    padding-top: 10px;
+    padding-right: 300px;
+    background-color: #3a3939;
+  }
+
+  
+  .tableheader{
+    font-size: 3em;
+    text-align: left;
+    justify-content: left;
+    color: white;
+    padding-right: 15em;
+  }
+
+  .thheader,
+  .tdtext{
+    font-size: 2.5em;
+    justify-content: center;
+    color: white;
+  }
+
+  
+  /* Responsive Styles */
+  @media screen and (max-width:15in){
+    :host {
+      font-family: cursive;
+      font-size: 7px;
+      color: #333;
+      box-sizing: border-box;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      width: 1280px;
+    }
+    
+    .content {
+      display: flex;
+      margin: 41px auto 16px;
+      padding: 0 8px;
+      max-width: 480px;
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    a,
+    a:visited{
+      color:white;
+      font-weight: bold;
+    }
+  
+    a:hover {
+      color: #1d2cf3;
+      text-decoration:double;
+      font-weight: bolder;
+    }
+    
+    .header{
+      color:white;
+      background: linear-gradient(to bottom, rgb(24, 61, 83), #333333); 
+      text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black;
+      text-align: left;
+      font-size: 3em;
+      margin-top: 4em;
+      margin-left: 5em;
+      padding: 1em;
+      font-weight: bold;
+      border-radius: 10px;
+      border: 1px solid black;
+      width: 25%;
+      line-height: 20px;
+    }
+    
+    .trophy-image {
+        width: 100px;
+        height: auto;
+      }
+    
+    .table-container {
+      width: 100em;
+      margin-top: 3em;
+      margin-left: 15em;
+      border: 2.5px solid black;
+      border-radius: 15px;
+      background-color: #585858;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 1);
+      overflow: hidden;
+    }
+    
+    .achievement-table {
+      width: 100em;
+      border-collapse: collapse;
+    }
+    
+    .achievement-table th{
+      padding-top: 5px;
+      padding-left: 5px;
+      text-align: left;
+    }
+    
+    .achievement-table td{
+      padding-left: 5px;
+      padding-top: 5px;
+      padding-right: 150px;
+      background-color: #3a3939;
+    }
+    .achievement-table td:first-child {
+      position: relative;
+    }
+    
+    .achievement-table td:first-child::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 90%;
+      height: 1px;
+      background-color: white;
+    }
+    
+    .tdtext{
+      font-size: 2.75em;
+      justify-content: center;
+      color: white;
+    }
+    
+    
+  }
+  
+  @media screen and (max-width: 1250px) {
+  :host {
+      font-family: cursive;
+      font-size: 14px;
+      color: #333;
+      box-sizing: border-box;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      width: 100%;
+  }
+  
+  .header{
+      color:white;
+      background: linear-gradient(to top, #FF8C00, #FFA500);
+      text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black;
+      text-align: left;
+      font-size: 3em;
+      margin-top: 4em;
+      margin-left: auto;
+      margin-right: auto;
+      padding: 1em;
+      font-weight: bold;
+      border-radius: 10px;
+      border: 2px solid black;
+      width: 75%;
+      line-height: 40px;
+  }
+  
+  .trophy-image {
+    width: 100px;
+    height: auto;
+  }
+  
+  .table-container {
+    width: 75em;
+    margin-top: 3em;
+    margin-left: 0em;
+    border: 5px solid black;
+    border-radius: 30px;
+    background-color: #585858;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 1);
+    overflow: hidden;
+  }
+  
+  .achievement-table {
+    width: 100em;
+    border-collapse: collapse;
+  }
+  
+  .achievement-table th{
+    padding-top: 10px;
+    padding-left: 10px;
+    text-align: left;
+  }
+  
+  .achievement-table td{
+    padding-left: 10px;
+    padding-top: 10px;
+    padding-right: 300px;
+    background-color: #3a3939;
+  }
+  .achievement-table td:first-child {
+    position: relative;
+  }
+  
+  .achievement-table td:first-child::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 90%;
+    height: 1px;
+    background-color: white;
+  }
+  
+  .tdtext{
+    font-size: 2em;
+    justify-content: center;
+    color: white;
+  }
+  
+
+  }

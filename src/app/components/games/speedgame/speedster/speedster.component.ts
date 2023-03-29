@@ -1,12 +1,13 @@
 import { Component, HostListener } from '@angular/core';
+import { Location } from '@angular/common';
 import { SplevelpageComponent } from '../splevelpage/splevelpage.component';
 
 enum Command {
-  UP = 'up',
-  DOWN = 'down',
-  LEFT = 'left',
-  RIGHT = 'right',
-  SPACE = 'space'
+  UP = 'Up',
+  DOWN = 'Down',
+  LEFT = 'Left',
+  RIGHT = 'Right',
+  SPACE = 'Space'
 }
 
 @Component({
@@ -26,15 +27,17 @@ export class SpeedsterComponent {
   displayLevelSelect = false;
   currentLevel = 1;
   levelSelectedVisible = false;
-
+  mainMenuVisible = false;
   currentCommand!: Command;
   commands = [Command.UP, Command.DOWN, Command.LEFT, Command.RIGHT, Command.SPACE];
+  repeatAudioTimeout: any[] = [];
+  currentAudio: HTMLAudioElement | null = null;
 
   timer!: any;
   timeLeft!: number;
 
   
-  constructor() {}
+  constructor(private location: Location) {}
 
   @HostListener('document:keydown', ['$event'])
   handleKeyDown(event: KeyboardEvent) {
@@ -49,17 +52,45 @@ export class SpeedsterComponent {
 
   startGame() {
     this.level = 1;
+    this.currentLevel = -1;
     this.levelSelectedVisible = false;
+    this.mainMenuVisible = true;
+    this.displayLevelSelect = false;
+    this.gameStarted = false;
+  }
+
+  displayLevelSelectScreen() {
+    this.displayLevelSelect = true;
+    this.mainMenuVisible = false;
+    this.gameStarted = false;
+  }
+
+  startEndlessMode() {
+    this.gameStarted = true;
+    this.gameOver = false;
+    this.levelCompleted = false;
+    this.score = 0;
+    this.timeLeft = 0;
+    this.COMMAND_TIME_LIMIT = 10000; // 10 seconds
+    this.currentLevel = -1; // Set to -1 to indicate endless mode
     this.startLevel();
+  }
+  
+  exitGame() {
+    this.gameStarted = false;
+    this.gameOver = false;
+    this.levelCompleted = false;
+    this.displayLevelSelect = false;
+    this.mainMenuVisible = false;
   }
 
   startLevel() {
     this.gameStarted = true;
     this.gameOver = false;
     this.levelCompleted = false;
-    this.score = 0;
-    this.timeLeft = 0;
-    this.COMMAND_TIME_LIMIT = 16000 - this.currentLevel * 1000;
+    if (this.currentLevel !== -1) { // Check if not in endless mode
+      this.COMMAND_TIME_LIMIT = 16000 - this.currentLevel * 1000;
+    }
     this.timer = setInterval(() => {
       this.timeLeft += 100;
       if (this.timeLeft >= this.COMMAND_TIME_LIMIT) {
@@ -69,9 +100,18 @@ export class SpeedsterComponent {
     this.showNextCommand();
   }
   
+  
 
   playAgain() {
+    this.score = 0;
     this.startLevel();
+  }
+
+  returnToMainMenu() {
+    this.gameOver = false;
+    this.gameStarted = false;
+    this.mainMenuVisible = true;
+    this.displayLevelSelect = false;
   }
 
   nextLevel() {
@@ -85,27 +125,29 @@ export class SpeedsterComponent {
   }
   
 
-  levelSelect(level: number) {
-    this.currentLevel = level;
-    this.startLevel();
+  levelSelect() {
+    this.gameStarted = false;
+    this.displayLevelSelect = true;
+    this.levelCompleted = false;
   }
 
   levelSelected(level: number) {
     this.currentLevel = level;
     this.levelSelectedVisible = true;
     this.gameStarted = false;
+    this.score = 0;
   }
-
-  displayLevelSelectScreen() {
-    this.displayLevelSelect = true;
-    this.gameStarted = false;
-  }
-
 
   showNextCommand() {
+    if (this.repeatAudioTimeout) {
+      this.repeatAudioTimeout.forEach((timeout: any) => clearTimeout(timeout));
+    }
     this.currentCommand = this.getRandomCommand();
+    this.playCommandAudio(this.currentCommand);
     this.timeLeft = 0;
   }
+  
+  
 
   getRandomCommand(): Command {
     const index = Math.floor(Math.random() * this.commands.length);
@@ -115,22 +157,47 @@ export class SpeedsterComponent {
   checkCommand(command: Command) {
     if (command === this.currentCommand) {
       this.score++;
-      this.checkLevelCompletion();
+  
+      if (this.currentLevel === -1) { // Endless mode
+        if (this.score % 5 === 0) {
+          this.COMMAND_TIME_LIMIT = Math.max(3000, this.COMMAND_TIME_LIMIT - 1000);
+        }
+      } else {
+        this.checkLevelCompletion();
+      }
       this.showNextCommand();
     } else {
       this.endGame();
     }
   }
-
+  
+  enterLevelMode() {
+    this.resetGameState();
+    this.displayLevelSelectScreen();
+  }
+  
+  
+  resetGameState() {
+    this.gameStarted = false;
+    this.levelCompleted = false;
+  }
+  
   endGame() {
     clearInterval(this.timer);
-    const levelScoreRequirement = (this.currentLevel + this.currentLevel);
-    if (this.score >= levelScoreRequirement) {
-      this.levelCompleted = true;
-      this.displayLevelSelectScreen();
-    } else {
-      this.levelCompleted = false;
+    this.stopCurrentAudio();
+    this.clearRepeatAudioTimeouts();
+    if (this.currentLevel === -1) { // Endless mode
       this.gameOver = true;
+      this.levelCompleted = false;
+    } else {
+      const levelScoreRequirement = (this.currentLevel + this.currentLevel);
+      if (this.score >= levelScoreRequirement) {
+        this.levelCompleted = true;
+        this.displayLevelSelectScreen();
+      } else {
+        this.levelCompleted = false;
+        this.gameOver = true;
+      }
     }
   }
   
@@ -155,6 +222,101 @@ export class SpeedsterComponent {
         return Command.SPACE;
       default:
         return undefined;
+    }
+  }
+
+  getCommandImage(): string {
+    const imagePath = 'assets/speedgame/';
+    switch (this.currentCommand) {
+      case Command.UP:
+        return imagePath + 'up.png';
+      case Command.DOWN:
+        return imagePath + 'down.png';
+      case Command.LEFT:
+        return imagePath + 'left.png';
+      case Command.RIGHT:
+        return imagePath + 'right.png';
+      case Command.SPACE:
+        return imagePath + 'space.png';
+      default:
+        return '';
+    }
+  }  
+ 
+  playCommandAudio(command: Command) {
+    const audioPath = 'assets/speedgame/audio/';
+    let audioFile = '';
+  
+    switch (command) {
+      case Command.UP:
+        audioFile = 'up.mp3';
+        break;
+      case Command.DOWN:
+        audioFile = 'down.mp3';
+        break;
+      case Command.LEFT:
+        audioFile = 'left.mp3';
+        break;
+      case Command.RIGHT:
+        audioFile = 'right.mp3';
+        break;
+      case Command.SPACE:
+        audioFile = 'space.mp3';
+        break;
+      default:
+        return;
+    }
+  
+    const audio = new Audio(`${audioPath}${audioFile}`);
+    this.playAudioWithRepeats(audio, command, 3, 2);
+  }
+  
+  playAudioWithRepeats(audio: HTMLAudioElement, command: Command, delay: number, repeats: number) {
+    //Stops audio from playing when on next game phase
+    if (this.isGameOverOrLevelCompleted()) {
+      return;
+    }
+
+    //Play initial audio
+    audio.play();
+  
+    //Update Audio
+    this.currentAudio = audio;
+
+    //Clear previous repeat audio timeouts
+    if (this.repeatAudioTimeout) {
+      this.repeatAudioTimeout.forEach((timeout: any) => clearTimeout(timeout));
+    }
+  
+    this.repeatAudioTimeout = [];
+  
+    //Schedule repeat audios
+    for (let i = 1; i <= repeats; i++) {
+      const timeout = setTimeout(() => {
+        if (command === this.currentCommand && this.timeLeft <= this.COMMAND_TIME_LIMIT - delay * i) {
+          audio.play();
+        }
+      }, delay * i * 1000);
+  
+      this.repeatAudioTimeout.push(timeout);
+    }
+  }
+
+  isGameOverOrLevelCompleted(): boolean {
+    return this.gameOver || this.levelCompleted;
+  }
+  
+  clearRepeatAudioTimeouts() {
+    if (this.repeatAudioTimeout) {
+      this.repeatAudioTimeout.forEach((timeout: any) => clearTimeout(timeout));
+      this.repeatAudioTimeout = [];
+    }
+  }
+
+  stopCurrentAudio() {
+    if (this.currentAudio) {
+      this.currentAudio.pause();
+      this.currentAudio.currentTime = 0;
     }
   }
 }

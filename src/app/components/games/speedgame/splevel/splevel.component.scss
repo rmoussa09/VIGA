@@ -5,29 +5,69 @@
     justify-content: center;
     width: 100%;
     margin-top: 2rem;
+    height: 800px;
+    width: 1500px;
   }
   
   .header {
-    font-size: 2.5rem;
-    font-weight: bold;
-    text-align: center;
-    margin-top: 2.5em;
-    margin-bottom: 1.5rem;
+    margin-top: .5em;
+    font-size: 3em;
+    color: #f44336;
+    text-shadow: 2px 2px 2px #000;
+
   }
   
   .congratulations {
-    font-size: 1.5rem;
-    font-weight: bold;
-    text-align: center;
-    margin-bottom: 1;
+    margin-top: .5em;
+    font-size: 6em;
+    color: #f44336;
+    text-shadow: 2px 2px 2px #000;
+    margin-bottom: 2.5em;
   }
 
   .level-select-button{
-    margin-top: 1em;
-    margin-left: 3em;
+    font-size: 2rem;
+    padding: 1.5rem 3rem;
+    margin-left: 1em;
+    margin-bottom: 1rem;
+    border-radius: 2rem;
+    background-color: #ffeb3b;
+    color: #212121;
+    width: 15em;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+    transition: transform 0.2s ease-out;
   }
 
   .next-level-button{
-    margin-top: 1em;
-    margin-left: 7em;
+    font-size: 2rem;
+    padding: 1.5rem 3rem;
+    margin-left: 6em;
+    margin-bottom: 1rem;
+    border-radius: 2rem;
+    background-color: #ffeb3b;
+    color: #212121;
+    width: 15em;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+    transition: transform 0.2s ease-out;
+  }
+
+  .return-to-main-menu-button {
+    font-size: 2rem;
+    padding: 1.5rem 3rem;
+    margin-left: 1em;
+    margin-bottom: 1rem;
+    border-radius: 2rem;
+    background-color: #ffeb3b;
+    color: #212121;
+    width: 15em;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+    transition: transform 0.2s ease-out;
+  }
+  
+  .level-select-button:hover, .next-level-button:hover, .return-to-main-menu-button:hover {
+    transform: scale(1.05);
+    background-color: #ddcc34;
   }
