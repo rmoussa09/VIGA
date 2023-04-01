@@ -2,7 +2,7 @@ import { Component, HostListener } from '@angular/core';
 import { Location } from '@angular/common';
 import { SplevelpageComponent } from '../splevelpage/splevelpage.component';
 
-enum Command {
+export enum Command {
   UP = 'Up',
   DOWN = 'Down',
   LEFT = 'Left',
