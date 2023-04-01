@@ -1,5 +1,7 @@
-.header{
-    width: 960px;
+
+  .container{
+    height: 800px;   
+    width: 1500px;
   }
   
   .header{
@@ -17,7 +19,7 @@
       text-transform: uppercase;
       letter-spacing: 3px;
       line-height: 40px;
-      padding-top: 50px;
+      padding-top: 12rem;
   }
   
   .start-button {
@@ -26,7 +28,6 @@
       padding: 1rem 2rem;
       margin-top: 3.25em;
       margin-left: 12em;
-    margin-bottom: 4em;
       border: none;
       border-radius: 0.5rem;
       background-color: #007bff;
@@ -34,8 +35,25 @@
       cursor: pointer;
       outline: none;
     }
+
+    .end-button {
+      font-size: 2rem;
+      font-weight: bold;
+      padding: 1rem 2rem;
+      margin-top: 2em;
+      margin-left: 6em;
+      margin-bottom: 1em;
+      margin-right: 12em;
+      border: none;
+      border-radius: 0.5rem;
+      background-color: #007bff;
+      color: white;
+      cursor: pointer;
+      outline: none;
+      align-items: center;
+    }
     
-    .start-button:hover, .play-again-button:hover {
+    .start-button:hover, .play-again-button:hover, .end-button:hover {
       background-color: #0062cc;
     }
   

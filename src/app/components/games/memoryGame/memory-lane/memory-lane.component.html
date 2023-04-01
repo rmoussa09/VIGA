@@ -1,21 +1,40 @@
-<div class="speedster-container" *ngIf="!gameOver">
-    <div class=title-container><app-mltitle *ngIf="!gameStarted" (startGameClicked)="startGame()"></app-mltitle></div>
-    <div class="command-container" *ngIf="gameStarted && !gameOver">{{ memory[index] }}</div>
+<div class="speedster-container" *ngIf="!gameOver && !levelWon && !chickenwinner">
+    <div class=title-container><app-mltitle *ngIf="!gameStarted && !chickenwinner" (startGameClicked)="startGame()"></app-mltitle></div>
+    <div class="command-container" *ngIf="gameStarted && !gameOver && !levelWon && !chickenwinner && level===1"> {{ memory[index] }} </div>
   
-    <div class="score-container" *ngIf="gameStarted && !gameOver">
+  <div class="game-container">
+    <div class="score-container" *ngIf="gameStarted && !gameOver  && !levelWon && !chickenwinner">
       <div class="score-label">Score:</div>
       <div class="score">{{ score }}</div>
     </div>
 
-    <div class="timer-container" *ngIf="gameStarted && !gameOver">
-      <div class="timer-label">Level:</div>
-      <div class="timer">{{maxIndex}}</div>
+    <div class="timer-container" *ngIf="gameStarted && !gameOver && !levelWon && !chickenwinner">
+      <div class="level-label">Level: {{level}}</div>
     </div>
+  </div>
+  </div>
+
+  <div class="level-won-container" *ngIf="levelWon">
+    <div class="level-won-label">Good Job!!</div>
+    <div class="final-score">You completed Level {{ level }}</div>
+    <div class="commands-list">Command List: {{ commandList }}</div>
+    <button class="play-again-button" (click)="playAgain()">Next Level!</button>
+    <button class="play-again-button" (click)="exitGame()">Exit</button>
   </div>
   
   <div class="game-over-container" *ngIf="gameOver">
     <div class="game-over-label">Game Over!</div>
     <div class="final-score">Final Score: {{ score }}</div>
-    <button class="play-again-button" (click)="playAgain()">Play Again</button>
+    <div class="commands-list">Command List: {{ commandList }}</div>
+    <button class="play-again-button" (click)="tryAgain()">Play Again</button>
+    <button class="play-again-button" (click)="exitGame()">Exit</button>
   </div>
+
+  <div class="game-over-container" *ngIf="chickenwinner && !gameStarted">
+    <div class="game-over-label">Congratulations!!!</div>
+    <div class="final-score">You Beat the Game!</div>
+    <div class="commands-list">Try our endless mode or play again!</div>
+    <button class="play-again-button" (click)="exitGame()">Exit</button>
+  </div>
+
   

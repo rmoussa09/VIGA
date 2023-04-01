@@ -11,4 +11,8 @@ export class MltitleComponent {
   startGame() {
     this.startGameClicked.emit();
   }
+
+  //endlessStartGame(){
+  //  this.endlessStartGameClicked.emit();
+  //}
 }

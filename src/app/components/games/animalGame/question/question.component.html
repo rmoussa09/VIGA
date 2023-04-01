@@ -1,62 +1,156 @@
-<div class ='container'>
-<div class="container mt-5">
-    <div class="card">
-        <div>
-            <div>
-                <h4 style="font-family: cursive;">Guess the Animal!</h4>
-                <span style="font-style: italic;">Welcome!</span>
-                <!--<span style="font-style: italic;" class="text-center">Welcome {{name}}</span> -->
-            </div>
+<div class='container'>
+    <div class="container mt-5">
+      <div class=title-container><app-welcome *ngIf="!quizStarted" (startGameClicked)="startQuiz()"></app-welcome></div>
+      <div class="card" >
+        <div *ngIf="!isQuizCompleted && quizStarted">
+          <div>
+            <h4 style="font-family: cursive;">Guess the Animal!</h4>
+            <span style="font-style: italic;">Welcome!</span>
+          </div>
         </div>
-<br><br>
-        <ng-container *ngIf="!isQuizCompleted">
-            <div class="d-flex justify-content-around py-3">
-                <div class="score">
-                    <h5>Level {{points+1}}</h5>
-                </div>
-                <div class="question-remain">
-                    <span style="font-style: italic;">Question {{currentQuestion+1}} of {{questionList.length}}</span>
-                </div>
-
+        <br><br>
+        <ng-container *ngIf="!isQuizCompleted && quizStarted">
+          <div class="d-flex justify-content-around py-3">
+            <div class="score">
+              <h5>Level {{points+1}}</h5>
             </div>
-            <div class="progress mb-3">
-                <div class="progress-bar progress-bar-striped bg-success" role="progressbar" [ngStyle]="{'width':progress+'%'}" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+            <div class="question-remain">
+              <span style="font-style: italic;">Question {{currentQuestion+1}} of {{questionList.length}}</span>
             </div>
-            <div class="question">
-                <div class="card">
-                    <h3>{{questionList[currentQuestion]?.questionText}}</h3>
-                </div>
+          </div>
+          <div class="progress mb-3">
+            <div class="progress-bar progress-bar-striped bg-success" role="progressbar" [ngStyle]="{'width':progress+'%'}" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+          </div>
+          <div class="question">
+            <div class="card">
+              <h3>{{questionList[currentQuestion]?.questionText}}</h3>
             </div>
+          </div>
+          <div class="options-container">
             <div class="options">
-                <ol *ngFor="let option of questionList[currentQuestion]?.options">
-                    <li (click)="answer(currentQuestion+1,option)">
-                        <div appChangeBg [isCorrect]="option.correct" class="card">
-                            <img src={{option.picture}} width="400" height="400">
-                        </div>
-                    </li>
-
-                </ol>
-            </div>
-            <div class="d-flex justify-content-between">
-                <button [disabled]="currentQuestion===0" class="btn" (click)="previousQuestion()"><i class="fa text-primary fa-chevron-left fa-3x" aria-hidden="true"></i></button>
-                <button class="btn" (click)="resetQuiz()"><i class="fa fa-refresh text-primary fa-3x" aria-hidden="true"></i></button>
-                <button class="btn" (click)="nextQuestion()"><i class="fa text-primary fa-chevron-right fa-3x" aria-hidden="true"></i></button>
-            </div>
-        </ng-container>
-
-        <ng-container *ngIf="isQuizCompleted">
-            <div class="row d-flex justify-content-between">
-                <img width="400" height="400" class="mx-auto" src="https://icon-library.com/images/celebration-icon-png/celebration-icon-png-7.jpg" alt="">
-                <div class="result text-center col-sm-12">
-                    <h3>Congratulations!! <br>You have completed the quiz. <br>Below is your result:</h3>
-                    <p>Total Question Attempted : {{questionList.length}} </p>
-                    <p>Total Correct Answered : {{correctAnswer}} </p>
-                    <p>Total Wrong Answered : {{inCorrectAnswer}} </p>
-                    <p>Your Score : {{points}} Points </p>
+              <div class="option" *ngFor="let option of questionList[currentQuestion]?.options" (click)="answer(currentQuestion+1,option)">
+                <div appChangeBg [isCorrect]="option.correct" class="card">
+                  <img src={{option.picture}} width="250" height="250">
                 </div>
+              </div>
             </div>
+          </div>
+          <div class="d-flex justify-content-between">
+            <button [disabled]="currentQuestion===0" class="btn" (click)="previousQuestion()"><i class="fa text-primary fa-chevron-left fa-3x" aria-hidden="true"></i></button>
+            <button class="btn" (click)="resetQuiz()"><i class="fa fa-refresh text-primary fa-3x" aria-hidden="true"></i></button>
+            <button class="btn" (click)="nextQuestion()"><i class="fa text-primary fa-chevron-right fa-3x" aria-hidden="true"></i></button>
+          </div>
         </ng-container>
+         <ng-container *ngIf="isQuizCompleted">
+          <div class="row d-flex justify-content-between">
+            <img width="400" height="400" class="mx-auto" src="https://icon-library.com/images/celebration-icon-png/celebration-icon-png-7.jpg" alt="">
+            <div class="result text-center col-sm-12">
+              <h3>Congratulations!! <br>You have completed the quiz. <br>Below is your result:</h3>
+              <p>Total Question Attempted : {{questionList.length}} </p>
+              <p>Total Correct Answered : {{correctAnswer}} </p>
+              <p>Total Wrong Answered : {{inCorrectAnswer}} </p>
+              <p>Your Score : {{points}} Points </p>
+            </div>
+          </div>
+        </ng-container>
+      </div>
+  <audio controls>
+    <source src= "What animal makes this noise  (1).mp3" type="audio/mpeg">
+  </audio>
+  <audio controls>
+    <source src= "moo.mp3" type="audio/mpeg">
+  </audio>
 
-    </div>
-</div>
-</div>
+ 
+  <script>
+  // Fetch the questions from the JSON file
+fetch('questions.json')
+  .then(response => response.json())
+  .then(data => {
+    // Store the questions in a variable
+    const questions = data;
+
+    // Get the select element
+    const select = document.querySelector("select");
+
+    // Populate the select element with the animal names from the questions
+    questions.forEach(question => {
+      const option = document.createElement("option");
+      option.text = question.questionText;
+      select.add(option);
+    });
+
+    // Set the first option as selected
+    select.options[0].selected = true;
+
+    // Get the currently selected option
+    let selectedOption = select.options[select.selectedIndex];
+
+    // Add event listener for the select element to update the question when the selection changes
+    select.addEventListener("change", function(event) {
+      selectedOption = select.options[select.selectedIndex];
+      const index = questions.findIndex(question => question.questionText === selectedOption.text);
+      updateQuestion(index);
+    });
+
+    // Add event listener for arrow keys to update the selection in the select element
+    document.addEventListener("keydown", function(event) {
+      // Determine which arrow key was pressed
+      switch (event.key) {
+        // Left arrow key for previous option
+        case "ArrowLeft":
+          if (selectedOption.previousElementSibling !== null) {
+            selectedOption.previousElementSibling.selected = true;
+            selectedOption = select.options[select.selectedIndex];
+            select.dispatchEvent(new Event("change"));
+          }
+          break;
+
+        // Right arrow key for next option
+        case "ArrowRight":
+          if (selectedOption.nextElementSibling !== null) {
+            selectedOption.nextElementSibling.selected = true;
+            selectedOption = select.options[select.selectedIndex];
+            select.dispatchEvent(new Event("change"));
+          }
+          break;
+
+        // Ignore other keys
+        default:
+          return;
+      }
+
+      // Prevent default action of arrow keys (e.g. scrolling)
+      event.preventDefault();
+    });
+
+    // Function to update the question and options based on the selected option
+    function updateQuestion(index) {
+      const question = questions[index];
+      const questionElement = document.querySelector(".question h3");
+      questionElement.textContent = question.questionText;
+      const optionsContainer = document.querySelector(".options");
+      optionsContainer.innerHTML = "";
+      question.options.forEach(option => {
+        const optionElement = document.createElement("div");
+        optionElement.classList.add("option");
+        optionElement.setAttribute("onclick", `answer(${index+1}, ${option.correct})`);
+        const cardElement = document.createElement("div");
+        cardElement.classList.add("card");
+        if (option.correct) {
+          cardElement.classList.add("bg-success");
+        } else {
+          cardElement.classList.add("bg-danger");
+        }
+        const imageElement = document.createElement("img");
+        imageElement.src = option.picture;
+        imageElement.width = 250;
+        imageElement.height = 250;
+        cardElement.appendChild(imageElement);
+        optionElement.appendChild(cardElement);
+        optionsContainer.appendChild(optionElement);
+        
+      });
+    }
+  });
+  </script>
