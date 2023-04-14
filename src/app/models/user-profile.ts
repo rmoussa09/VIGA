@@ -3,4 +3,11 @@ export interface ProfileUser {
     name?: string;
     email?: string;
     password?: string;
+    displayName?: string;
+    highScoreGame1?: string;
+    memoryLaneScore?: string;
+    speedsterScore?: string;
+    finishGame1?: string;
+    finishGame2?: string;
+    finishGame3?: string;
 }

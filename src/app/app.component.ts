@@ -11,10 +11,16 @@ import { } from '@angular/fire/firestore';
 })
 export class AppComponent {
   
+
+  user$ = this.usersService.currentUserProfile$;
+  
   title(title: any) {
     throw new Error('Method not implemented.');
   }
-  constructor(public authService: AuthenticationService, public usersService: UsersService, private router: Router) {}
+  constructor(
+    public authService: AuthenticationService, 
+    public usersService: UsersService, 
+    private router: Router) {}
 
   logout() {
     this.authService.logout().subscribe(() => {
