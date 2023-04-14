@@ -17,6 +17,7 @@ export class MemoryLAneComponent{
   gameOver = false;
   levelWon = false;
   chickenwinner = false;
+  endless = false;
   score = 0;
   index = 0;
   maxLevel = 11;
@@ -47,6 +48,17 @@ export class MemoryLAneComponent{
     this.updateCommandList();
     this.showNextCommand();
     this.gameStarted = true;
+    this.score = 0;
+    this.index = 0;
+  }
+
+  startEndlessGame() {
+    this.checkLevel();
+    this.getRandomCommand();
+    this.updateCommandList();
+    this.showNextCommand();
+    this.gameStarted = true;
+    this.endless = true;
     this.score = 0;
     this.index = 0;
   }
@@ -116,7 +128,12 @@ export class MemoryLAneComponent{
   playAgain() {
     this.gameOver = false;
     this.levelWon = false;
-    this.continueGame();
+    if(this.endless===false){
+      this.continueGame();
+    }
+    else if(this.endless === true){
+      this.continueEndless();
+    }
   }
 
   tryAgain() {
