@@ -1,6 +1,8 @@
 import { Component, HostListener } from '@angular/core';
 import { Location } from '@angular/common';
 import { SplevelpageComponent } from '../splevelpage/splevelpage.component';
+import { UsersService } from 'src/app/services/users.service';
+import { first } from 'rxjs/operators';
 
 export enum Command {
   UP = 'Up',
@@ -37,7 +39,7 @@ export class SpeedsterComponent {
   timeLeft!: number;
 
   
-  constructor(private location: Location) {}
+  constructor(private location: Location, private usersService: UsersService) {}
 
   @HostListener('document:keydown', ['$event'])
   handleKeyDown(event: KeyboardEvent) {
@@ -189,6 +191,14 @@ export class SpeedsterComponent {
     if (this.currentLevel === -1) { // Endless mode
       this.gameOver = true;
       this.levelCompleted = false;
+
+      // Update user's score if it's a new high score in endless mode
+      this.usersService.currentUserProfile$.pipe(first()).subscribe(user => {
+        if (user && (!user.speedsterScore || this.score > user.speedsterScore)) {
+          user.speedsterScore = this.score;
+          this.usersService.updateUser(user).subscribe();
+        }
+      });
     } else {
       const levelScoreRequirement = (this.currentLevel + this.currentLevel);
       if (this.score >= levelScoreRequirement) {
@@ -200,6 +210,7 @@ export class SpeedsterComponent {
       }
     }
   }
+  
   
   checkLevelCompletion() {
     const levelScoreRequirement = (this.currentLevel  + this.currentLevel);

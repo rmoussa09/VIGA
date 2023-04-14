@@ -2,7 +2,9 @@ import { Component, OnInit} from '@angular/core';
 import { NonNullableFormBuilder, AbstractControl, ValidatorFn, ValidationErrors, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { HotToastService } from '@ngneat/hot-toast';
+import { switchMap } from 'rxjs';
 import { AuthenticationService } from 'src/app/services/authentication.service';
+import { UsersService } from 'src/app/services/users.service';
 
 
 export function passwordsMatchValidator(): ValidatorFn {
@@ -62,7 +64,8 @@ export class RegisterComponent implements OnInit{
     private authService: AuthenticationService,
     private toast: HotToastService,
     private router: Router,
-    private fb: NonNullableFormBuilder
+    private fb: NonNullableFormBuilder,
+    private usersService: UsersService
     ) { }
 
   ngOnInit(): void {
@@ -92,7 +95,8 @@ export class RegisterComponent implements OnInit{
       return;
     }
 
-    this.authService.signUp(name, email, password).pipe(
+    this.authService.signUp(email, password).pipe(
+      switchMap(({user: {uid}}) => this.usersService.addUser({uid, email, name})),
       this.toast.observe({
         success: 'Congrats! You are all signed up',
         loading: 'Signing up...',

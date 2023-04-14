@@ -62,12 +62,12 @@
     overflow: hidden;
   }
   
-  .achievement-table {
+  .leaderboard-table {
     width: 100em;
     border-collapse: collapse;
   }
   
-  .achievement-table th{
+  .leaderboard-table th{
     padding-top: 40px;
     padding-bottom: 40px;
     text-align: center;
@@ -75,7 +75,7 @@
     line-height: 50px;
   }
   
-  .achievement-table td{
+  .leaderboard-table td{
     padding-left: 10px;
     padding-top: 10px;
     padding-right: 300px;
@@ -147,12 +147,6 @@
       width: 25%;
       line-height: 20px;
     }
-    
-    .trophy-image {
-        width: 100px;
-        height: auto;
-      }
-    
     .table-container {
       width: 100em;
       margin-top: 3em;
@@ -164,28 +158,28 @@
       overflow: hidden;
     }
     
-    .achievement-table {
+    .leaderboard-table {
       width: 100em;
       border-collapse: collapse;
     }
     
-    .achievement-table th{
+    .leaderboard-table th{
       padding-top: 5px;
       padding-left: 5px;
       text-align: left;
     }
     
-    .achievement-table td{
+    .leaderboard-table td{
       padding-left: 5px;
       padding-top: 5px;
       padding-right: 150px;
       background-color: #3a3939;
     }
-    .achievement-table td:first-child {
+    .leaderboard-table td:first-child {
       position: relative;
     }
     
-    .achievement-table td:first-child::before {
+    .leaderboard-table td:first-child::before {
       content: "";
       position: absolute;
       top: 0;
@@ -248,28 +242,28 @@
     overflow: hidden;
   }
   
-  .achievement-table {
+  .leaderboard-table {
     width: 100em;
     border-collapse: collapse;
   }
   
-  .achievement-table th{
+  .leaderboard-table th{
     padding-top: 10px;
     padding-left: 10px;
     text-align: left;
   }
   
-  .achievement-table td{
+  .leaderboard-table td{
     padding-left: 10px;
     padding-top: 10px;
     padding-right: 300px;
     background-color: #3a3939;
   }
-  .achievement-table td:first-child {
+  .leaderboard-table td:first-child {
     position: relative;
   }
   
-  .achievement-table td:first-child::before {
+  .leaderboard-table td:first-child::before {
     content: "";
     position: absolute;
     top: 0;
