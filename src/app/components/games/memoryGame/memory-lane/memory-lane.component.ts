@@ -1,4 +1,6 @@
 import { Component, HostListener, OnInit, OnDestroy } from '@angular/core';
+import { first } from 'rxjs';
+import { UsersService } from 'src/app/services/users.service';
 
 enum Command {
   UP = 'up',
@@ -17,6 +19,7 @@ export class MemoryLAneComponent{
   gameOver = false;
   levelWon = false;
   chickenwinner = false;
+  endless = false;
   score = 0;
   index = 0;
   i = 0;
@@ -29,7 +32,7 @@ export class MemoryLAneComponent{
   commandList = '';
 
 
-  constructor() {}
+  constructor(private usersService: UsersService) {}
 
   @HostListener('document:keydown', ['$event'])
   handleKeyDown(event: KeyboardEvent) {
@@ -49,6 +52,17 @@ export class MemoryLAneComponent{
     this.updateCommandList();
     this.showNextCommand();
     this.gameStarted = true;
+    this.score = 0;
+    this.index = 0;
+  }
+
+  startEndlessGame() {
+    this.checkLevel();
+    this.getRandomCommand();
+    this.updateCommandList();
+    this.showNextCommand();
+    this.gameStarted = true;
+    this.endless = true;
     this.score = 0;
     this.index = 0;
   }
@@ -128,7 +142,19 @@ export class MemoryLAneComponent{
   playAgain() {
     this.gameOver = false;
     this.levelWon = false;
-    this.continueGame();
+    if(this.endless === false){
+      this.continueGame();
+    }
+
+    else if(this.endless === true){
+      this.usersService.currentUserProfile$.pipe(first()).subscribe(user => {
+        if (user && (!user.memoryLaneScore || this.score > user.memoryLaneScore)) {
+          user.memoryLaneScore = this.score;
+          this.usersService.updateUser(user).subscribe();
+        }
+      });
+      this.continueEndless();
+    }
   }
 
   tryAgain() {

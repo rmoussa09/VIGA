@@ -56,4 +56,15 @@ export class UsersService {
     const ref = doc(this.firestore, 'users', user.uid);
     return from(updateDoc(ref, { speedsterScore: score }));
   }
+
+  getTopScores2(): Observable<ProfileUser[]> {
+    const scoresRef = collection(this.firestore, 'users');
+    const q = query(scoresRef, orderBy('memoryLaneScore', 'desc'), limit(5));
+    return collectionData(q) as Observable<ProfileUser[]>;
+  }
+  
+  updateUserScore2(user: ProfileUser, score: number): Observable<any> {
+    const ref = doc(this.firestore, 'users', user.uid);
+    return from(updateDoc(ref, { memoryLaneScore: score }));
+  }
 }

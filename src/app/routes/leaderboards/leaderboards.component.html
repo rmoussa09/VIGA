@@ -3,39 +3,22 @@
   </div>
   
   <div class="container">
-  <div class="table-container">
-    <table class="leaderboard-table">
-      <tbody>
-        <tr>
-        <th colspan="2" class="tableheader"> Top User Rankings - Memory Lane Endless Mode Scores</th>
-        </tr>
-        <tr>
-          <th class ="thheader">1.</th>
-          <td class="tdtext">Placeholder</td>
-        </tr>
-  
-        <tr>
-        <th class ="thheader">2.</th>
-        <td class="tdtext">Placeholder</td>
-        </tr>
-  
-  
-        <tr>
-          <th class ="thheader">3.</th>
-          <td class="tdtext">Placeholder</td>
-        </tr>
-  
-        <tr>
-          <th class ="thheader">4.</th>
-          <td class="tdtext">Placeholder</td>
-        </tr>
-  
-        <tr>
-          <th class ="thheader">5.</th>
-          <td class="tdtext">Placeholder</td>
-        </tr>
-      </tbody>
-    </table>
+    <div class="table-container">
+      <table class="leaderboard-table">
+        <thead>
+          <tr><th colspan="2" class="tableheader"> Top User Rankings - Speedster Endless Mode Scores</th></tr>
+          <tr>
+            <th class="tableheader">Rank</th>
+            <th class="tableheader">Player - Score</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of topScores2; let i = index">
+            <td class="thheader">{{ i + 1 }}.</td>
+            <td class="tdtext">{{ user.name }} - {{ user.memoryLaneScore }}</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
 
     <div class="table-container">
