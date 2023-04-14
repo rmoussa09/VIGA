@@ -1,4 +1,6 @@
 import { Component, HostListener, OnInit, OnDestroy } from '@angular/core';
+import { first } from 'rxjs';
+import { UsersService } from 'src/app/services/users.service';
 
 enum Command {
   UP = 'up',
@@ -30,7 +32,7 @@ export class MemoryLAneComponent{
   commandList = '';
 
 
-  constructor() {}
+  constructor(private usersService: UsersService) {}
 
   @HostListener('document:keydown', ['$event'])
   handleKeyDown(event: KeyboardEvent) {
@@ -140,10 +142,17 @@ export class MemoryLAneComponent{
   playAgain() {
     this.gameOver = false;
     this.levelWon = false;
-    if(this.endless===false){
+    if(this.endless === false){
       this.continueGame();
     }
+
     else if(this.endless === true){
+      this.usersService.currentUserProfile$.pipe(first()).subscribe(user => {
+        if (user && (!user.memoryLaneScore || this.score > user.memoryLaneScore)) {
+          user.memoryLaneScore = this.score;
+          this.usersService.updateUser(user).subscribe();
+        }
+      });
       this.continueEndless();
     }
   }
