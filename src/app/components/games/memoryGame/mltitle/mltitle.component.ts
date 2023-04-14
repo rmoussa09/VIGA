@@ -7,12 +7,14 @@ import { Component, EventEmitter, Output } from '@angular/core';
 })
 export class MltitleComponent {
   @Output() startGameClicked = new EventEmitter();
+  @Output() endlessStartGameClicked = new EventEmitter();
+
 
   startGame() {
     this.startGameClicked.emit();
   }
 
-  //endlessStartGame(){
-  //  this.endlessStartGameClicked.emit();
-  //}
+  endlessStartGame(){
+    this.endlessStartGameClicked.emit();
+  }
 }

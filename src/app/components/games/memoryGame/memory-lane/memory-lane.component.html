@@ -1,5 +1,5 @@
 <div class="speedster-container" *ngIf="!gameOver && !levelWon && !chickenwinner">
-    <div class=title-container><app-mltitle *ngIf="!gameStarted && !chickenwinner" (startGameClicked)="startGame()"></app-mltitle></div>
+    <div class=title-container><app-mltitle *ngIf="!gameStarted && !chickenwinner" (startGameClicked)="startGame()" (endlessStartGameClicked)="startEndlessGame()"></app-mltitle></div>
     <div class="command-container" *ngIf="gameStarted && !gameOver && !levelWon && !chickenwinner && level===1"> {{ memory[index] }} </div>
   
   <div class="game-container">
