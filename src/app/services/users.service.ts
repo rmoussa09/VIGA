@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {
   collection,
+  collectionData,
   doc,
   docData,
   Firestore,
@@ -8,9 +9,10 @@ import {
   setDoc,
   updateDoc,
 } from '@angular/fire/firestore';
-import { filter, from, map, Observable, of, switchMap } from 'rxjs';
+import { from, Observable, of, switchMap } from 'rxjs';
 import { ProfileUser } from '../models/user-profile';
 import { AuthenticationService } from './authentication.service';
+import { query, orderBy, limit } from '@angular/fire/firestore';
 
 @Injectable({
   providedIn: 'root'
@@ -44,4 +46,14 @@ export class UsersService {
     return from(updateDoc(ref, { ...user }));
   }
 
+  getTopScores(): Observable<ProfileUser[]> {
+    const scoresRef = collection(this.firestore, 'users');
+    const q = query(scoresRef, orderBy('speedsterScore', 'desc'), limit(5));
+    return collectionData(q) as Observable<ProfileUser[]>;
+  }
+  
+  updateUserScore(user: ProfileUser, score: number): Observable<any> {
+    const ref = doc(this.firestore, 'users', user.uid);
+    return from(updateDoc(ref, { speedsterScore: score }));
+  }
 }

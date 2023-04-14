@@ -6,7 +6,7 @@ export interface ProfileUser {
     displayName?: string;
     highScoreGame1?: string;
     memoryLaneScore?: string;
-    speedsterScore?: string;
+    speedsterScore?: number;
     finishGame1?: string;
     finishGame2?: string;
     finishGame3?: string;
