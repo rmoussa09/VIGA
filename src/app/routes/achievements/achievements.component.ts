@@ -11,6 +11,14 @@ import { ProfileUser } from 'src/app/models/user-profile';
 export class AchievementsComponent implements OnInit {
   currentUserProfile: ProfileUser | null = null;
 
+  // Guess the Animal Score 5
+  guessAnimalScore5 = false;
+  guessAnimalScore5Progress = 0;
+  
+  // Guess the Animal Score 10
+  guessAnimalScore10 = false;
+  guessAnimalScore10Progress = 0;
+
   // Finish Memory Lane
   finishMemoryLane = false;
   finishMemoryLaneProgress = 0;
@@ -33,6 +41,12 @@ export class AchievementsComponent implements OnInit {
     this.usersService.currentUserProfile$.subscribe(userProfile => {
       this.currentUserProfile = userProfile;
       if (userProfile) {
+        this.guessAnimalScore5 = userProfile.guessAnimalScore5 || false;
+        this.guessAnimalScore5Progress = userProfile.guessAnimalScore ? (userProfile.guessAnimalScore / 10) * 100 : 0;
+
+        this.guessAnimalScore10 = userProfile.guessAnimalScore10 || false;
+        this.guessAnimalScore10Progress = userProfile.guessAnimalScore ? (userProfile.guessAnimalScore / 10) * 100 : 0;
+
         this.finishMemoryLane = userProfile.finishMemoryLane || false;
         this.finishMemoryLaneProgress = userProfile.finishMemoryLane ? 100 : 0;
 

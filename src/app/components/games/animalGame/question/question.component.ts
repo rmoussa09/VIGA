@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { interval } from 'rxjs';
 import { QuestionService } from 'src/app/services/question.service';
+import { UsersService } from 'src/app/services/users.service';
+import { first } from 'rxjs';
 
 @Component({
   selector: 'app-question',
@@ -21,7 +23,7 @@ export class QuestionComponent implements OnInit {
   progress: string = "0";
   isQuizCompleted : boolean = false;
 
-  constructor(private questionService : QuestionService) { }
+  constructor(private questionService : QuestionService, private usersService: UsersService) { }
 
   ngOnInit(): void {
     this.name = localStorage.getItem("name")!;
@@ -65,6 +67,22 @@ export class QuestionComponent implements OnInit {
   answer(currentQno: number, option: any) {
     if(currentQno === this.questionList.length) {
       this.isQuizCompleted = true;
+      this.usersService.currentUserProfile$.pipe(first()).subscribe(user => {
+        if (user && (!user.guessAnimalScore || this.points > user.guessAnimalScore)) {
+          user.guessAnimalScore = this.points;
+          
+          // Update Achievement Score 5
+          if (this.points >= 10) {
+            user.guessAnimalScore5 = true;
+          }
+
+          // Update Achievement Score 10
+          if (this.points >= 10) {
+            user.guessAnimalScore10 = true;
+          }
+          this.usersService.updateUser(user).subscribe();
+        }
+      });
     }
     if (option.correct) {
       this.points += 1;

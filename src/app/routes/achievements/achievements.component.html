@@ -6,26 +6,30 @@
 <table class="achievement-table">
   <tbody>
     <tr>
-      <th rowspan="2"><img src="assets/images/lockedtrophy.jpg" alt="Locked Trophy" class="trophy-image"></th>
+      <th rowspan="2"><img [src]="guessAnimalScore5? 'assets/images/trophy.jpg' : 'assets/images/lockedtrophy.jpg'" alt="{{guessAnimalScore5 ? 'Trophy' : 'Locked Trophy'}}" class="trophy-image"></th>
       <td class="tdtext">Reach a score of 5 on Guess the Animal.</td>
     </tr>
     <tr>
       <td>
-        <div class="progress-bar"></div>
-        <div class="percentage">0%</div>
+        <div class="progress-bar">
+          <div class="progress" [style.width.%]="guessAnimalScore5Progress"></div>
+          <div class="percentage">{{guessAnimalScore5Progress}}%</div>
+        </div>
       </td>
     </tr>
   </tbody>
 
   <tbody>
     <tr>
-      <th rowspan="2"><img src="assets/images/lockedtrophy.jpg" alt="Locked Trophy" class="trophy-image"></th>
+      <th rowspan="2"><img [src]="guessAnimalScore10? 'assets/images/trophy.jpg' : 'assets/images/lockedtrophy.jpg'" alt="{{guessAnimalScore10 ? 'Trophy' : 'Locked Trophy'}}" class="trophy-image"></th>
       <td class="tdtext">Reach a score of 10 on Guess the Animal.</td>
     </tr>
     <tr>
-      <td >
-        <div class="progress-bar"></div>
-        <div class="percentage">0%</div>
+      <td>
+        <div class="progress-bar">
+          <div class="progress" [style.width.%]="guessAnimalScore10Progress"></div>
+          <div class="percentage">{{guessAnimalScore10Progress}}%</div>
+        </div>
       </td>
     </tr>
   </tbody>

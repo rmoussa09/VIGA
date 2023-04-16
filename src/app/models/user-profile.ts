@@ -10,6 +10,7 @@ export interface ProfileUser {
     speedsterScore?: number;
 
     // Achivements
+    guessAnimalScore?: number;
     guessAnimalScore5?: boolean;
     guessAnimalScore10?: boolean;
     finishMemoryLane?: boolean;
