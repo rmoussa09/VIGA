@@ -1,0 +1,35 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 900px;
+    width: 1500px;
+  }
+  
+  .header {
+    font-size: 7em;
+    color: #f44336;
+    text-shadow: 2px 2px 2px #000;
+    margin-bottom: 2em;
+  }
+  
+  button {
+    font-size: 2rem;
+    padding: 1.5rem 3rem;
+    margin-bottom: 1.5rem;
+    border-radius: 2rem;
+    background-color: #ffeb3b;
+    color: #212121;
+    width: 15em;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+    transition: transform 0.2s ease-out;
+  }
+  
+  button:hover {
+    transform: scale(1.05);
+  }
+  
+  
+  

@@ -1,12 +1,17 @@
 <div class="speedster-container" *ngIf="!gameOver">
-  <app-sptitle *ngIf="!gameStarted && !displayLevelSelect" (startGameClicked)="displayLevelSelectScreen()"></app-sptitle>
-  <div class="level-select-container" *ngIf="displayLevelSelect && !gameStarted">
-    <app-splevelpage *ngIf="!levelCompleted && displayLevelSelect" (levelSelect)="levelSelected($event)"></app-splevelpage>
+  <div class="title-container"><app-sptitle *ngIf="!gameStarted && !displayLevelSelect && !mainMenuVisible" (startGameClicked)="startGame()"></app-sptitle></div>
+
+  <app-spmainmenu *ngIf="!gameStarted && mainMenuVisible" (levelModeClicked)="enterLevelMode()" (endlessModeClicked)="startEndlessMode()"
+  (exitGameClicked)="exitGame()" ></app-spmainmenu>
+  
+    <div *ngIf="displayLevelSelect && !gameStarted">
+<app-splevelpage *ngIf="!levelCompleted && displayLevelSelect" (levelSelect)="levelSelected($event)" (returnToMainMenuClicked)="returnToMainMenu()"></app-splevelpage>
   </div>
 
-<app-splevel *ngIf="!gameStarted && displayLevelSelect" [level]="currentLevel" [levelCompleted]="levelCompleted" (startLevelClicked)="startLevel()" (nextLevelClicked)="nextLevel()" (levelSelectClicked)="levelSelect($event)"></app-splevel>
+  <app-splevel *ngIf="!gameStarted && displayLevelSelect" [level]="currentLevel" [levelCompleted]="levelCompleted" (startLevelClicked)="startLevel()" (nextLevelClicked)="nextLevel()" (levelSelectClicked)="levelSelect()" 
+  (returnToMainMenuClicked)="returnToMainMenu()"></app-splevel>
 
-  <div class="command-container" *ngIf="gameStarted && !levelCompleted">{{ currentCommand }}</div>
+  <div class="command-container" *ngIf="gameStarted && !levelCompleted">{{ currentCommand }} <img [src]="getCommandImage()" alt="command-icon" class="command-icon" /></div>
 
   <div class="score-container" *ngIf="gameStarted && !levelCompleted">
     <div class="score-label">Score:</div>
@@ -25,6 +30,5 @@
   <div class="game-over-label">Game Over!</div>
   <div class="final-score">Final Score: {{ score }}</div>
   <button class="play-again-button" (click)="playAgain()">Play Again</button>
+  <button class="return-to-main-menu-button" (click)="returnToMainMenu()">Return to Main Menu</button>
 </div>
-
-

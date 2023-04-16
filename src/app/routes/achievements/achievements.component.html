@@ -6,66 +6,89 @@
 <table class="achievement-table">
   <tbody>
     <tr>
-      <th rowspan="2"><img src="assets/images/lockedtrophy.jpg" alt="Locked Trophy" class="trophy-image"></th>
-      <td class="tdtext">Play any game for more than 30 minutes.</td>
-    </tr>
-    <tr>
-      <td>
-        <div class="progress-bar"></div>
-        <div class="percentage">0%</div>
-      </td>
-    </tr>
-  </tbody>
-
-  <tbody>
-    <tr>
-      <th rowspan="2"><img src="assets/images/lockedtrophy.jpg" alt="Locked Trophy" class="trophy-image"></th>
-      <td class="tdtext">Play any game for more than 1 hour.</td>
-    </tr>
-    <tr>
-      <td >
-        <div class="progress-bar"></div>
-        <div class="percentage">0%</div>
-      </td>
-    </tr>
-  </tbody>
-
-  <tbody>
-    <tr>
-      <th rowspan="2"><img src="assets/images/lockedtrophy.jpg" alt="Locked Trophy" class="trophy-image"></th>
-      <td class="tdtext">Guess 20 animals correctly in Guess the Animal.</td>
-    </tr>
-    <tr>
-      <td >
-        <div class="progress-bar"></div>
-        <div class="percentage">0%</div>
-      </td>
-    </tr>
-  </tbody>
-
-  <tbody>
-    <tr>
-      <th rowspan="2"><img src="assets/images/lockedtrophy.jpg" alt="Locked Trophy" class="trophy-image"></th>
-      <td class="tdtext">Reach level 15 on Memory Lane.</td>
-    </tr>
-    <tr>
-      <td>
-        <div class="progress-bar"></div>
-        <div class="percentage">0%</div>
-      </td>
-    </tr>
-  </tbody>
-
-  <tbody>
-    <tr>
-      <th rowspan="2"><img src="assets/images/trophy.jpg" alt="Locked Trophy" class="trophy-image"></th>
-      <td class="tdtext">Reach level 20 on Speedster.</td>
+      <th rowspan="2"><img [src]="guessAnimalScore5? 'assets/images/trophy.jpg' : 'assets/images/lockedtrophy.jpg'" alt="{{guessAnimalScore5 ? 'Trophy' : 'Locked Trophy'}}" class="trophy-image"></th>
+      <td class="tdtext">Reach a score of 5 on Guess the Animal.</td>
     </tr>
     <tr>
       <td>
         <div class="progress-bar">
-          <div class="progress"></div>
-          <div class="percentage">100%</div>
+          <div class="progress" [style.width.%]="guessAnimalScore5Progress"></div>
+          <div class="percentage">{{guessAnimalScore5Progress}}%</div>
+        </div>
+      </td>
+    </tr>
+  </tbody>
+
+  <tbody>
+    <tr>
+      <th rowspan="2"><img [src]="guessAnimalScore10? 'assets/images/trophy.jpg' : 'assets/images/lockedtrophy.jpg'" alt="{{guessAnimalScore10 ? 'Trophy' : 'Locked Trophy'}}" class="trophy-image"></th>
+      <td class="tdtext">Reach a score of 10 on Guess the Animal.</td>
+    </tr>
+    <tr>
+      <td>
+        <div class="progress-bar">
+          <div class="progress" [style.width.%]="guessAnimalScore10Progress"></div>
+          <div class="percentage">{{guessAnimalScore10Progress}}%</div>
+        </div>
+      </td>
+    </tr>
+  </tbody>
+
+  <tbody>
+    <tr>
+      <th rowspan="2"><img [src]="finishMemoryLane ? 'assets/images/trophy.jpg' : 'assets/images/lockedtrophy.jpg'" alt="{{finishMemoryLane ? 'Trophy' : 'Locked Trophy'}}" class="trophy-image"></th>
+      <td class="tdtext">Complete Level 10 of Memory Lane.</td>
+    </tr>
+    <tr>
+      <td>
+        <div class="progress-bar">
+          <div class="progress" [style.width.%]="finishMemoryLaneProgress"></div>
+          <div class="percentage">{{finishMemoryLaneProgress}}%</div>
+        </div>
+      </td>
+    </tr>
+  </tbody>
+
+  <tbody>
+    <tr>
+      <th rowspan="2"><img [src]="memoryLaneScore10? 'assets/images/trophy.jpg' : 'assets/images/lockedtrophy.jpg'" alt="{{memoryLaneScore10 ? 'Trophy' : 'Locked Trophy'}}" class="trophy-image"></th>
+      <td class="tdtext">Reach a score of 10 on Memory Lane Endless Mode.</td>
+    </tr>
+    <tr>
+      <td>
+        <div class="progress-bar">
+          <div class="progress" [style.width.%]="memoryLaneScore10Progress"></div>
+          <div class="percentage">{{memoryLaneScore10Progress}}%</div>
+        </div>
+      </td>
+    </tr>
+  </tbody>
+
+  <tbody>
+    <tr>
+      <th rowspan="2"><img [src]="finishSpeedster ? 'assets/images/trophy.jpg' : 'assets/images/lockedtrophy.jpg'" alt="{{finishSpeedster ? 'Trophy' : 'Locked Trophy'}}" class="trophy-image"></th>
+      <td class="tdtext">Complete Level 10 of Speedster.</td>
+    </tr>
+    <tr>
+      <td>
+        <div class="progress-bar">
+          <div class="progress" [style.width.%]="finishSpeedsterProgress"></div>
+          <div class="percentage">{{finishSpeedsterProgress}}%</div>
+        </div>
+      </td>
+    </tr>
+  </tbody>
+
+  <tbody>
+    <tr>
+      <th rowspan="2"><img [src]="speedsterScore25 ? 'assets/images/trophy.jpg' : 'assets/images/lockedtrophy.jpg'" alt="{{speedsterScore25 ? 'Trophy' : 'Locked Trophy'}}" class="trophy-image"></th>
+      <td class="tdtext">Reach a score of 25 on Speedster Endless Mode.</td>
+    </tr>
+    <tr>
+      <td>
+        <div class="progress-bar">
+          <div class="progress" [style.width.%]="speedsterScore25Progress"></div>
+          <div class="percentage">{{speedsterScore25Progress}}%</div>
         </div>
       </td>
     </tr>

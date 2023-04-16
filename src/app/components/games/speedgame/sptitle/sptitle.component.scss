@@ -1,5 +1,6 @@
-.header{
-  width: 960px;
+.container{
+  height: 1000px;
+  width: 1500px;
 }
 
 .header{
@@ -7,10 +8,10 @@
     justify-content: center;
     align-items: center;
     text-align: center;
-    font-size: 100px;
+    font-size: 150px;
     margin-top: 90px;
     padding: 20px;
-    color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
     font-family: "Comic Sans MS", sans-serif;
     font-weight: bold;
     text-shadow: 2px 2px #000000;
@@ -20,21 +21,22 @@
     padding-top: 50px;
 }
 
-.start-button {
-    font-size: 2rem;
-    font-weight: bold;
-    padding: 1rem 2rem;
-    margin-top: 3.25em;
-    margin-left: 12em;
-  margin-bottom: 4em;
-    border: none;
-    border-radius: 0.5rem;
-    background-color: #007bff;
-    color: white;
-    cursor: pointer;
-    outline: none;
-  }
-  
-  .start-button:hover, .play-again-button:hover {
-    background-color: #0062cc;
-  }
+button {
+  font-size: 2rem;
+  padding: 1.5rem 3rem;
+  margin-top: 9em;
+  margin-left: 15.5em;
+  margin-bottom: 1.5rem;
+  border-radius: 2rem;
+  background-color: #ffeb3b;
+  color: #212121;
+  width: 15em;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  transition: transform 0.2s ease-out;
+}
+
+button:hover {
+  transform: scale(1.05);
+  background-color: #ddcc34;
+}

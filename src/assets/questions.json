@@ -1,8 +1,8 @@
 {
     "questions": [{
             "questionText": "What animal makes this noise **moo**?",
-            "questionAudio": "",
-            "soundAudio": "",
+            "questionAudio": "What animal makes this noise (1).mp3",
+            "soundAudio": "moo.mp3",
             "options": [{
                     "picture": "https://upload.wikimedia.org/wikipedia/commons/0/0c/Cow_female_black_white.jpg",
                     "text": "cow",
@@ -25,7 +25,9 @@
         },
         {
         "questionText": "What animal makes this noise **ribbit**?",
-            "questionAudio": "",
+            "questionAudio": "What animal makes this noise (1).mp3",
+            "soundAudio": "ribbit.mp3",
+
             "options": [{
                     "text": "monkey",
                     "correct": false,
@@ -48,26 +50,220 @@
         },
         {
         "questionText": "What animal makes the **Cawcaw** noise?",
-            "questionAudio": "",
+            "questionAudio": "What animal makes this noise (1).mp3" ,
+            "soundAudio": "cawcaw.mp3",
+
             "options": [{
                     "text": "fox",
-                    "correct": true,
+                    "correct": false,
                     "picture": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/2014-06-20_Vulpes_vulpes_vulpes%2C_B%C3%B6nhamn%2C_V%C3%A4sternorrlands_L%C3%A4n%2C_Sverige_1.jpg/800px-2014-06-20_Vulpes_vulpes_vulpes%2C_B%C3%B6nhamn%2C_V%C3%A4sternorrlands_L%C3%A4n%2C_Sverige_1.jpg",
                     "audio": ""
                 },
                 {
+                "text": "zebra",
+                "correct": false,
+                "picture": "https://upload.wikimedia.org/wikipedia/commons/e/e3/Plains_Zebra_Equus_quagga.jpg",
+                "audio": ""
+                   
+                },
+                {
+                    
+
                     "text": "crow",
                     "correct": true,
                     "picture": "https://i0.wp.com/seattleaudubon.org/wp-content/uploads/2020/12/Northwestern_Crow_KK_Meryle_Ardagh_GBBC_2015.jpg?fit=2400%2C1800&ssl=1",
                     "audio": ""
-                },
-                {
-                    "text": "zebra",
-                    "correct": false,
-                    "picture": "https://upload.wikimedia.org/wikipedia/commons/e/e3/Plains_Zebra_Equus_quagga.jpg",
-                    "audio": ""
                 }
             ]
-        }
+        },
+        {
+            "questionText": "What animal makes the **neigh* noise?",
+                "questionAudio": "What animal makes this noise (1).mp3",
+                "soundAudio": "neigh.mp3",
+
+                "options": [{
+                        "text": "fox",
+                        "correct": false,
+                        "picture": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/2014-06-20_Vulpes_vulpes_vulpes%2C_B%C3%B6nhamn%2C_V%C3%A4sternorrlands_L%C3%A4n%2C_Sverige_1.jpg/800px-2014-06-20_Vulpes_vulpes_vulpes%2C_B%C3%B6nhamn%2C_V%C3%A4sternorrlands_L%C3%A4n%2C_Sverige_1.jpg",
+                        "audio": ""
+                    },
+                    {
+                        "text": "zebra",
+                        "correct": false,
+                        "picture": "https://upload.wikimedia.org/wikipedia/commons/e/e3/Plains_Zebra_Equus_quagga.jpg",
+                        "audio": ""
+                    },
+                    {
+                       
+                        "text": "horse",
+                        "correct": true,
+                        "picture": "https://horseyhooves.com/wp-content/uploads/2022/08/Beautiful-horse-running-in-a-grassy-field.jpg.webp",
+                        "audio": ""
+                    }
+                ]
+            },
+            {
+                "questionText": "What animal makes the 'bark' noise?",
+                "questionAudio": "What animal makes this noise (1).mp3",
+                "soundAudio": "bark.mp3",
+
+                "options": [
+                  {
+                    "text": "dog",
+                    "correct": true,
+                    "picture": "https://hips.hearstapps.com/hmg-prod/images/golden-retriever-royalty-free-image-506756303-1560962726.jpg?crop=1.00xw:0.756xh;0,0.0756xh&resize=1200:*",
+                    "audio": ""
+
+                  },
+                  {
+                    "text": "cat",
+                    "correct": false,
+                    "picture": "https://upload.wikimedia.org/wikipedia/commons/3/3a/Cat03.jpg",
+                    "audio": ""
+                  },
+                  {
+                    "text": "lion",
+                    "correct": false,
+                    "picture": "https://upload.wikimedia.org/wikipedia/commons/7/73/Lion_waiting_in_Namibia.jpg",
+                    "audio": ""
+                  }
+                ]
+              },
+              {
+                "questionText": "What animal makes the 'baa' noise?",
+                "questionAudio": "What animal makes this noise (1).mp3",
+                "soundAudio": "baa.mp3", 
+
+                "options": [
+                  {
+                    "text": "wolf",
+                    "correct": false,
+                    "picture": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/2014-06-20_Vulpes_vulpes_vulpes%2C_B%C3%B6nhamn%2C_V%C3%A4sternorrlands_L%C3%A4n%2C_Sverige_1.jpg/800px-2014-06-20_Vulpes_vulpes_vulpes%2C_B%C3%B6nhamn%2C_V%C3%A4sternorrlands_L%C3%A4n%2C_Sverige_1.jpg",
+                    "audio": ""
+                  },
+                  {   
+                 "text": "goose",
+                  "correct": false,
+                  "picture": "https://nationalzoo.si.edu/sites/default/files/styles/1400_scale/public/conservation/migratory-birds/news/cago1.jpg?itok=cz7cFkL1",
+                  "audio": ""
+                   
+                  },
+                  {
+                    "text": "sheep",
+                    "correct": true,
+                    "picture": "https://upload.wikimedia.org/wikipedia/commons/e/e7/Ovis_orientalis_aries_%27Skudde%27_%28aka%29.jpg",
+                    "audio": ""
+
+                  }
+                ]
+              },
+              {
+                "questionText": "What animal makes the 'howl' noise?",
+                "questionAudio": "What animal makes this noise (1).mp3",
+                "soundAudio": "howl.mp3",
+
+                "options": [
+                  {
+                  "text": "lion",
+                  "correct": false,
+                  "picture": "https://upload.wikimedia.org/wikipedia/commons/7/73/Lion_waiting_in_Namibia.jpg",
+                  "audio": ""
+                  },
+                  {
+                    "text": "wolf",
+                    "correct": true,
+                    "picture": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/2014-06-20_Vulpes_vulpes_vulpes%2C_B%C3%B6nhamn%2C_V%C3%A4sternorrlands_L%C3%A4n%2C_Sverige_1.jpg/800px-2014-06-20_Vulpes_vulpes_vulpes%2C_B%C3%B6nhamn%2C_V%C3%A4sternorrlands_L%C3%A4n%2C_Sverige_1.jpg",
+                    "audio": ""
+                  },
+                  {
+                    "text": "cat",
+                    "correct": false,
+                    "picture": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Cat_March_2010-1.jpg/800px-Cat_March_2010-1.jpg",
+                    "audio": ""
+                  }
+                ]
+              },
+              {
+                "questionText": "What animal makes the 'quack' noise?",
+                "questionAudio": "What animal makes this noise (1).mp3",
+                "soundAudio": "quack.mp3",
+
+                "options": [
+                  {
+
+                    "text": "duck",
+                    "correct": true,
+                    "picture": "https://upload.wikimedia.org/wikipedia/commons/a/a1/Mallard2.jpg",
+                    "audio": ""
+
+                   
+                  },
+                  {
+                    "text": "cat",
+                    "correct": false,
+                    "picture": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Cat_March_2010-1.jpg/800px-Cat_March_2010-1.jpg",
+                    "audio": ""
+                   
+                  },
+                  {
+                    "text": "zebra",
+                        "correct": false,
+                        "picture": "https://upload.wikimedia.org/wikipedia/commons/e/e3/Plains_Zebra_Equus_quagga.jpg",
+                        "audio": ""
+                  }
+                ]
+              },
+              {
+                "questionText": "What animal makes the 'hoot' noise?",
+                "questionAudio": "What animal makes this noise (1).mp3",
+                "soundAudio": "hoot.mp3",
+
+                "options": [
+                  {
+                    "text": "frog",
+                    "correct": false,
+                    "picture": "https://assets.petco.com/petco/image/upload/f_auto,q_auto/green-tree-frog-care-sheet-hero",
+                    "audio": "test"
+                  },
+                  {
+                    "text": "owl",
+                    "correct": true,
+                    "picture": "https://cdn.britannica.com/86/34386-050-25B31B35/Great-horned-owl.jpg",
+                    "audio": ""
+                  },
+                  {
+                    "text": "lion",
+                    "correct": false,
+                    "picture": "https://upload.wikimedia.org/wikipedia/commons/7/73/Lion_waiting_in_Namibia.jpg",
+                    "audio": ""
+                  }
+                ]
+              },
+              {
+                "questionText": "What animal makes the 'roar' noise?",
+                "questionAudio": "What animal makes this noise (1).mp3" ,
+                "soundAudio": ".mp3",
+
+                "options": [
+                  {
+                    "text": "frog",
+                    "correct": true,
+                    "picture": "https://assets.petco.com/petco/image/upload/f_auto,q_auto/green-tree-frog-care-sheet-hero",
+                    "audio": "test"
+                  },
+                  {
+                    "text": "owl",
+                    "correct": false,
+                    "picture": "https://cdn.britannica.com/86/34386-050-25B31B35/Great-horned-owl.jpg",
+                    "audio": ""
+                  },
+                  {
+                    "text": "lion",
+                    "correct": true,
+                    "picture": "https://upload.wikimedia.org/wikipedia/commons/7/73/Lion_waiting_in_Namibia.jpg",
+                    "audio": ""
+                  }
+                ]
+              }
     ]
 }

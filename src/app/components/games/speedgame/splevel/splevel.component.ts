@@ -11,6 +11,7 @@ export class SplevelComponent {
   @Output() startLevelClicked = new EventEmitter();
   @Output() nextLevelClicked = new EventEmitter();
   @Output() levelSelectClicked = new EventEmitter();
+  @Output() returnToMainMenuClicked = new EventEmitter();
 
   startLevel() {
     this.startLevelClicked.emit();
@@ -20,7 +21,12 @@ export class SplevelComponent {
     this.nextLevelClicked.emit();
   }
 
-  levelSelect() {
-    this.levelSelectClicked.emit();
-  }
+levelSelect() {
+  this.levelSelectClicked.emit();
+}
+
+returnToMainMenu() {
+  this.returnToMainMenuClicked.emit();
+}
+
 }

@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { Gameborder1Component } from './gameborder1.component';
+import { SpmainmenuComponent } from './spmainmenu.component';
 
-describe('Gameborder1Component', () => {
-  let component: Gameborder1Component;
-  let fixture: ComponentFixture<Gameborder1Component>;
+describe('SpmainmenuComponent', () => {
+  let component: SpmainmenuComponent;
+  let fixture: ComponentFixture<SpmainmenuComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ Gameborder1Component ]
+      declarations: [ SpmainmenuComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(Gameborder1Component);
+    fixture = TestBed.createComponent(SpmainmenuComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

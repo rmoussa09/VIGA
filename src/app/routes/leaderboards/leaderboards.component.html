@@ -1,0 +1,41 @@
+<div class="header">
+    <div tabindex="1">Leaderboards</div>
+  </div>
+  
+  <div class="container">
+    <div class="table-container">
+      <table class="leaderboard-table">
+        <thead>
+          <tr><th colspan="2" class="tableheader"> Top User Rankings - Speedster Endless Mode Scores</th></tr>
+          <tr>
+            <th class="tableheader">Rank</th>
+            <th class="tableheader">Player - Score</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of topScores2; let i = index">
+            <td class="thheader">{{ i + 1 }}.</td>
+            <td class="tdtext">{{ user.name }} - {{ user.memoryLaneScore }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="table-container">
+      <table class="leaderboard-table">
+        <thead>
+          <tr><th colspan="2" class="tableheader"> Top User Rankings - Speedster Endless Mode Scores</th></tr>
+          <tr>
+            <th class="tableheader">Rank</th>
+            <th class="tableheader">Player - Score</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of topScores; let i = index">
+            <td class="thheader">{{ i + 1 }}.</td>
+            <td class="tdtext">{{ user.name }} - {{ user.speedsterScore }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>

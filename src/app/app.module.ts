@@ -16,9 +16,6 @@ import { provideAuth,getAuth } from '@angular/fire/auth';
 import { MatMenuModule } from '@angular/material/menu';
 import { HotToastModule } from '@ngneat/hot-toast';
 import { GuessanimalComponent } from './components/games/animalGame/guessanimal/guessanimal.component';
-import { Gameborder1Component } from './components/gameborder1/gameborder1.component';
-import { Gameborder2Component } from './components/gameborder2/gameborder2.component';
-import { Gameborder3Component } from './components/gameborder3/gameborder3.component';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { provideStorage,getStorage } from '@angular/fire/storage';
 import { MltitleComponent } from './components/games/memoryGame/mltitle/mltitle.component';
@@ -29,6 +26,8 @@ import { SpeedsterComponent } from './components/games/speedgame/speedster/speed
 import { MemoryLAneComponent } from './components/games/memoryGame/memory-lane/memory-lane.component';
 import { SplevelComponent } from './components/games/speedgame/splevel/splevel.component';
 import { SplevelpageComponent } from './components/games/speedgame/splevelpage/splevelpage.component';
+import { LeaderboardsComponent } from './routes/leaderboards/leaderboards.component';
+import { SpmainmenuComponent } from './components/games/speedgame/spmainmenu/spmainmenu.component';
 
 
 @NgModule({
@@ -36,9 +35,6 @@ import { SplevelpageComponent } from './components/games/speedgame/splevelpage/s
     AppComponent,
     routingComponents,
     GuessanimalComponent,
-    Gameborder1Component,
-    Gameborder2Component,
-    Gameborder3Component,
     MltitleComponent,
     SptitleComponent,
     ChangeBgDirective,
@@ -46,6 +42,8 @@ import { SplevelpageComponent } from './components/games/speedgame/splevelpage/s
     MemoryLAneComponent,
     SplevelComponent,
     SplevelpageComponent,
+    LeaderboardsComponent,
+    SpmainmenuComponent,
   ],
   
   imports: [
