@@ -7,7 +7,7 @@
   <tbody>
     <tr>
       <th rowspan="2"><img src="assets/images/lockedtrophy.jpg" alt="Locked Trophy" class="trophy-image"></th>
-      <td class="tdtext">Play any game for more than 30 minutes.</td>
+      <td class="tdtext">Reach a score of 5 on Guess the Animal.</td>
     </tr>
     <tr>
       <td>
@@ -20,7 +20,7 @@
   <tbody>
     <tr>
       <th rowspan="2"><img src="assets/images/lockedtrophy.jpg" alt="Locked Trophy" class="trophy-image"></th>
-      <td class="tdtext">Play any game for more than 1 hour.</td>
+      <td class="tdtext">Reach a score of 10 on Guess the Animal.</td>
     </tr>
     <tr>
       <td >
@@ -33,7 +33,7 @@
   <tbody>
     <tr>
       <th rowspan="2"><img src="assets/images/lockedtrophy.jpg" alt="Locked Trophy" class="trophy-image"></th>
-      <td class="tdtext">Guess 20 animals correctly in Guess the Animal.</td>
+      <td class="tdtext">Complete all levels on Memory Lane.</td>
     </tr>
     <tr>
       <td >
@@ -46,7 +46,7 @@
   <tbody>
     <tr>
       <th rowspan="2"><img src="assets/images/lockedtrophy.jpg" alt="Locked Trophy" class="trophy-image"></th>
-      <td class="tdtext">Reach level 15 on Memory Lane.</td>
+      <td class="tdtext">Reach a score of 10 on Memory Lane Endless Mode.</td>
     </tr>
     <tr>
       <td>
@@ -58,14 +58,28 @@
 
   <tbody>
     <tr>
-      <th rowspan="2"><img src="assets/images/trophy.jpg" alt="Locked Trophy" class="trophy-image"></th>
-      <td class="tdtext">Reach level 20 on Speedster.</td>
+      <th rowspan="2"><img src="assets/images/lockedtrophy.jpg" alt="Locked Trophy" class="trophy-image"></th>
+      <td class="tdtext">Complete all levels on Speedster.</td>
     </tr>
     <tr>
       <td>
         <div class="progress-bar">
-          <div class="progress"></div>
-          <div class="percentage">100%</div>
+          <div class="percentage">0%</div>
+        </div>
+      </td>
+    </tr>
+  </tbody>
+
+  <tbody>
+    <tr>
+      <th rowspan="2"><img [src]="speedsterScore25 ? 'assets/images/trophy.jpg' : 'assets/images/lockedtrophy.jpg'" alt="{{speedsterScore25 ? 'Trophy' : 'Locked Trophy'}}" class="trophy-image"></th>
+      <td class="tdtext">Reach a score of 25 on Speedster Endless Mode.</td>
+    </tr>
+    <tr>
+      <td>
+        <div class="progress-bar">
+          <div class="progress" [style.width.%]="speedsterScore25Progress"></div>
+          <div class="percentage">{{speedsterScore25Progress}}%</div>
         </div>
       </td>
     </tr>

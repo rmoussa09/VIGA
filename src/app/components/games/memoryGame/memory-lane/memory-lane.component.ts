@@ -148,8 +148,8 @@ export class MemoryLAneComponent{
 
     else if(this.endless === true){
       this.usersService.currentUserProfile$.pipe(first()).subscribe(user => {
-        if (user && (!user.memoryLaneScore || this.score > user.memoryLaneScore)) {
-          user.memoryLaneScore = this.score;
+        if (user && (!user.memoryLaneScore || this.level > user.memoryLaneScore)) {
+          user.memoryLaneScore = this.level;
           this.usersService.updateUser(user).subscribe();
         }
       });
