@@ -1,12 +1,12 @@
 <mat-toolbar>
   <div class="logo-container">
-    <a target="_parent" rel="noopener" href="http://localhost:4200/home">
+    <a target="_parent" rel="noopener" href="https://viga-fdfc7.firebaseapp.com/home">
     <img width="130" alt="VIGA Logo" src="assets/images/VIGA Logo.jpg" class="logo"/>
     </a>
   </div>
 
   <div class="signup" *ngIf="!(user$ | async)">
-    <a href="http://localhost:4200/register">
+    <a href="https://viga-fdfc7.firebaseapp.com/register">
     <p>Don't have an account? Sign up!</p>
     </a>
   </div>
@@ -34,8 +34,8 @@
           Welcome {{user.name}}!
         </ng-container>
       </div>
-      <button class="menu-button" type="button" onclick="location.href='http://localhost:4200/aboutus'">About us</button> 
-      <button class="menu-button" type="button" onclick="location.href='http://localhost:4200/contact'">Contact</button>
+      <button class="menu-button" type="button" onclick="location.href='https://viga-fdfc7.firebaseapp.com/aboutus'">About us</button> 
+      <button class="menu-button" type="button" onclick="location.href='https://viga-fdfc7.firebaseapp.com/contact'">Contact</button>
       <button (click)="logout()" class="menu-button">Logout</button>
     </div>
   </mat-menu>
