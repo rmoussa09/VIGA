@@ -191,11 +191,14 @@ export class SpeedsterComponent {
     if (this.currentLevel === -1) { // Endless mode
       this.gameOver = true;
       this.levelCompleted = false;
-
+  
       // Update user's score if it's a new high score in endless mode
       this.usersService.currentUserProfile$.pipe(first()).subscribe(user => {
         if (user && (!user.speedsterScore || this.score > user.speedsterScore)) {
           user.speedsterScore = this.score;
+          if (this.score >= 25) {
+            user.speedsterScore25 = true;
+          }
           this.usersService.updateUser(user).subscribe();
         }
       });
@@ -204,12 +207,19 @@ export class SpeedsterComponent {
       if (this.score >= levelScoreRequirement) {
         this.levelCompleted = true;
         this.displayLevelSelectScreen();
+        this.usersService.currentUserProfile$.pipe(first()).subscribe(user => {
+          if (user && (this.currentLevel == 10)) {
+            user.finishSpeedster = true;
+            this.usersService.updateUser(user).subscribe();
+          }
+        });
       } else {
         this.levelCompleted = false;
         this.gameOver = true;
       }
     }
   }
+  
   
   
   checkLevelCompletion() {

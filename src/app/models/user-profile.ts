@@ -4,10 +4,18 @@ export interface ProfileUser {
     email?: string;
     password?: string;
     displayName?: string;
-    highScoreGame1?: string;
+
+    //Leaderboards
     memoryLaneScore?: number;
     speedsterScore?: number;
-    finishGame1?: string;
-    finishGame2?: string;
-    finishGame3?: string;
+
+    // Achivements
+    guessAnimalScore?: number;
+    guessAnimalScore5?: boolean;
+    guessAnimalScore10?: boolean;
+    finishMemoryLane?: boolean;
+    memoryLaneScore10?: boolean;
+    finishSpeedster?: boolean;
+    speedsterScore25?: boolean;
+
 }

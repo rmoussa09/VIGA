@@ -146,13 +146,19 @@ export class MemoryLAneComponent{
     }
 
     else if(this.endless === true){
+      this.continueEndless();
       this.usersService.currentUserProfile$.pipe(first()).subscribe(user => {
         if (user && (!user.memoryLaneScore || this.level > user.memoryLaneScore)) {
           user.memoryLaneScore = this.level;
-          this.usersService.updateUser(user).subscribe();
+
+          // Update Endless Mode Achievement
+          if (this.level >= 10) {
+            user.memoryLaneScore10 = true;
+          }
+
+  this.usersService.updateUser(user).subscribe();
         }
       });
-      this.continueEndless();
     }
   }
 
@@ -178,10 +184,16 @@ export class MemoryLAneComponent{
   }
 
   checkIfEndGame() {
-      if (this.level === this.maxLevel) {
-        this.chickenwinner = true;
-        this.gameStarted = false;
-      }
+    if (this.level === this.maxLevel) {
+      this.chickenwinner = true;
+      this.gameStarted = false;
+      this.usersService.currentUserProfile$.pipe(first()).subscribe(user => {
+        if (user && (this.level === this.maxLevel)) {
+          user.finishMemoryLane = true;
+          this.usersService.updateUser(user).subscribe();
+        }
+      });
+    }
   }
 
   isGameOverOrLevelCompleted(): boolean {
