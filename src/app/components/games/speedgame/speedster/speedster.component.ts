@@ -207,6 +207,12 @@ export class SpeedsterComponent {
       if (this.score >= levelScoreRequirement) {
         this.levelCompleted = true;
         this.displayLevelSelectScreen();
+        this.usersService.currentUserProfile$.pipe(first()).subscribe(user => {
+          if (user && (this.currentLevel == 10)) {
+            user.finishSpeedster = true;
+            this.usersService.updateUser(user).subscribe();
+          }
+        });
       } else {
         this.levelCompleted = false;
         this.gameOver = true;
