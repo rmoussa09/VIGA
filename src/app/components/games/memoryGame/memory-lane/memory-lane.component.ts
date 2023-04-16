@@ -125,17 +125,16 @@ export class MemoryLAneComponent{
     if (this.score === this.memory.length) {
       this.levelWon = true;
       this.getRandomCommand();
-      this.updateCommandList();
-      this.playAudio();
-    
+      this.updateCommandList();    
     }
   }
 
   playAudio(){
     this.playCommandAudio(this.memory[this.i]);
     this.i++;
-    if(this.i < this.level){
-      setTimeout(this.playAudio, 3000);
+    while(this.i < this.level){
+      setTimeout(this.playAudio, 1000);
+      this.i++;
     }
   }
   
@@ -148,8 +147,8 @@ export class MemoryLAneComponent{
 
     else if(this.endless === true){
       this.usersService.currentUserProfile$.pipe(first()).subscribe(user => {
-        if (user && (!user.memoryLaneScore || this.score > user.memoryLaneScore)) {
-          user.memoryLaneScore = this.score;
+        if (user && (!user.memoryLaneScore || this.level > user.memoryLaneScore)) {
+          user.memoryLaneScore = this.level;
           this.usersService.updateUser(user).subscribe();
         }
       });
@@ -165,6 +164,7 @@ export class MemoryLAneComponent{
 
   endGame() {
     this.gameOver = true;
+    this.playAudio();
   }
 
   exitGame(){
