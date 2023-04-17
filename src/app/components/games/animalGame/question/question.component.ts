@@ -13,6 +13,7 @@ export class QuestionComponent implements OnInit {
   public questionList: any = [];
   public currentQuestion: number = 0;
   public points: number = 0;
+  chosenOption: any;
   quizStarted = false;
   counter = 60;
   correctAnswer: number = 0;
@@ -20,6 +21,7 @@ export class QuestionComponent implements OnInit {
   interval$: any;
   progress: string = "0";
   isQuizCompleted : boolean = false;
+  animalAudio: any;
 
   constructor(private questionService : QuestionService) { }
 
@@ -31,6 +33,7 @@ export class QuestionComponent implements OnInit {
     this.quizStarted = true;
     this.getAllQuestions();
   }
+  
 
   getAllQuestions() {
     this.questionService.getQuestionJson().subscribe(res => {
@@ -83,6 +86,7 @@ export class QuestionComponent implements OnInit {
       this.points -= 1;
     }
   }
+  
 
   resetQuiz() {
     this.points = 0;
@@ -97,4 +101,26 @@ export class QuestionComponent implements OnInit {
     this.progress = ((this.currentQuestion / this.questionList.length) * 100).toString();
     return this.progress;
   }
+
+  playSound(){
+    let audio = new Audio();
+    audio.src = "../assets/What_animal_makes_this_noise.wav"
+    audio.load();
+    audio.play();
+  }
+
+  play_Sound(){
+    let audio = new Audio();
+    audio.src = this.questionList[this.currentQuestion].soundAudio;
+    audio.load();
+    audio.play();
+  }
+
+  playAudio(optionIndex: number) {
+    let audio = new Audio();
+    audio.src = this.questionList[this.currentQuestion].options[optionIndex].textAudio;
+    audio.load();
+    audio.play();
+  }
+
 }
