@@ -50,6 +50,31 @@
             ]
         },
         {
+          "questionText": "What animal makes this noise 'squeel'?",
+              "questionAudio": "What animal makes this noise (1).mp3",
+              "soundAudio": "assets/squeel.wav",
+  
+              "options": [{
+                      "text": "monkey",
+                      "correct": false,
+                      "picture": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Bonnet_macaque_%28Macaca_radiata%29_Photograph_By_Shantanu_Kuveskar.jpg/220px-Bonnet_macaque_%28Macaca_radiata%29_Photograph_By_Shantanu_Kuveskar.jpg",
+                      "textAudio": "assets/monkey_name.wav"
+                  },
+                  {
+                      "text": "rabbit",
+                      "correct": true,
+                      "picture": "https://northernnester.com/wp-content/uploads/2019/10/RABBIT-SOUNDS.jpg",
+                      "textAudio": "assets/rabbit_name.wav"
+                  },
+                  {
+                      "text": "horse",
+                      "correct": false,
+                      "picture": "https://cdn.britannica.com/96/1296-050-4A65097D/gelding-bay-coat.jpg",
+                      "textAudio": "assets/horse_name.wav"
+                  }
+              ]
+          },
+        {
         "questionText": "What animal makes the 'Cawcaw' noise?",
             "questionAudio": "What animal makes this noise (1).mp3" ,
             "soundAudio": "assets/cawcaw.wav",
@@ -131,6 +156,33 @@
                 ]
               },
               {
+                "questionText": "What animal makes the 'clicking' noise?",
+                "questionAudio": "What animal makes this noise (1).mp3",
+                "soundAudio": "assets/clicks.wav",
+
+                "options": [
+                  {
+                    "text": "dolphin",
+                    "correct": true,
+                    "picture": "https://www.georgiaaquarium.org/wp-content/uploads/2018/08/dolphin-coast-340x340@2x.jpg",
+                    "textAudio": "assets/dolphin_name.wav"
+
+                  },
+                  {
+                    "text": "cat",
+                    "correct": false,
+                    "picture": "https://upload.wikimedia.org/wikipedia/commons/3/3a/Cat03.jpg",
+                    "textAudio": "assets/cat_name.wav"
+                  },
+                  {
+                    "text": "lion",
+                    "correct": false,
+                    "picture": "https://upload.wikimedia.org/wikipedia/commons/7/73/Lion_waiting_in_Namibia.jpg",
+                    "textAudio": "assets/lion_name.wav"
+                  }
+                ]
+              },
+              {
                 "questionText": "What animal makes the 'baa' noise?",
                 "questionAudio": "What animal makes this noise (1).mp3",
                 "soundAudio": "assets/baa.wav", 
@@ -158,6 +210,64 @@
                   }
                 ]
               },
+              {
+                "questionText": "What animal makes the 'growl/grunt' noise?",
+                "questionAudio": "What animal makes this noise (1).mp3",
+                "soundAudio": "assets/growl.wav", 
+
+                "options": [
+                  {
+                    "text": "wolf",
+                    "correct": false,
+                    "picture": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/2014-06-20_Vulpes_vulpes_vulpes%2C_B%C3%B6nhamn%2C_V%C3%A4sternorrlands_L%C3%A4n%2C_Sverige_1.jpg/800px-2014-06-20_Vulpes_vulpes_vulpes%2C_B%C3%B6nhamn%2C_V%C3%A4sternorrlands_L%C3%A4n%2C_Sverige_1.jpg",
+                    "textAudio": "assets/wolf_name.wav"
+                  },
+                  {   
+                 "text": "goose",
+                  "correct": false,
+                  "picture": "https://nationalzoo.si.edu/sites/default/files/styles/1400_scale/public/conservation/migratory-birds/news/cago1.jpg?itok=cz7cFkL1",
+                  "textAudio": "assets/goose_name.wav"
+                   
+                  },
+                  {
+                    "text": "alligator",
+                    "correct": true,
+                    "picture": "https://cdnsm5-hosted.civiclive.com/UserFiles/Servers/Server_14481062/Image/City%20Hall/Departments/Animal%20Services/Urban%20Wildlife/Learn%20About%20Urban%20Wildlife/Alligators/Banner_Alligator_01.jpg",
+                    "textAudio": "assets/alligator_name.wav"
+
+                  }
+                ]
+              },
+              {
+                "questionText": "What animal makes this type of 'squeek' noise?",
+                "questionAudio": "What animal makes this noise (1).mp3",
+                "soundAudio": "assets/squeeking.wav", 
+
+                "options": [
+                  {
+                    "text": "wolf",
+                    "correct": false,
+                    "picture": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/2014-06-20_Vulpes_vulpes_vulpes%2C_B%C3%B6nhamn%2C_V%C3%A4sternorrlands_L%C3%A4n%2C_Sverige_1.jpg/800px-2014-06-20_Vulpes_vulpes_vulpes%2C_B%C3%B6nhamn%2C_V%C3%A4sternorrlands_L%C3%A4n%2C_Sverige_1.jpg",
+                    "textAudio": "assets/wolf_name.wav"
+                  },
+                  {   
+                 "text": "goose",
+                  "correct": false,
+                  "picture": "https://nationalzoo.si.edu/sites/default/files/styles/1400_scale/public/conservation/migratory-birds/news/cago1.jpg?itok=cz7cFkL1",
+                  "textAudio": "assets/goose_name.wav"
+                   
+                  },
+                  {
+                    "text": "mouse",
+                    "correct": true,
+                    "picture": "https://www.crittercontrol.com/getmedia/a68ac8b6-951c-440c-bb79-2d9b2618cc68/mouse-in-house.aspx?width=600&height=443&ext=.jpg",
+                    "textAudio": "assets/mouse_name.wav"
+
+                  }
+                ]
+              },
+  
+              
               {
                 "questionText": "What animal makes the 'howl' noise?",
                 "questionAudio": "What animal makes this noise (1).mp3",
@@ -275,6 +385,36 @@
                 ]
               },
               {
+                "questionText": "What animal makes this type of 'roar' noise?",
+                "questionAudio": "What animal makes this noise (1).mp3",
+                "soundAudio": "assets/tiger_roar.wav",
+
+                "options": [
+                  {
+
+                    "text": "tiger",
+                    "correct": true,
+                    "picture": "https://cdn.britannica.com/40/75640-050-F894DD85/tiger-Siberian.jpg",
+                    "textAudio": "assets/tiger_name.wav"
+
+                   
+                  },
+                  {
+                    "text": "lion",
+                    "correct": true,
+                    "picture": "https://upload.wikimedia.org/wikipedia/commons/7/73/Lion_waiting_in_Namibia.jpg",
+                    "textAudio": "assets/lion_name.wav"
+                   
+                  },
+                  {
+                    "text": "panther",
+                    "correct": true,
+                    "picture": "https://c4.wallpaperflare.com/wallpaper/613/230/437/black-panther-wallpaper-preview.jpg",
+                    "textAudio": "assets/panther_name.wav"
+                  }
+                ]
+              },
+              {
                 "questionText": "What animal makes the 'hoot' noise?",
                 "questionAudio": "What animal makes this noise (1).mp3",
                 "soundAudio": "assets/hoot.wav",
@@ -349,6 +489,32 @@
                     "correct": true,
                     "picture": "https://i.natgeofe.com/k/6d301bfc-ff93-4f6f-9179-b1f66b19b9b3/pig-young-closeup_3x4.jpg",
                     "textAudio": "assets/pig_name.wav"
+                  }
+                ]
+              },
+              {
+                "questionText": "What animal makes this type of 'roar' noise?",
+                "questionAudio": "What animal makes this noise (1).mp3",
+                "soundAudio": "assets/panther_roar.wav",
+
+                "options": [
+                  {
+                    "text": "lion",
+                    "correct": false,
+                    "picture": "https://upload.wikimedia.org/wikipedia/commons/7/73/Lion_waiting_in_Namibia.jpg",
+                    "textAudio": "assets/lion_name.wav"
+                  },
+                  {
+                    "text": "panther",
+                    "correct": true,
+                    "picture": "https://c4.wallpaperflare.com/wallpaper/613/230/437/black-panther-wallpaper-preview.jpg",
+                    "textAudio": "assets/panther_name.wav"
+                  },
+                  {
+                    "text": "cat",
+                    "correct": false,
+                    "picture": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Cat_March_2010-1.jpg/800px-Cat_March_2010-1.jpg",
+                    "textAudio": "assets/cat_name.wav"
                   }
                 ]
               },

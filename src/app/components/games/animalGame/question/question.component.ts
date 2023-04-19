@@ -33,7 +33,6 @@ export class QuestionComponent implements OnInit {
     this.quizStarted = true;
     this.getAllQuestions();
   }
-  
 
   getAllQuestions() {
     this.questionService.getQuestionJson().subscribe(res => {
@@ -44,6 +43,9 @@ export class QuestionComponent implements OnInit {
       this.questionList.forEach((question: any) => {
         question.options = this.shuffleArray(question.options);
       });
+
+      // Limit to 10 questions
+      this.questionList = this.questionList.slice(0, 10);
     });
   }
 
@@ -86,7 +88,6 @@ export class QuestionComponent implements OnInit {
       this.points -= 1;
     }
   }
-  
 
   resetQuiz() {
     this.points = 0;
@@ -96,12 +97,13 @@ export class QuestionComponent implements OnInit {
     this.quizStarted = false;
     this.isQuizCompleted = false;
   }
-  
+
   getProgressPercent() {
     this.progress = ((this.currentQuestion / this.questionList.length) * 100).toString();
     return this.progress;
   }
-
+  
+// Playing designated audio for Question sound, Animal sound , and Animal names of option choices
   playSound(){
     let audio = new Audio();
     audio.src = "../assets/What_animal_makes_this_noise.wav"
