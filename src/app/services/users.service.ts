@@ -67,4 +67,19 @@ export class UsersService {
     const ref = doc(this.firestore, 'users', user.uid);
     return from(updateDoc(ref, { memoryLaneScore: score }));
   }
+
+  updateDisplayName(user: ProfileUser, name: string): Observable<any>{
+    if (user.name) {
+    const nameParts = user.name.split(' ');
+    user.displayName = nameParts[0];
+    const ref = doc(this.firestore, 'users', user.uid);
+    return from(updateDoc(ref, { displayName: nameParts }));
+    }
+
+    else{
+      const ref = doc(this.firestore, 'users', user.uid);
+      return from(updateDoc(ref, { displayName: name }));
+    }
+
+  }
 }

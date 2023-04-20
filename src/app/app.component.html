@@ -31,7 +31,7 @@
     <div class="menu-container">
       <div class="welcome" *ngIf="(user$ | async)">
         <ng-container *ngIf="user$ | async as user">
-          Welcome {{user.name}}!
+          Welcome {{user.displayName}}!
         </ng-container>
       </div>
       <button class="menu-button" type="button" onclick="location.href='http://localhost:4200/aboutus'">About us</button> 
