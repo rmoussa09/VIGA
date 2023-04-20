@@ -8,5 +8,5 @@ Once this was done, open up the terminal in Visual Studio Code, and type in "npm
 Once the packages have been installed, use the command "ng serve" in order to run the code and navigate to "http://localhost:4200/" to check if the application runs. 
 You can also check the website out using the link "playVIGA.com" as it is being hosted.
 
-
+If you would like to check registration capabilites, use the username "admin1@gmail.com" and the password "Abc123!"
 
