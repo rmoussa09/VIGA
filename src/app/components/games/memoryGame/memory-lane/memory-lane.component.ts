@@ -14,7 +14,7 @@ enum Command {
   templateUrl: './memory-lane.component.html',
   styleUrls: ['./memory-lane.component.scss']
 })
-export class MemoryLAneComponent{
+export class MemoryLAneComponent implements OnInit {
   gameStarted = false;
   gameOver = false;
   levelWon = false;
@@ -45,6 +45,11 @@ export class MemoryLAneComponent{
         event.preventDefault();
       }
     }
+  }
+
+  ngOnInit() {
+    this.shouldPlayAudio = true;
+    this.playAllCommands();
   }
 
 //this is the start of the main level based game
@@ -134,7 +139,7 @@ export class MemoryLAneComponent{
       this.updateCommandList();
       this.playAllCommands();
     }
-  }
+  }  
 
   playAudio(startIndex: number = 0) {
     if (this.shouldPlayAudio) {
