@@ -5,7 +5,7 @@
   (exitGameClicked)="exitGame()" ></app-spmainmenu>
   
     <div *ngIf="displayLevelSelect && !gameStarted">
-<app-splevelpage *ngIf="!levelCompleted && displayLevelSelect" (levelSelect)="levelSelected($event)" (returnToMainMenuClicked)="returnToMainMenu()"></app-splevelpage>
+<app-splevelpage *ngIf="!levelCompleted && displayLevelSelect" [level]="currentLevel" (levelSelect)="levelSelected($event)" (returnToMainMenuClicked)="returnToMainMenu()" (startLevelClicked)="startLevel()"></app-splevelpage>
   </div>
 
   <app-splevel *ngIf="!gameStarted && displayLevelSelect" [level]="currentLevel" [levelCompleted]="levelCompleted" (startLevelClicked)="startLevel()" (nextLevelClicked)="nextLevel()" (levelSelectClicked)="levelSelect()" 

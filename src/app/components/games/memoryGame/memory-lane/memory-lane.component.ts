@@ -14,7 +14,7 @@ enum Command {
   templateUrl: './memory-lane.component.html',
   styleUrls: ['./memory-lane.component.scss']
 })
-export class MemoryLAneComponent{
+export class MemoryLAneComponent implements OnInit {
   gameStarted = false;
   gameOver = false;
   levelWon = false;
@@ -30,20 +30,26 @@ export class MemoryLAneComponent{
   stringCommands = ['arrowup', 'arrowdown', 'arrowleft', 'arrowright'];
   memory: Command[] = [];
   commandList = '';
-
+  currentAudio: HTMLAudioElement | null = null;
+  shouldPlayAudio: boolean = false;
 
   constructor(private usersService: UsersService) {}
 
   //This allows for the user to use keys
   @HostListener('document:keydown', ['$event'])
   handleKeyDown(event: KeyboardEvent) {
-    if (this.gameStarted && !this.gameOver) {
+    if (this.gameStarted && !this.isGameOverOrLevelCompleted()) {
       const command = this.getCommandFromKey(event.key);
       if (command) {
         this.checkCommand(command);
         event.preventDefault();
       }
     }
+  }
+
+  ngOnInit() {
+    this.shouldPlayAudio = true;
+    this.playAllCommands();
   }
 
 //this is the start of the main level based game
@@ -55,6 +61,7 @@ export class MemoryLAneComponent{
     this.gameStarted = true;
     this.score = 0;
     this.index = 0;
+    this.playCommandAudio(this.memory[0]);
   }
 
 //This is the start of the endless mode of the game
@@ -67,6 +74,7 @@ export class MemoryLAneComponent{
     this.endless = true;
     this.score = 0;
     this.index = 0;
+    this.playCommandAudio(this.memory[0]);
   }
 
   //this is only called if you are in the original level
@@ -128,24 +136,38 @@ export class MemoryLAneComponent{
     if (this.score === this.memory.length) {
       this.levelWon = true;
       this.getRandomCommand();
-      this.updateCommandList();    
+      this.updateCommandList();
+      this.playAllCommands();
+    }
+  }  
+
+  playAudio(startIndex: number = 0) {
+    if (this.shouldPlayAudio) {
+      if (this.i < this.memory.length) {
+        this.playCommandAudio(this.memory[this.i]);
+        this.i++;
+  
+        setTimeout(() => {
+          this.playAudio(startIndex);
+        }, 1000);
+      } else {
+        this.i = startIndex;
+        this.shouldPlayAudio = false;
+      }
     }
   }
 
-  playAudio(){
-    this.playCommandAudio(this.memory[this.i]);
-    this.i++;
-    while(this.i < this.level){
-      setTimeout(this.playAudio, 1000);
-      this.i++;
-    }
-  }
-  
   playAgain() {
-    this.gameOver = false;
-    this.levelWon = false;
-    if(this.endless === false){
-      this.continueGame();
+// Stop the current playing audio if there is one
+if (this.currentAudio) {
+  this.currentAudio.pause();
+  this.currentAudio.currentTime = 0;
+}
+this.gameOver = false;
+this.levelWon = false;
+this.shouldPlayAudio = true;
+if (this.endless === false) {
+  this.continueGame();
     }
 
     else if(this.endless === true){
@@ -166,14 +188,24 @@ export class MemoryLAneComponent{
   }
 
   tryAgain() {
+    if (this.currentAudio) {
+      this.currentAudio.pause();
+      this.currentAudio.currentTime = 0;
+    }
+
     this.gameOver = false;
     this.levelWon = false;
     this.retryGame();
   }
 
   endGame() {
+    // Stop the current playing audio if there is one
+    if (this.currentAudio) {
+      this.currentAudio.pause();
+      this.currentAudio.currentTime = 0;
+    }
     this.gameOver = true;
-    this.playAudio();
+    this.playAllCommands();
   }
 
   exitGame(){
@@ -222,25 +254,47 @@ export class MemoryLAneComponent{
     const audioPath = 'assets/speedgame/audio/';
     let audioFile = '';
   
-    switch (command) {
-      case Command.UP:
-        audioFile = 'up.mp3';
-        break;
-      case Command.DOWN:
-        audioFile = 'down.mp3';
-        break;
-      case Command.LEFT:
-        audioFile = 'left.mp3';
-        break;
-      case Command.RIGHT:
-        audioFile = 'right.mp3';
-        break;
-      default:
-        return;
-    }
-    const audio = new Audio(`${audioPath}${audioFile}`);
-    audio.play();
-    }
-  
+  switch (command) {
+    case Command.UP:
+      audioFile = 'up.mp3';
+      break;
+    case Command.DOWN:
+      audioFile = 'down.mp3';
+      break;
+    case Command.LEFT:
+      audioFile = 'left.mp3';
+      break;
+    case Command.RIGHT:
+      audioFile = 'right.mp3';
+      break;
+    default:
+      return;
+  }
+  // Stop the current playing audio if there is one
+  if (this.currentAudio) {
+    this.currentAudio.pause();
+    this.currentAudio.currentTime = 0;
+  }
 
+  // Play the new audio
+  this.currentAudio = new Audio(`${audioPath}${audioFile}`);
+  this.currentAudio.play();
 }
+
+playAllCommands() {
+  if (this.shouldPlayAudio) {
+    if (this.i < this.memory.length) {
+      this.playCommandAudio(this.memory[this.i]);
+      this.i++;
+
+      setTimeout(() => {
+        this.playAllCommands();
+      }, 1000);
+    } else {
+      this.i = 0;
+    }
+  }
+}
+}
+
+
