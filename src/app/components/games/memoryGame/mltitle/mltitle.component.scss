@@ -59,3 +59,66 @@
       background-color: #3E704F;
     }
   
+/* Responsive Styles */
+@media screen and (max-width:15in){
+  .container{
+    height: 400px;   
+    width: 750px;
+  }
+  
+  .header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 75px;
+    margin-top: 45px;
+    padding: 10px;
+    color: #000000;
+    font-family: "Comic Sans MS", sans-serif;
+    font-weight: bold;
+    text-shadow: 1px 1px #FFFFFF;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    line-height: 20px;
+    padding-top: 6rem;
+    -webkit-text-stroke: 4px #000000;
+    -webkit-text-fill-color: #58A06C;
+  }
+  
+  .start-button {
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding: 1rem 2rem;
+    margin-top: 1.625em;
+    margin-left: 5em;
+    border: none;
+    border-radius: 0.25rem;
+    background-color: #58A06C;
+    color: black;
+    cursor: pointer;
+    outline: none;
+  }
+  
+  .end-button {
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding: 1rem 2rem;
+    margin-top: 1.625em;
+    margin-left: 2.5em;
+    margin-bottom: 0.5em;
+    margin-right: 1.5em;
+    border: none;
+    border-radius: 0.25rem;
+    background-color: #58A06C;
+    color: black;
+    cursor: pointer;
+    outline: none;
+    align-items: center;
+  }
+  
+  .start-button:hover, .play-again-button:hover, .end-button:hover {
+    background-color: #3E704F;
+  }
+  
+}

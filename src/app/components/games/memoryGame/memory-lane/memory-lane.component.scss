@@ -165,3 +165,168 @@
   height: 800px;   
   width: 1500px;
 }
+
+/* Responsive Styles */
+@media screen and (max-width:15in){
+  .speedster-container .title-container{
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+  background-color: #fcd15c;
+  background-image: url("https://gifdb.com/images/high/hamster-wheel-brain-spin-cartoon-j416k7mkxxq100dn.gif");
+  }
+  
+  .header{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 50px;
+  margin-top: 10px;
+  padding: 10px;
+  color: black;
+  font-family: "Comic Sans MS", sans-serif;
+  font-weight: bold;
+  text-shadow: 1px 1px #000000;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  line-height: 20px;
+  padding-top: 25px;
+  }
+  
+  .speedster-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #fcd15c;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 2.5em;
+  position: relative;
+  height: 400px;
+  width: 750px;
+  }
+  
+  .game-over-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #fcd15c;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 2.5em;
+  height: 400px;
+  width: 750px;
+  }
+  
+  .level-won-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #fcd15c;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 2.5em;
+  height: 400px;
+  width: 750px;
+  }
+  
+  .score-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  }
+  
+  .score-label {
+  font-size: 4em;
+  font-weight: bold;
+  margin-right: .125em;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  }
+  
+  .score {
+  font-size: 4em;
+  font-weight: bold;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  }
+  
+  .command-container {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 0.5em;
+  margin-top: 50px;
+  
+  }
+  
+  .start-button, .play-again-button {
+  font-size: 1.5rem;
+  font-weight: bold;
+  padding: 0.5rem 1rem;
+  margin-top: 1rem;
+  border: none;
+  border-radius: 0.25rem;
+  background-color: #58A06C;
+  color: black;
+  cursor: pointer;
+  outline: none;
+  }
+  
+  .start-button:hover, .play-again-button:hover {
+  background-color: #3E704F;
+  }
+  
+  .game-over-label {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 0.5em;
+    }
+    
+    .level-won-label {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 0.5em;
+    }
+    
+    .final-score {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1em;
+    align-items: center;
+    justify-content: center;
+    margin-left: 1em;
+    }
+    
+    .commands-list {
+    margin-top: 1rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    line-height: 0.5em;
+    margin-left: 1em;
+    }
+    
+    .level-label{
+    font-size: 2rem;
+    color: #3E704F;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+    line-height: 0.5em;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    }
+    
+    .game-container{
+    height: 400px;
+    width: 750px;
+    }
+    }

@@ -31,5 +31,40 @@
     transform: scale(1.05);
   }
   
-  
+  @media screen and (max-width: 15in) {
+    @media screen and (max-width: 15in) {
+      .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 450px;
+      width: 750px;
+      }
+      
+      .header {
+      font-size: 3.5em;
+      color: #f44336;
+      text-shadow: 1px 1px 1px #000;
+      margin-bottom: 1em;
+      }
+      
+      button {
+      font-size: 1rem;
+      padding: 0.75rem 1.5rem;
+      margin-bottom: 0.75rem;
+      border-radius: 1rem;
+      background-color: #ffeb3b;
+      color: #212121;
+      width: 7.5em;
+      box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+      cursor: pointer;
+      transition: transform 0.2s ease-out;
+      }
+      
+      button:hover {
+      transform: scale(1.05);
+      }
+      }
+    }
   

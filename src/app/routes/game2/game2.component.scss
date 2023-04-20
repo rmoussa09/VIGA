@@ -185,6 +185,104 @@ box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
 }
 
 /* Responsive Styles */
+@media screen and (max-width:15in){
+    :host {
+        font-family: cursive;
+        font-size: 7px;
+        color: #333;
+        box-sizing: border-box;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        background-size: 100%;
+        background-attachment: scroll;
+        width: 1280px;
+    }
+    
+    .guesscard,
+    .memorycard,
+    .speedcard {
+        all: unset;
+        border-radius: 2px;
+        height: 150px;
+        width: 300px;
+        margin: 0 50px 16px;
+        padding: 8px;
+        display: flex;
+        transition: all 0.1s ease-in-out;
+        align-items: last baseline;
+        font-size: 2em;
+        font-weight: bolder;
+        border: 1.5px solid black;
+        position: relative;
+        cursor: pointer;
+        background-size: 100% 100%;
+    }
+    
+    .guesscard {
+        background-image: url("../../../assets/images/Guess\ The\ Animal\ Card.jpg");
+    }
+    
+    .memorycard {
+        background-image: url("../../../assets/images/Memory\ Lane\ Card.jpg");
+    }
+    
+    .speedcard {
+        background-image: url("../../../assets/images/Speedster\ Card.jpg");
+    }
+    
+    .fadecard {
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%, 0%);
+        background-color: rgba(24, 61, 83, .75);
+        padding: 10px;
+        color: #fff;
+        border-radius: 5px;
+        width: 300px;
+        height: 15px;
+        margin-top: 25px;
+    }
+    
+    a,
+    a:visited {
+        color: white;
+        font-weight: bold;
+    }
+    
+    a:hover {
+        color: #1d2cf3;
+        text-decoration: double;
+        font-weight: bolder;
+    }
+    
+    .header {
+        display: flex;
+        flex-wrap: wrap;
+        color: white;
+        background: linear-gradient(to bottom, rgb(24, 61, 83), #333333);
+        text-shadow: -0.5px -0.5px 0 black, 0.5px -0.5px 0 black, -0.5px 0.5px 0 black, 0.5px 0.5px 0 black;
+        text-align: left;
+        font-size: 5em;
+        margin-top: 3em;
+        width: fit-content;
+        margin-left: 3em;
+        padding: 0.5em;
+        font-weight: bold;
+        border-radius: 5px;
+        border: 1px solid black;
+    }
+        
+        .body {
+        margin-top: 0.5em;
+        margin-left: 5em;
+        margin-right: 5em;
+        font-size: 5em;
+        line-height: 1em;
+        padding: 2.5px;
+        color: white;
+    }  
+}
+
 @media screen and (max-width: 1250px) {
     :host {
         font-family: cursive;
