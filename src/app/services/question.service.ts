@@ -10,6 +10,7 @@ export class QuestionService {
 
   constructor(private http : HttpClient) { }
 
+  //this recieves the animals from the json file
   getQuestionJson(jsonPath: string = defaultJSONPath){
     return this.http.get<any>("assets/questions.json");
   }

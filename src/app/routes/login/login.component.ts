@@ -36,13 +36,14 @@ export class LoginComponent implements OnInit{
     return this.loginForm.get('password');
   }
 
+  //this authenticates the information using firebase authentication to check if it is correct
   submit() {
     const { email, password } = this.loginForm.value;
 
     if (!this.loginForm.valid || !email || !password) {
       return;
     }
-
+//this logins in if the authentication is correct
     this.authService.login(email, password).pipe(
       this.toast.observe({
         success: 'Logged in successfully',

@@ -8,23 +8,19 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 export class SplevelComponent {
   @Input() level!: number;
   @Input() levelCompleted!: boolean;
-  @Output() startLevelClicked = new EventEmitter();
   @Output() nextLevelClicked = new EventEmitter();
   @Output() levelSelectClicked = new EventEmitter();
   @Output() returnToMainMenuClicked = new EventEmitter();
 
-  startLevel() {
-    this.startLevelClicked.emit();
-  }
-
+  //this sends the user to the next level
   nextLevel() {
     this.nextLevelClicked.emit();
   }
-
+//this sends the user to level select
 levelSelect() {
   this.levelSelectClicked.emit();
 }
-
+//this sends the user back to the main menu
 returnToMainMenu() {
   this.returnToMainMenuClicked.emit();
 }

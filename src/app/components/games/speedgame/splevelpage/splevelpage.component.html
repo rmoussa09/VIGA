@@ -16,6 +16,10 @@
       <button class="level-button" (click)="levelSelected(10)">Level 10</button>
     </div>
   </div>
+  <div class="flex">
+    <div class="header" *ngIf="!levelCompleted && level !== -1">Level {{ level }}</div>
+    <button class="start-level-button" *ngIf="!levelCompleted && level !== -1" (click)="startLevel()">Start Level</button>
+  </div>
   <button class="return-to-main-menu-button" (click)="returnToMainMenu()">Return to Main Menu</button>
 </div>
 

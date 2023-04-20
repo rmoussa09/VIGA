@@ -15,6 +15,7 @@ export class QuestionComponent implements OnInit {
   public questionList: any = [];
   public currentQuestion: number = 0;
   public points: number = 0;
+  chosenOption: any;
   quizStarted = false;
   counter = 60;
   correctAnswer: number = 0;
@@ -22,6 +23,7 @@ export class QuestionComponent implements OnInit {
   interval$: any;
   progress: string = "0";
   isQuizCompleted : boolean = false;
+  animalAudio: any;
 
   constructor(private questionService : QuestionService, private usersService: UsersService) { }
 
@@ -43,6 +45,9 @@ export class QuestionComponent implements OnInit {
       this.questionList.forEach((question: any) => {
         question.options = this.shuffleArray(question.options);
       });
+
+      // Limit to 10 questions
+      this.questionList = this.questionList.slice(0, 10);
     });
   }
 
@@ -72,7 +77,7 @@ export class QuestionComponent implements OnInit {
           user.guessAnimalScore = this.points;
           
           // Update Achievement Score 5
-          if (this.points >= 10) {
+          if (this.points >= 5) {
             user.guessAnimalScore5 = true;
           }
 
@@ -110,9 +115,32 @@ export class QuestionComponent implements OnInit {
     this.quizStarted = false;
     this.isQuizCompleted = false;
   }
-  
+
   getProgressPercent() {
     this.progress = ((this.currentQuestion / this.questionList.length) * 100).toString();
     return this.progress;
   }
+  
+// Playing designated audio for Question sound, Animal sound , and Animal names of option choices
+  playSound(){
+    let audio = new Audio();
+    audio.src = "../assets/What_animal_makes_this_noise.wav"
+    audio.load();
+    audio.play();
+  }
+
+  play_Sound(){
+    let audio = new Audio();
+    audio.src = this.questionList[this.currentQuestion].soundAudio;
+    audio.load();
+    audio.play();
+  }
+
+  playAudio(optionIndex: number) {
+    let audio = new Audio();
+    audio.src = this.questionList[this.currentQuestion].options[optionIndex].textAudio;
+    audio.load();
+    audio.play();
+  }
+
 }
