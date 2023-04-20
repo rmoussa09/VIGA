@@ -77,7 +77,7 @@ export class QuestionComponent implements OnInit {
           user.guessAnimalScore = this.points;
           
           // Update Achievement Score 5
-          if (this.points >= 10) {
+          if (this.points >= 5) {
             user.guessAnimalScore5 = true;
           }
 
