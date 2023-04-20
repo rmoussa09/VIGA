@@ -34,6 +34,7 @@ export class MemoryLAneComponent{
 
   constructor(private usersService: UsersService) {}
 
+  //This allows for the user to use keys
   @HostListener('document:keydown', ['$event'])
   handleKeyDown(event: KeyboardEvent) {
     if (this.gameStarted && !this.gameOver) {
@@ -45,7 +46,7 @@ export class MemoryLAneComponent{
     }
   }
 
-
+//this is the start of the main level based game
   startGame() {
     this.checkLevel();
     this.getRandomCommand();
@@ -56,6 +57,7 @@ export class MemoryLAneComponent{
     this.index = 0;
   }
 
+//This is the start of the endless mode of the game
   startEndlessGame() {
     this.checkLevel();
     this.getRandomCommand();
@@ -67,6 +69,7 @@ export class MemoryLAneComponent{
     this.index = 0;
   }
 
+  //this is only called if you are in the original level
   continueGame() {
     this.checkLevel();
     this.showNextCommand();

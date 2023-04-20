@@ -95,8 +95,11 @@ export class RegisterComponent implements OnInit{
       return;
     }
 
+    const nameParts = name.split(' ');
+    const displayName = nameParts[0];
+
     this.authService.signUp(email, password).pipe(
-      switchMap(({user: {uid}}) => this.usersService.addUser({uid, email, name})),
+      switchMap(({user: {uid}}) => this.usersService.addUser({uid, email, name, displayName})),
       this.toast.observe({
         success: 'Congrats! You are all signed up',
         loading: 'Signing up...',

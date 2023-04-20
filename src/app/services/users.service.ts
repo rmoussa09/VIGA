@@ -37,6 +37,20 @@ export class UsersService {
 
   constructor(private firestore: Firestore, private authService: AuthenticationService) { }
   
+    updateDisplayName(user: ProfileUser, name: string): Observable<any>{
+    if (user.name) {
+    const nameParts = user.name.split(' ');
+    user.displayName = nameParts[0];
+    const ref = doc(this.firestore, 'users', user.uid);
+    return from(updateDoc(ref, { displayName: nameParts }));
+    }
+
+    else{
+      const ref = doc(this.firestore, 'users', user.uid);
+      return from(updateDoc(ref, { displayName: name }));
+    }
+ }
+ 
   addUser(user: ProfileUser) : Observable<any> {
     const ref = doc(this.firestore, 'users', user?.uid);
     return from(setDoc(ref, user));
@@ -68,8 +82,8 @@ export class UsersService {
     const ref = doc(this.firestore, 'users', user.uid);
     return from(updateDoc(ref, { memoryLaneScore: score }));
   }
-
-  getCurrentUserRank(): Observable<number | null> {
+ 
+ getCurrentUserRank(): Observable<number | null> {
     return this.currentUserProfile$.pipe(
       switchMap(userProfile => {
         if (!userProfile?.uid) {
