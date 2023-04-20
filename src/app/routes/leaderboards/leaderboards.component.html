@@ -19,7 +19,7 @@
             <td class="tdtext">{{ user.name }}</td>
             <td class="tdtext">{{ user.memoryLaneScore }}</td>
           </tr>
-          <tr *ngIf="currentUserRank && currentUserRank > 5">
+          <tr *ngIf="currentUserRank && currentUserRank > 5 && currentUserProfile?.memoryLaneScore">
             <td class="tdtext">{{ currentUserRank }}.</td>
             <td class="tdtext">{{currentUserProfile?.name}}</td>
             <td class="tdtext">{{ currentUserProfile?.memoryLaneScore }}</td>
@@ -44,7 +44,7 @@
             <td class="tdtext">{{ user.name }}</td>
             <td class="tdtext">{{ user.speedsterScore }}</td>
           </tr>
-          <tr *ngIf="currentUserRank && currentUserRank > 5">
+          <tr *ngIf="currentUserRank && currentUserRank > 5 && currentUserProfile?.speedsterScore">
             <td class="tdtext">{{ currentUserRank }}.</td>
             <td class="tdtext">{{currentUserProfile?.name}}</td>
             <td class="tdtext">{{ currentUserProfile?.speedsterScore }}</td>
