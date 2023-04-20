@@ -42,7 +42,7 @@ export class AchievementsComponent implements OnInit {
       this.currentUserProfile = userProfile;
       if (userProfile) {
         this.guessAnimalScore5 = userProfile.guessAnimalScore5 || false;
-        this.guessAnimalScore5Progress = userProfile.guessAnimalScore ? Math.min((userProfile.guessAnimalScore / 10) * 100, 100) : 0;
+        this.guessAnimalScore5Progress = userProfile.guessAnimalScore ? Math.min((userProfile.guessAnimalScore / 5) * 100, 100) : 0;
 
         this.guessAnimalScore10 = userProfile.guessAnimalScore10 || false;
         this.guessAnimalScore10Progress = userProfile.guessAnimalScore ? Math.min((userProfile.guessAnimalScore / 10) * 100, 100) : 0;
