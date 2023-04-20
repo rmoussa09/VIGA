@@ -7,7 +7,7 @@ import { AuthenticationService } from 'src/app/services/authentication.service';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent {
-
+//this makes the user$ into the current user that is logged in
   user$ = this.authService.currentUser$;
 
   constructor(private authService: AuthenticationService) { }

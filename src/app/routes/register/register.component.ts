@@ -20,7 +20,7 @@ export function passwordsMatchValidator(): ValidatorFn {
   };
 }
 
-
+//this checks to see if the password has a uppercase, lowercase, number, and special character
 export function createPasswordStrengthValidator(): ValidatorFn {
   return (control:AbstractControl) : ValidationErrors | null => {
 
@@ -87,7 +87,7 @@ export class RegisterComponent implements OnInit{
   get name() {
     return this.signUpForm.get('name');
   }
-
+//this submits the information to make sure it is correct
   submit(){
     const { name, email, password } = this.signUpForm.value;
 
@@ -97,7 +97,7 @@ export class RegisterComponent implements OnInit{
 
     const nameParts = name.split(' ');
     const displayName = nameParts[0];
-
+//this officially signs up the user in the firebase database
     this.authService.signUp(email, password).pipe(
       switchMap(({user: {uid}}) => this.usersService.addUser({uid, email, name, displayName})),
       this.toast.observe({

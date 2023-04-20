@@ -8,6 +8,7 @@ import { Component, EventEmitter, Output } from '@angular/core';
 export class SptitleComponent {
   @Output() startGameClicked = new EventEmitter();
 
+  //this starts the game when the button is clicked
   startGame() {
     this.startGameClicked.emit();
   }

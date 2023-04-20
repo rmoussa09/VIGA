@@ -36,7 +36,6 @@ export class UsersService {
   }
 
   constructor(private firestore: Firestore, private authService: AuthenticationService) { }
-  
     updateDisplayName(user: ProfileUser, name: string): Observable<any>{
     if (user.name) {
     const nameParts = user.name.split(' ');

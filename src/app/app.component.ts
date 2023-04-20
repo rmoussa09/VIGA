@@ -22,6 +22,7 @@ export class AppComponent {
     public usersService: UsersService, 
     private router: Router) {}
 
+    //this logouts the user using firebase
   logout() {
     this.authService.logout().subscribe(() => {
       this.router.navigate(['']);

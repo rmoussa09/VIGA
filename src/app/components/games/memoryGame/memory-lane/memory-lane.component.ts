@@ -77,8 +77,8 @@ export class MemoryLAneComponent implements OnInit {
     this.playCommandAudio(this.memory[0]);
   }
 
-  //this is only called if you are in the original level
-  continueGame() {
+//this is a continuation of the startGame method without adding another command before
+continueGame() {
     this.checkLevel();
     this.showNextCommand();
     this.checkIfEndGame();
@@ -86,7 +86,7 @@ export class MemoryLAneComponent implements OnInit {
     this.index = 0;
     this.i = 0;
   }
-
+//this is a continuation of the startEndless method without adding another command before
   continueEndless(){
     this.checkLevel();
     this.showNextCommand();
@@ -94,6 +94,7 @@ export class MemoryLAneComponent implements OnInit {
     this.index = 0;
   }
 
+  //This is used to reset and continue the game
   retryGame() {
     this.checkLevel();
     this.showNextCommand();
@@ -101,21 +102,25 @@ export class MemoryLAneComponent implements OnInit {
     this.index = 0;
   }
 
+  //this gives a random command in the array
   getRandomCommand() {
     const index = Math.floor(Math.random() * this.commands.length);
     this.memory.push(this.commands[index]);
     this.updateCommandList();
   }
 
+  //this updates the command list in order to have the updated commands
   updateCommandList() {
     this.commandList = this.memory.map(command => command.toLowerCase()).join(', ');
   }
 
+  //This shows the next command on the screen
   showNextCommand() {
     this.index++;
     this.checkLevel();
   }
 
+// this checks if the key clicked is the same as the one in the commandlist
   checkCommand(command: Command) {
     if (command === this.memory[this.index]) {
       this.showNextCommand();
@@ -125,13 +130,14 @@ export class MemoryLAneComponent implements OnInit {
       this.endGame();
     }
   }
-
+//This checks to see if the level is correct
   checkLevel() {
     if (this.index > this.level) {
       this.level = this.index;
     }
   }
 
+//This checks to see if the user won
   checkIfWon() {
     if (this.score === this.memory.length) {
       this.levelWon = true;
@@ -139,8 +145,9 @@ export class MemoryLAneComponent implements OnInit {
       this.updateCommandList();
       this.playAllCommands();
     }
-  }  
+  }
 
+//this plays the audio on the files for the user to use
   playAudio(startIndex: number = 0) {
     if (this.shouldPlayAudio) {
       if (this.i < this.memory.length) {
@@ -187,6 +194,7 @@ if (this.endless === false) {
     }
   }
 
+//this allows for the user to continue after losing.
   tryAgain() {
     if (this.currentAudio) {
       this.currentAudio.pause();
@@ -208,6 +216,7 @@ if (this.endless === false) {
     this.playAllCommands();
   }
 
+  //this takes the user back to the main menu
   exitGame(){
     this.gameOver = false;
     this.levelWon = false;
@@ -218,6 +227,7 @@ if (this.endless === false) {
     this.level=0;
   }
 
+//this checks to see if the game was ended
   checkIfEndGame() {
     if (this.level === this.maxLevel) {
       this.chickenwinner = true;
@@ -231,10 +241,12 @@ if (this.endless === false) {
     }
   }
 
+//checks if game is over or the game is won
   isGameOverOrLevelCompleted(): boolean {
     return this.gameOver || this.levelWon || this.chickenwinner;
   }
 
+  //this binds the keys to the command in the game
   getCommandFromKey(key: string): Command | undefined {
     switch (key.toLowerCase()) {
       case 'arrowup':
@@ -250,6 +262,7 @@ if (this.endless === false) {
     }
   }
 
+  //this binds the command to the audio file that says the direction
   playCommandAudio(command: Command) {
     const audioPath = 'assets/speedgame/audio/';
     let audioFile = '';
@@ -281,6 +294,7 @@ if (this.endless === false) {
   this.currentAudio.play();
 }
 
+//this plays the audio files on the screens for the user to memorize
 playAllCommands() {
   if (this.shouldPlayAudio) {
     if (this.i < this.memory.length) {

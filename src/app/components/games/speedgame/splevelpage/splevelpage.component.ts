@@ -17,14 +17,15 @@ export class SplevelpageComponent {
 
   constructor(){}
 
+  //this starts the level for the user
   startLevel() {
     this.startLevelClicked.emit();
   }
-
+//this checks the level selected for the user
   levelSelected(level: number) {
     this.levelSelect.emit(level);
   }
-
+//this sends the user back to the main menu
   returnToMainMenu() {
     this.returnToMainMenuClicked.emit();
   }

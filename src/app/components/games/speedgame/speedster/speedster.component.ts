@@ -41,6 +41,7 @@ export class SpeedsterComponent {
   
   constructor(private location: Location, private usersService: UsersService) {}
 
+  // Listening to the keydown event and checking if the pressed key is a valid command
   @HostListener('document:keydown', ['$event'])
   handleKeyDown(event: KeyboardEvent) {
     if (this.gameStarted && !this.gameOver) {
@@ -52,6 +53,7 @@ export class SpeedsterComponent {
     }
   }
 
+  // Method to start the game and reset the required variables
   startGame() {
     this.level = 1;
     this.currentLevel = -1;
@@ -61,12 +63,14 @@ export class SpeedsterComponent {
     this.gameStarted = false;
   }
 
+  // Method to show the level select screen and hide other screens
   displayLevelSelectScreen() {
     this.displayLevelSelect = true;
     this.mainMenuVisible = false;
     this.gameStarted = false;
   }
 
+  // Method to start the endless mode and set the initial values
   startEndlessMode() {
     this.gameStarted = true;
     this.gameOver = false;
@@ -78,6 +82,8 @@ export class SpeedsterComponent {
     this.startLevel();
   }
   
+  // Method to exit the game and reset the required variables
+
   exitGame() {
     this.gameStarted = false;
     this.gameOver = false;
@@ -85,6 +91,8 @@ export class SpeedsterComponent {
     this.displayLevelSelect = false;
     this.mainMenuVisible = false;
   }
+
+  // Method to start a new level and set the required values
 
   startLevel() {
     this.gameStarted = true;
@@ -102,12 +110,12 @@ export class SpeedsterComponent {
     this.showNextCommand();
   }
   
-  
-
   playAgain() {
     this.score = 0;
     this.startLevel();
   }
+
+    //this takes the user back to the main menu
 
   returnToMainMenu() {
     this.gameOver = false;
@@ -115,6 +123,8 @@ export class SpeedsterComponent {
     this.mainMenuVisible = true;
     this.displayLevelSelect = false;
   }
+
+    //this takes the user to the next level
 
   nextLevel() {
     this.currentLevel++;
@@ -126,13 +136,14 @@ export class SpeedsterComponent {
     this.startLevel();
   }
   
-
+//sends the user to level select screen
   levelSelect() {
     this.gameStarted = false;
     this.displayLevelSelect = true;
     this.levelCompleted = false;
   }
 
+  //chooses the level that the user will select
   levelSelected(level: number) {
     this.currentLevel = level;
     this.levelSelectedVisible = true;
@@ -140,6 +151,7 @@ export class SpeedsterComponent {
     this.score = 0;
   }
 
+  //shows the next command on the screen
   showNextCommand() {
     if (this.repeatAudioTimeout) {
       this.repeatAudioTimeout.forEach((timeout: any) => clearTimeout(timeout));
@@ -150,12 +162,13 @@ export class SpeedsterComponent {
   }
   
   
-
+//gets a random command to add to the command list
   getRandomCommand(): Command {
     const index = Math.floor(Math.random() * this.commands.length);
     return this.commands[index];
   }
 
+  //this checks to see if the command is correct
   checkCommand(command: Command) {
     if (command === this.currentCommand) {
       this.score++;
@@ -173,17 +186,19 @@ export class SpeedsterComponent {
     }
   }
   
+  //this sends the user to the level mode
   enterLevelMode() {
     this.resetGameState();
     this.displayLevelSelectScreen();
   }
   
-  
+  //this sends the user to the game state
   resetGameState() {
     this.gameStarted = false;
     this.levelCompleted = false;
   }
   
+  //this is the end of the game for the user
   endGame() {
     clearInterval(this.timer);
     this.stopCurrentAudio();
@@ -221,7 +236,7 @@ export class SpeedsterComponent {
   }
   
   
-  
+  //this checks to see if the level was completed
   checkLevelCompletion() {
     const levelScoreRequirement = (this.currentLevel  + this.currentLevel);
     if (this.score >= levelScoreRequirement) {
@@ -229,6 +244,7 @@ export class SpeedsterComponent {
     }
   }
   
+  //this checks to see if the key clicked is the same as the one in the commandlist
   getCommandFromKey(key: string): Command | undefined {
     switch (key.toLowerCase()) {
       case 'arrowup':
@@ -246,6 +262,7 @@ export class SpeedsterComponent {
     }
   }
 
+  //This gets the image next to command
   getCommandImage(): string {
     const imagePath = 'assets/speedgame/';
     switch (this.currentCommand) {
@@ -264,6 +281,7 @@ export class SpeedsterComponent {
     }
   }  
  
+  //this adds the play to the command audio
   playCommandAudio(command: Command) {
     const audioPath = 'assets/speedgame/audio/';
     let audioFile = '';
@@ -323,10 +341,12 @@ export class SpeedsterComponent {
     }
   }
 
+  //checks if the game is over or level is completed
   isGameOverOrLevelCompleted(): boolean {
     return this.gameOver || this.levelCompleted;
   }
   
+  //this repeats the audio once they are the screen for a period of time
   clearRepeatAudioTimeouts() {
     if (this.repeatAudioTimeout) {
       this.repeatAudioTimeout.forEach((timeout: any) => clearTimeout(timeout));
@@ -334,6 +354,7 @@ export class SpeedsterComponent {
     }
   }
 
+  //this stops the audio once they get to the next screen
   stopCurrentAudio() {
     if (this.currentAudio) {
       this.currentAudio.pause();
