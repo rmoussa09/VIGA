@@ -42,22 +42,22 @@ export class AchievementsComponent implements OnInit {
       this.currentUserProfile = userProfile;
       if (userProfile) {
         this.guessAnimalScore5 = userProfile.guessAnimalScore5 || false;
-        this.guessAnimalScore5Progress = userProfile.guessAnimalScore ? (userProfile.guessAnimalScore / 10) * 100 : 0;
+        this.guessAnimalScore5Progress = userProfile.guessAnimalScore ? Math.min((userProfile.guessAnimalScore / 10) * 100, 100) : 0;
 
         this.guessAnimalScore10 = userProfile.guessAnimalScore10 || false;
-        this.guessAnimalScore10Progress = userProfile.guessAnimalScore ? (userProfile.guessAnimalScore / 10) * 100 : 0;
+        this.guessAnimalScore10Progress = userProfile.guessAnimalScore ? Math.min((userProfile.guessAnimalScore / 10) * 100, 100) : 0;
 
         this.finishMemoryLane = userProfile.finishMemoryLane || false;
         this.finishMemoryLaneProgress = userProfile.finishMemoryLane ? 100 : 0;
 
         this.memoryLaneScore10 = userProfile.memoryLaneScore10 || false;
-        this.memoryLaneScore10Progress = userProfile.memoryLaneScore ? (userProfile.memoryLaneScore / 10) * 100 : 0;
+        this.memoryLaneScore10Progress = userProfile.memoryLaneScore ? Math.min((userProfile.memoryLaneScore / 10) * 100, 100) : 0;
 
         this.finishSpeedster = userProfile.finishSpeedster || false;
         this.finishSpeedsterProgress = userProfile.finishSpeedster ? 100 : 0;
 
         this.speedsterScore25 = userProfile.speedsterScore25 || false;
-        this.speedsterScore25Progress = userProfile.speedsterScore ? (userProfile.speedsterScore / 25) * 100 : 0;
+        this.speedsterScore25Progress = userProfile.speedsterScore ? Math.min((userProfile.speedsterScore / 25) * 100, 100) : 0;
       }
     });
   }
