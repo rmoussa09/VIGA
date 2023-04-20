@@ -15,7 +15,6 @@ import { environment } from '../environments/environment';
 import { provideAuth,getAuth } from '@angular/fire/auth';
 import { MatMenuModule } from '@angular/material/menu';
 import { HotToastModule } from '@ngneat/hot-toast';
-import { GuessanimalComponent } from './components/games/animalGame/guessanimal/guessanimal.component';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { provideStorage,getStorage } from '@angular/fire/storage';
 import { MltitleComponent } from './components/games/memoryGame/mltitle/mltitle.component';
@@ -34,7 +33,6 @@ import { SpmainmenuComponent } from './components/games/speedgame/spmainmenu/spm
   declarations: [
     AppComponent,
     routingComponents,
-    GuessanimalComponent,
     MltitleComponent,
     SptitleComponent,
     ChangeBgDirective,
