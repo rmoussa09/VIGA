@@ -6,20 +6,31 @@
     <div class="card" >
       <div *ngIf="!isQuizCompleted && quizStarted">
         <div>
-          <h4 style="font-family: cursive;">Guess the Animal!</h4>
-          <span style="font-style: italic;">Welcome!</span>
+          <h4 style="font-family: cursive; font-size:44px">Guess the Animal!</h4>
+          <span style="font-style: italic;font-size:38px">Welcome!</span>
+
         </div>
       </div>
       <br><br>
+
       <ng-container *ngIf="!isQuizCompleted && quizStarted">
         <div class="d-flex justify-content-around py-3">
           <div class="score">
             <h5>Level {{points+1}}</h5>
           </div>
           <div class="question-remain">
-            <span style="font-style: italic;">Question {{currentQuestion+1}} of {{questionList.length}}</span>
+            <span style="font-style: italic;font-size:30px">Question {{currentQuestion+1}} of {{questionList.length}}</span>
           </div>
         </div>
+        <br>
+      <button class = "btn btn-primary"style="font-size: 28px"(click) = "playSound()">Play Question </button>
+      <br>
+      <br>
+      <button class = "btn btn-primary"style="font-size: 28px" (click) = "play_Sound()">Play Sound </button>
+      <br>
+      
+      
+
         <div class="progress mb-3">
           <div class="progress-bar progress-bar-striped bg-success" role="progressbar" [ngStyle]="{'width':progress+'%'}" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
         </div>
@@ -49,7 +60,6 @@
             <i class="fa text-primary fa-chevron-right fa-3x" aria-hidden="true"></i>
           </button>
         </div>
-      </ng-container>
        <ng-container *ngIf="isQuizCompleted">
         <div class="row d-flex justify-content-between">
           <img width="400" height="400" class="mx-auto" src="https://icon-library.com/images/celebration-icon-png/celebration-icon-png-7.jpg" alt="">
@@ -62,10 +72,22 @@
             </div>
           </div>
         </ng-container>
-      </div>
-  <audio controls>
-    <source src= "What animal makes this noise  (1).mp3" type="audio/mpeg">
-  </audio>
-  <audio controls>
-    <source src= "moo.mp3" type="audio/mpeg">
-  </audio>
+        <div class="options">
+          <div class="option" *ngFor="let option of questionList[currentQuestion].options; let i=index">
+            <p class="option-text">{{option.text}}</p>
+            <label>
+              <input type="radio" name="answer" [value]="i" (change)="answer(currentQuestion, option)">
+              <span class="checkmark"></span>
+            </label>
+            <div class="options">
+              <button (click)="playAudio(0)">Play Option 1 </button>
+              <br>
+              <button (click)="playAudio(1)">Play Option 2 </button>
+              <br>
+              <button (click)="playAudio(2)">Play Option 3 </button>
+            </div>
+          </div>
+        </div>
+   
+ 
+    
