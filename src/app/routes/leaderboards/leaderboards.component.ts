@@ -12,6 +12,8 @@ import { Subscription } from 'rxjs';
 export class LeaderboardsComponent implements OnInit, OnDestroy {
   topScores: ProfileUser[] = [];
   topScores2: ProfileUser[] = [];
+  currentUserRank: number | null = null;
+  currentUserProfile: ProfileUser | null = null;
   private subscription: Subscription;
 
   constructor(private usersService: UsersService) {
@@ -26,6 +28,24 @@ export class LeaderboardsComponent implements OnInit, OnDestroy {
     this.subscription = this.usersService.getTopScores2().subscribe(scores2 => {
       this.topScores2 = scores2;
     });
+
+    this.subscription.add(
+      this.usersService.getCurrentUserRank().subscribe(rank => {
+        this.currentUserRank = rank;
+      })
+    );
+
+    this.subscription.add(
+      this.usersService.getCurrentUserRank2().subscribe(rank => {
+        this.currentUserRank = rank;
+      })
+    );
+
+    this.subscription.add(
+      this.usersService.currentUserProfile$.subscribe(profile => {
+        this.currentUserProfile = profile;
+      })
+    );
   }
 
   ngOnDestroy() {

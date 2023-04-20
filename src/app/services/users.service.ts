@@ -13,6 +13,7 @@ import { from, Observable, of, switchMap } from 'rxjs';
 import { ProfileUser } from '../models/user-profile';
 import { AuthenticationService } from './authentication.service';
 import { query, orderBy, limit } from '@angular/fire/firestore';
+import { first, map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -66,5 +67,65 @@ export class UsersService {
   updateUserScore2(user: ProfileUser, score: number): Observable<any> {
     const ref = doc(this.firestore, 'users', user.uid);
     return from(updateDoc(ref, { memoryLaneScore: score }));
+  }
+
+  getCurrentUserRank(): Observable<number | null> {
+    return this.currentUserProfile$.pipe(
+      switchMap(userProfile => {
+        if (!userProfile?.uid) {
+          return of(null);
+        }
+
+        return this.authService.currentUser$.pipe(
+          first(),
+          switchMap(user => {
+            if (!user?.uid) {
+              return of(null);
+            }
+            
+            const scoresRef = collection(this.firestore, 'users');
+            const q = query(scoresRef, orderBy('speedsterScore', 'desc'));
+            return collectionData(q, {idField: 'uid'}) as Observable<ProfileUser[]>;
+          }),
+          map(users => {
+            if (users) {
+              const currentUserIndex = users.findIndex(user => user.uid === userProfile.uid);
+              return currentUserIndex !== -1 ? currentUserIndex + 1 : null;
+            }
+            return null;
+          })
+        );
+      })
+    );
+  }
+
+  getCurrentUserRank2(): Observable<number | null> {
+    return this.currentUserProfile$.pipe(
+      switchMap(userProfile => {
+        if (!userProfile?.uid) {
+          return of(null);
+        }
+
+        return this.authService.currentUser$.pipe(
+          first(),
+          switchMap(user => {
+            if (!user?.uid) {
+              return of(null);
+            }
+            
+            const scoresRef = collection(this.firestore, 'users');
+            const q = query(scoresRef, orderBy('memoryLaneScore', 'desc'));
+            return collectionData(q, {idField: 'uid'}) as Observable<ProfileUser[]>;
+          }),
+          map(users => {
+            if (users) {
+              const currentUserIndex = users.findIndex(user => user.uid === userProfile.uid);
+              return currentUserIndex !== -1 ? currentUserIndex + 1 : null;
+            }
+            return null;
+          })
+        );
+      })
+    );
   }
 }
