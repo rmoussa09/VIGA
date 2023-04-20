@@ -162,3 +162,157 @@
   color: #9c27b0;
   text-shadow: 2px 2px 2px #000;
 }
+
+@media screen and (max-width:15in){
+  .speedster-container .title-container{
+  background-image: url("https://cdn.dribbble.com/users/2935848/screenshots/6641649/race-car.gif");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  }
+  
+  .speedster-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 500px;
+  width: 750px;
+  background: white;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 2.5em;
+  margin-bottom: 2.5em;
+  position: relative;
+  background-color: #FDEBD0;
+  }
+  
+  .header{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 50px;
+  margin-top: 10px;
+  padding: 10px;
+  color: rgb(5, 5, 160);
+  font-family: "Comic Sans MS", sans-serif;
+  font-weight: bold;
+  text-shadow: 1px 1px #000000;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  line-height: 20px;
+  padding-top: 25px;
+  }
+  
+  .game-over-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 500px;
+  width: 750px;
+  margin-top: 2.5em;
+  background-color: #FDEBD0;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 2.5em;
+  }
+  
+  .timer-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 500px;
+  background-color: #FDEBD0;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 2.5em;
+  color: #9c27b0;
+  }
+  
+  .score-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  
+  }
+  
+  .score-label {
+  font-size: 2.5em;
+  font-weight: bold;
+  margin-right: .125em;
+  color: #9c27b0;
+  }
+  
+  .score {
+  color: #9c27b0;
+  font-size: 2.5em;
+  font-weight: bold;
+  margin-top: .5em;
+  margin-bottom: .5em;
+  }
+  
+  .command-container {
+  font-size: 4rem;
+  font-weight: bold;
+  margin-bottom: .5em;
+  margin-top: 50px;
+  }
+  
+  .command-icon {
+  margin-top: .5em;
+  width: 75px;
+  height: 62.5px;
+  }
+  
+  .play-again-button{
+  font-size: 1rem;
+  padding: .75rem 1.5rem;
+  margin-left: .5em;
+  margin-bottom: .5rem;
+  margin-top: 2.5em;
+  border-radius: 1rem;
+  background-color: #ffeb3b;
+  color: #212121;
+  width: 7.5em;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+  transition: transform 0.2;
+  }
+
+  .play-again-button:hover, .return-to-main-menu-button:hover {
+    transform: scale(1.05);
+    background-color: #ddcc34;
+    }
+    
+    .timer-label {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: .5rem;
+    }
+    
+    .timer {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #dc3545;
+    margin-top: .5em;
+    }
+    
+    .game-over-label {
+    margin-top: .25em;
+    font-size: 4em;
+    color: #f44336;
+    text-shadow: 1px 1px 1px #000;
+    margin-bottom: .5em;
+    }
+    
+    .final-score {
+    margin-top: .25em;
+    font-size: 3em;
+    color: #9c27b0;
+    text-shadow: 1px 1px 1px #000;
+    }
+    
+    }
