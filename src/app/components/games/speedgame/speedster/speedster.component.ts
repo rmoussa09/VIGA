@@ -8,8 +8,7 @@ export enum Command {
   UP = 'Up',
   DOWN = 'Down',
   LEFT = 'Left',
-  RIGHT = 'Right',
-  SPACE = 'Space'
+  RIGHT = 'Right'
 }
 
 @Component({
@@ -31,7 +30,7 @@ export class SpeedsterComponent {
   levelSelectedVisible = false;
   mainMenuVisible = false;
   currentCommand!: Command;
-  commands = [Command.UP, Command.DOWN, Command.LEFT, Command.RIGHT, Command.SPACE];
+  commands = [Command.UP, Command.DOWN, Command.LEFT, Command.RIGHT];
   repeatAudioTimeout: any[] = [];
   currentAudio: HTMLAudioElement | null = null;
 
@@ -259,8 +258,6 @@ export class SpeedsterComponent {
         return Command.LEFT;
       case 'arrowright':
         return Command.RIGHT;
-      case ' ':
-        return Command.SPACE;
       default:
         return undefined;
     }
@@ -278,8 +275,6 @@ export class SpeedsterComponent {
         return imagePath + 'left.png';
       case Command.RIGHT:
         return imagePath + 'right.png';
-      case Command.SPACE:
-        return imagePath + 'space.png';
       default:
         return '';
     }
@@ -302,9 +297,6 @@ export class SpeedsterComponent {
         break;
       case Command.RIGHT:
         audioFile = 'right.mp3';
-        break;
-      case Command.SPACE:
-        audioFile = 'space.mp3';
         break;
       default:
         return;
