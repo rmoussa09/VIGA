@@ -19,7 +19,7 @@ export enum Command {
   entryComponents: [SplevelpageComponent]
 })
 export class SpeedsterComponent {
-  public COMMAND_TIME_LIMIT = 15000; // 15 seconds
+  public COMMAND_TIME_LIMIT = 10000; // 10 seconds
 
   gameStarted = false;
   gameOver = false;
@@ -52,6 +52,7 @@ export class SpeedsterComponent {
       }
     }
   }
+
 
   // Method to start the game and reset the required variables
   startGame() {
@@ -99,7 +100,7 @@ export class SpeedsterComponent {
     this.gameOver = false;
     this.levelCompleted = false;
     if (this.currentLevel !== -1) { // Check if not in endless mode
-      this.COMMAND_TIME_LIMIT = 16000 - this.currentLevel * 1000;
+      this.COMMAND_TIME_LIMIT = 12000 - this.currentLevel * 1000;
     }
     this.timer = setInterval(() => {
       this.timeLeft += 100;
@@ -111,6 +112,9 @@ export class SpeedsterComponent {
   }
   
   playAgain() {
+    if (this.currentLevel === -1) { // Endless mode
+      this.COMMAND_TIME_LIMIT = 10000; // 10 seconds
+    }
     this.score = 0;
     this.startLevel();
   }
@@ -175,7 +179,7 @@ export class SpeedsterComponent {
   
       if (this.currentLevel === -1) { // Endless mode
         if (this.score % 5 === 0) {
-          this.COMMAND_TIME_LIMIT = Math.max(3000, this.COMMAND_TIME_LIMIT - 1000);
+          this.COMMAND_TIME_LIMIT = Math.max(2000, this.COMMAND_TIME_LIMIT - 1000);
         }
       } else {
         this.checkLevelCompletion();
